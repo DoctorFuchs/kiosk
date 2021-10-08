@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiosk</title>
+    <!--body style-->
+    <style>
+        body{
+
+            justify-content: center;
+            background-color: #0e0e0e;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+    <!--Navigation style-->
+    <style>
+        nav{
+            display: flex;
+            height: 80px;
+            width: 100%;
+            background: #0e0e0e;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px 0 100px;
+            flex-wrap: wrap;
+        }
+        nav *{
+            font-size: 18px;
+            font-weight: 700;
+            color: #f2f2f2;
+            text-decoration: none;
+        }
+        nav ul{
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+        nav ul li{
+            margin: 0 5px;
+        }
+        a{
+            color: #f2f2f2;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        p {
+            color: #f2f2f2;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 5px;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            color: #f2f2f2;
+        }
+
+        nav ul li a:hover{
+            color: #111;
+            background: #fff;
+        }
+    </style>
+    <!--Notification style/script-->
+    <style>
+        div#notifications {
+            color: white;
+            margin-left: 5%;
+            width: 20%;
+        }
+
+        div.notificationbox {
+            display: block;
+            font-size: 18px;
+            border-radius: 5px;
+            color: #ffffff;
+            background-color: #00caff;
+            padding: 12px 24px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        div.notificationbox:hover {
+            margin-left: -30%;
+        }
+
+        div.non-nav {
+            display: flex;
+        }
+
+        div#content {
+            margin-left: 10%;
+            width: 65%;
+        }
+        
+        div.expand {
+            display: none;
+        }
+        
+        div.content a {
+            color: white;
+        }
+
+    </style>
+    <script>
+        function countChildren(element) {
+         var relem	=	element;
+         return relem.childNodes.length;
+        }
+        
+    
+        function createNotification(title, content) {
+            document.getElementById("notifications").innerHTML += "<div class='notificationbox' onclick='expand("+String(countChildren(document.getElementById("notifications"))+1)+")'><h1>"+title+"</h1><div class='expand' id="+String(countChildren(document.getElementById("notifications"))+1)+">"+content+"</div></div>";
+        }
+        
+        function deleteAllNotifications() {
+            document.getElementById("notifications").innerHTML = "";
+        }
+        
+        function deexpand(elementnumber) {
+            var element = document.getElementById(String(elementnumber));
+            if (element != null) {
+              element.style.display = "none"
+              element.style.height = "-10%"
+            }
+        }
+        
+        function deexpandAll() {
+            for (let i = 1; i < countChildren(document.getElementById("notifications"))+1; i++) {
+              deexpand(i)
+            }
+        }
+        
+        
+        function expand(elementnumber) {
+            deexpandAll()
+            var element = document.getElementById(String(elementnumber));
+            element.style.display = "flex"
+            element.style.height = "100%"
+        }
+        
+        
+    </script>
+    <script>
+        function hideNotifications() {
+            var not = document.getElementById("notifications")
+            not.style.display = "none"
+        }
+        
+        function showNotifications() {
+            var not = document.getElementById("notifications")
+            not.style.display = "flex"
+        }
+        
+        function dashboard() {
+            var content = document.getElementById("content")
+            content.innerHTML = ""
+            content.innerHTML = "<nav></nav>"
+        }
+        
+        function shop() {
+            var content = document.getElementById("content")
+            content.innerHTML = ""
+            content.innerHTML += "SEITE" +
+                "<p>Hier könnenn wir beliebigen HTML code reinpacken</p>"
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <nav>
+            <div class="logo">
+                <a href="/">KIOSK</a>
+            </div>
+            <ul>
+                <li>
+                    <a onclick="shop()">SHOP</a>
+                </li>
+                <li>
+                    <a onclick="deleteAllNotifications()">LAGER</a>
+                </li>
+                <li>
+                    <a onclick="createNotification('Beispiel Titel', 'Beispiel Nachricht')">KASSE</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="non-nav">
+        <div id="content">
+
+        </div>
+        <div id="notifications">
+
+        </div>
+    </div>
+</body>
+</html>
