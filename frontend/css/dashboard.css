@@ -1,0 +1,33 @@
+nav.dashboard_nav {
+	display: flex;
+	height: 80px;
+	width: 100%;
+	background: #0e0e0e;
+	align-items: center;
+	justify-content: space-between;
+	padding: 50px 50px 50px 50px;
+	margin
+	flex-wrap: wrap;
+}
+
+nav.dashboard_nav * {
+	font-size: 200%;
+	font-weight: 700;
+	color: #f2f2f2;
+	text-decoration: none;
+}
+
+nav.dashboard_nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+}
+
+nav.dashboard_nav ul li {
+	margin: 0 5px;
+}
+
+nav.dashboard_nav ul li a:hover {
+	color: #111;
+	background: #fff;
+}
