@@ -1,53 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="KIOSK APP -> OPEN SOURCE ON DoctorFuchs/Github">
+    <meta name="robots" content="noindex">
     <title>Kiosk</title>
-	<link rel="stylesheet" type="text/css" href="css/defaultstyle.css">
-	<link rel="stylesheet" type="text/css" href="css/dashboard.css">
-	<script src="js/notifications.js"></script>
-	<script src="js/general.js"></script>
-	<script src="js/shop.js"></script>
-	<script src="js/dashboard.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/defaultstyle.css">
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="css/overlay.css">
+    <script src="js/port.js"></script>
+    <script src="js/overlay.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/general.js"></script>
 </head>
 <body>
-    <div>
-        <nav>
+    <div id="overlay"></div>
+    <div id="nav">
+        <nav class="nav">
             <div class="logo">
                 <a href="/">KIOSK</a>
             </div>
             <ul>
                 <li>
-                    <a onclick="shop()">SHOP</a>
+                    <a onclick="gotosite('storage.html')">SHOP</a>
                 </li>
                 <li>
-                    <a onclick="deleteAllNotifications()">LAGER</a>
+                    <a onclick="overlay_on('Hallo')">LAGER</a>
                 </li>
                 <li>
-                    <a onclick="createNotification('Dies ist ein tolles Programm!', ':D')">KASSE</a>
+                    <a>KASSE</a>
                 </li>
             </ul>
         </nav>
     </div>
     <div class="non-nav">
-        <div id="content">
-		<nav class="dashboard_nav">    
-            <ul>
-                <li>
-                    <a onclick="shop()">SHOP</a>
-                </li>
-                <li>
-                    <a onclick="deleteAllNotifications()">LAGER</a>
-                </li>
-                <li>
-                    <a onclick="createNotification('Beispiel Titel', 'Beispiel Nachricht')">KASSE</a>
-                </li>
-            </ul>
-        </nav>
+        <div id="sidebar-left">
+            <span id="time" class="clock"></span>
+            <span id="date" class="clock"></span>
         </div>
-        <div id="notifications">
-
+        <div id="content">
+            <nav class="dashboard_nav">
+                <ul>
+                    <li  onclick="shop()">SHOP</li>
+                    <li>LAGER</li>
+                    <li>KASSE</li>
+                </ul>
+            </nav>
+        </div>
+        <div id="sidebar-right">
+            <h1 onclick="tutorial()">?</h1>
         </div>
     </div>
 </body>
+
 </html>

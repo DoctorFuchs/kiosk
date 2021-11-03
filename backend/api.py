@@ -1,39 +1,45 @@
 from datetime import datetime
-from http.server import BaseHTTPRequestHandler
+from http.server import SimpleHTTPRequestHandler
 from backend import dbengine
 import socketserver
+from backend.webserver import getFrontendPath
 from backend.filewriter import writeToLog
+from backend import config
 
 PORT = 8080
 
-con = dbengine.getServerConnection()
-dbengine.executeCode(con, "USE kiosk")
+con = dbengine.getDatabaseConnection()
 
 
-class API(BaseHTTPRequestHandler):
+class API(SimpleHTTPRequestHandler):
     """default API, that can exec mySQL code to the server"""
     def do_GET(self):
-        writeToLog("\n"+"–" * 15 + "GET REQUEST FROM " + str(self.client_address[0]) + " AT " +
-                  datetime.today().strftime('%H-%M') + "–" * 16+"\n")
-        writeToLog("API>>> can access: " + str(
-            (self.client_address[0] in ["localhost", "127.0.0.1"])) + "\trequested path: " + self.path + "\n")
+        writeToLog(
+            config.Backend.on_request_header.value
+                .replace("%service%", "API")
+                .replace("%ip_address%", str(self.client_address[0]))
+                .replace("%time%", datetime.today().strftime('%H-%M'))
+        )
+        writeToLog(
+            config.Backend.on_request.value
+                .replace("%service%", "API")
+                .replace("%canAccess%", str(self.client_address[0] in ["localhost", "127.0.0.1"]))
+                .replace("%path%", self.path)
+        )
 
         # This code, will prevent connections from other devices (So they can't access the API)
-        if self.client_address[0] not in ["localhost", "127.0.0.1"]:
-            writeToLog("MySQL> permission denied \n")
-            self.send_response(401, "You have no access to this api!\nPlease check, that you have permissions to use "
-                                    "this api")
+        if self.client_address[0] not in config.firewall_allowed_ips and config.firewall:
+            self.send_response(401, config.Backend.no_access.value
+                               .replace("%service%", "API"))
             self.end_headers()
-            self.wfile.write(bytes("You have no access to this api!\nPlease check, that you have permissions to use "
-                             "this api", "utf-8"))
+            self.wfile.write(bytes(config.Backend.no_access.value
+                                   .replace("%service%", "API"), "utf-8"))
             return
 
         self.send_response(200)
         self.send_header("Content-type", "text/json")
         self.end_headers()
 
-        # default response
-        result = {"invalid request"}
         form = {}
 
         try:
@@ -42,18 +48,38 @@ class API(BaseHTTPRequestHandler):
 
             for element in ff:
                 i = element.split("=")
-                form[i[0]] = i[1].replace("$", " ")
+                form[i[0]] = i[1]\
+                    .replace("%20", " ")\
+                    .replace("%27", "'")
 
         except IndexError:
             pass
 
-        if self.path.startswith("/exec"):
+        code = ""
+        result = ["invalid request"]
+
+        if self.path.startswith("/shop/list"):
+            code = "select * from shop"
+
+        elif self.path.startswith("/shop/additem"):
+            code = f"insert into shop(item_name, item_cost, item_amount)\nVALUES ('{form.get('item_name')}', {form.get('item_cost')}, {form.get('item_amount')})"
+
+        elif self.path.startswith("/shop/delete"):
+            code = f"delete from shop\nWHERE item_name='{form.get('item_name')}'"
+
+        elif self.path.startswith("/shop/edit"):
+            code = f"""update shop\nset item_name='{form.get('item_name_new')}',\n\titem_cost={form.get('item_cost_new')},\n\titem_amount={form.get('item_amount_new')}\nwhere item_name='{form.get('item_name_old')}'"""
+
+        if code != "":
             try:
-                writeToLog("MySQL> " + str(form.get("exec"))+"\n")
-                result = str(dbengine.executeCode(con, form.get("exec"))).replace(",)", ")")
+                writeToLog("DATABASE > " + code+"\n")
+                result = str(dbengine.executeCode(code)).replace(",)", "]").replace(")", "]").replace("(", "[")
 
             except Exception as err:
-                result = str(err)
+                result = err
+        
+        if str(result) == "None":
+            result = []
 
         writeToLog(str(result)+"\n")
         self.wfile.write(str(result).encode("utf-8"))
@@ -69,9 +95,14 @@ def main():
     while True:
         try:
             with socketserver.TCPServer(("", PORT), API) as httpd:
-                print("serving api at http://localhost:" + str(PORT))
-                httpd.serve_forever()
-                break  # on failure the program ends
+                print(
+                    config.Backend.serving.value
+                        .replace("%service%", "API")
+                        .replace("%port%", str(PORT))
+                )
+                open(getFrontendPath()+"/js/port.js", "w+t").write("var API = "+str(PORT))
+                httpd.serve_forever() 
+                break  # on failure the program ends (or keyboard interrupt)
 
         except OSError:
             # if port is already used

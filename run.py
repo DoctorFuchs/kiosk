@@ -4,11 +4,13 @@ import time
 from threading import *
 from backend import api, webserver, dbengine, config
 
+sys.dont_write_bytecode = True
+
 # mySQL code snippets, that creates default database and table
 CREATEKIOSK = """CREATE DATABASE if not EXISTS `kiosk`"""
 USEKIOSK = """use kiosk;"""
 CREATESHOP = """create table if not EXISTS shop (
-    item_name text,
+    item_name text unique,
     item_cost double,
     item_amount int
 );"""
@@ -21,15 +23,19 @@ def getLoading(pro):
     if com-uncom != 20:
         uncom += com-uncom
 
-    return "\r["+"-"*com+" "*uncom+"] - "+str(pro) + "%"
+    return "\r ["+"-"*com+" "*uncom+"] - "+str(pro) + "%"
 
 
 print("–"*25+"PREPARING SERVER"+"–"*25)
 
 print(getLoading(0), end="")
-dbengine.executeCode(code=CREATEKIOSK)
+dbengine.createDatabaseConnection()
+print(getLoading(100)+" - DATABASE CONNECTION SUCCESS")
+
+print(getLoading(0), end="")
+# dbengine.executeCode(code=CREATEKIOSK)
 print(getLoading(33), end="")
-dbengine.executeCode(code=USEKIOSK)
+# dbengine.executeCode(code=USEKIOSK)
 print(getLoading(66), end="")
 dbengine.executeCode(code=CREATESHOP)
 print(getLoading(100)+" - DATABASE INIT SUCCESS")
@@ -45,17 +51,16 @@ webserver_thread.start()
 
 time.sleep(1)  # This wait block is needed, because on startup the servers raise sometimes errors, so you can see them
 
-# server starts logging process
-print("–"*25+"SERVER LOGGING"+"–"*27, end="")
-
-time.sleep(1)
-
-# prevent that the default messages from httpd.serve_forever() will printed (the new client is better :)
+# prevent that the default messages from httpd.serve_forever() will printed (the new client is better :))
 # but you can change it in backend/config.py)
 if config.modified_output:
+    print("–"*25+"SERVER LOGGING"+"–"*27, end="")
     print("\nMODIFIED OUTPUT ENABLED")
+    time.sleep(1)
     sys.stderr = open(os.devnull, "w")
 
 else:
+    print("–"*25+"SERVER LOGGING"+"–"*27, end="", file=sys.stderr)
     print("\nMODIFIED OUTPUT DISABLED", file=sys.stderr)
+    time.sleep(1)
     sys.stdout = open(os.devnull, "w")

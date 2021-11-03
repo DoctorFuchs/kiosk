@@ -1,110 +1,83 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');*/
+
 body {
-	justify-content: center;
 	background-color: #0e0e0e;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 * {
+	position: relative;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
+	color: #f2f2f2;
+	text-decoration: none;
+	font-size: 102%;
+	font-weight: 500;
+	border-radius: 5px;
+	letter-spacing: 1px;
 }
 
-nav {
+.nav {
 	display: flex;
-	height: 80px;
-	width: 100%;
-	background: #0e0e0e;
+	width: 96%;
+	height: 10%;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 50px 0 100px;
-	flex-wrap: wrap;
+	padding: 2%;
+	flex-wrap: nowrap;
 }
 
-nav * {
-	font-size: 18px;
-	font-weight: 700;
-	color: #f2f2f2;
-	text-decoration: none;
-}
-
-nav ul {
-	display: flex;
-	flex-wrap: wrap;
+.nav ul {
 	list-style: none;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+
 }
 
-nav ul li {
-	margin: 0 5px;
+.nav ul li {
+	margin: 0 5%;
 }
 
-a {
-	color: #f2f2f2;
+.nav * a {
 	text-decoration: none;
-	font-size: 18px;
+	font-size: 3vh;
 	font-weight: 500;
-	padding: 8px 15px;
+	padding: 5% 10%;
 	border-radius: 5px;
-	letter-spacing: 1px;
-	transition: all 0.3s ease;
+	letter-spacing: 2px;
+	transition: all 0.2s ease;
 }
 
-p {
-	color: #f2f2f2;
-	text-decoration: none;
-	font-size: 18px;
-	font-weight: 500;
-	border-radius: 5px;
-	letter-spacing: 1px;
+.nav ul li *:hover,
+.logo *:hover {
+	color: #0e0e0e;
+	background-color: #f2f2f2;
+}
+
+div.non-nav {
+	display: flex;
+	flex-direction: row;
+}
+
+div#content {
+	width: 100%;
 }
 
 h1 {
-	color: #f2f2f2;
-}
-
-nav ul li a:hover {
-	color: #111;
-	background: #fff;
-}
-
-div#notifications {
-	color: white;
-	margin-left: 5%;
-	width: 20%;
-}
-
-div.notificationbox {
-	display: block;
-	font-size: 18px;
-	border-radius: 5px;
-	color: #ffffff;
-	background-color: #00caff;
-	padding: 12px 24px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	width: 100%;
-	transition: all 0.3s ease;
+	font-size: 3vh;
+	font-weight: bolder;
 }
 
 div.notificationbox:hover {
 	margin-left: -30%;
 }
 
-div.non-nav {
-	display: flex;
-}
-
-div#content {
-	margin-left: 10%;
-	width: 65%;
-}
-
 div.expand {
 	display: none;
 }
 
-div.content a {
-	color: white;
+::-webkit-scrollbar {
+    display: none;
 }
-

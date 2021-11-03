@@ -1,56 +1,85 @@
 from datetime import datetime
 from backend.filewriter import writeToLog
+from backend import config
 import socketserver
 from http import server
+import os
 
 PORT = 80
 
+def getFrontendPath() -> str:
+    p = str(__file__).split(os.sep)
+    del p[len(p) - 1]
+    p[len(p) - 1] = "frontend"
+    return str(os.sep).join(p)
 
-class webserver(server.BaseHTTPRequestHandler):
+class Webserver(server.SimpleHTTPRequestHandler):
     """A webserver, that streams all files from frontend to the web"""
 
     def do_GET(self):
-        writeToLog("\n" + "–" * 15 + "GET REQUEST FROM " + str(self.client_address[0]) + " AT " +
-                   datetime.today().strftime('%H-%M') + "–" * 16 + "\n")
-        writeToLog("webserver>>> can access: " + str(
-            (self.client_address[0] in ["localhost", "127.0.0.1"])) + "\trequested path: " + self.path + "\n")
+        writeToLog(
+            config.Backend.on_request_header.value
+                .replace("%service%", "WEBSERVER")
+                .replace("%ip_address%", str(self.client_address[0]))
+                .replace("%time%", datetime.today().strftime('%H-%M'))
+        )
+
+        writeToLog(
+            config.Backend.on_request.value
+                .replace("%service%", "WEBSERVER")
+                .replace("%canAccess%", str(self.client_address[0] in ["localhost", "127.0.0.1"]))
+                .replace("%path%", self.path)
+        )
 
         # This code, will prevent connections from other devices (So they can't access the Webserver)
         # if you want, that these people get an alternative website, you can do this here in this if block
-        if self.client_address[0] not in ["localhost", "127.0.0.1"]:
-            writeToLog("MySQL> permission denied \n")
-            self.send_response(401, "You have no access to this website!\nPlease check, that you have permissions to "
-                                    "use this website")
+        if self.client_address[0] not in config.firewall_allowed_ips and config.firewall:
+            self.send_response(401,
+                               config.Backend.no_access.value
+                               .replace("%service%", "WEBSERVER"))
             self.end_headers()
-            self.wfile.write(bytes("You have no access to this website!\nPlease check, that you have permissions to "
-                                   "use this website", "utf-8"))
+
+            self.wfile.write(bytes(
+                config.Backend.no_access.value
+                    .replace("%service%", "WEBSERVER"),
+                "utf-8")
+            )
             return
 
         self.send_response(200)
         self.end_headers()
 
-        p = str(__file__).split("/")
-        del p[len(p) - 1]
-        p[len(p) - 1] = "frontend"
-        path = "/".join(p)
+        path = getFrontendPath()
 
+        self.path = self.path.replace("/", os.sep)
         try:
-            self.wfile.write(bytes("\n".join(open(path + self.path, "rt").readlines()), "utf-8"))
+            encoding = "utf-8"
 
-        except (FileNotFoundError, IsADirectoryError):
-            self.wfile.write(bytes("\n".join(open(path + "/index.html", "rt").readlines()), "utf-8"))
+            if self.path.endswith(".png"):
+                encoding = "base-64"
 
-    def end_headers (self):
+            self.wfile.write(bytes("".join(open(path + self.path, "rt").readlines()), encoding))
+
+        except (FileNotFoundError, IsADirectoryError, OSError):
+            self.wfile.write(bytes("".join(open(path + os.sep + "index.html", "rt").readlines()), "utf-8"))
+
+    def end_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
-        super(webserver, self).end_headers()
+        super(Webserver, self).end_headers()
 
 
 def main():
+    """Run a TCPServer from Webserver class"""
     global PORT
+    # checks forever, for a free port
     while True:
         try:
-            with socketserver.TCPServer(("", PORT), webserver) as httpd:
-                print("serving webserver at http://localhost:" + str(PORT))
+            with socketserver.TCPServer(("", PORT), Webserver) as httpd:
+                print(
+                    config.Backend.serving.value
+                        .replace("%service%", "WEBSERVER")
+                        .replace("%port%", str(PORT))
+                )
                 httpd.serve_forever()
                 break
 

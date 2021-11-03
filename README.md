@@ -31,7 +31,7 @@ Backend:
 - Main-dev: DoctorFuchs, MexLab
 
 Frontend:
-- Devs: (idk if they want this, so I will ask them for permission or for an alias)
+- Devs: DoctorFuchs (idk if they want this, so I will ask them for permission or for an alias)
 
 ## Information's
 This app is an assignment. 

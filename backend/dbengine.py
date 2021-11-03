@@ -1,37 +1,51 @@
-from mysql import connector
+import sqlite3
+import sys
 from backend import config
 
+connection = None
 
-def getServerConnection():
-    """create a server connection from configuration"""
-    connection = None
-    try:
+def createDatabaseConnection():
+    global connection
+    if connection != None:
+        return connection
+
+    if config.database_type == config.DBType.sqlite:
+        from sqlite3 import connect
+        connection = connect(config.sqlite_database_name, check_same_thread=False)
+
+    else:
+        from mysql import connector
         connection = connector.connect(
-            host=config.database_host,
-            port=config.database_port,
-            user=config.database_username,
-            passwd=config.database_password
+            host=config.mysql_database_host,
+            port=config.mysql_database_port,
+            user=config.mysql_database_username,
+            passwd=config.mysql_database_password
         )
-    except Exception as err:
-        raise err
 
+
+def getDatabaseConnection():
+    """create a database connection from configuration"""
     return connection
 
 
-def executeCode(connection=getServerConnection(), code="") -> object:
+def executeCode(code="") -> object:
     """executes sql-code to the default server connection
-    :param connection: changes the default connection to another mysql.connector
     :param code: executable code for the mysql server in mysql language """
+    global connection
     cursor = connection.cursor()
     try:
         cursor.execute(code)
-        try:
-            connection.commit()
+    
+    except sqlite3.OperationalError as err:
+        if err.args[0] == 'disk I/O error':
+            print("\n\n>>> SORRY, PLEASE USE MYSQL OR :memory: (ONLY TEMP-SAVE) <<<\n", file=sys.__stderr__)
+            exit(5)
 
-        except:
-            pass
+        else:
+            raise(err)
 
-        return cursor.fetchall()
+    connection.commit()
+    return cursor.fetchall()
 
-    except Exception as err:
-        raise err
+
+connection = createDatabaseConnection()

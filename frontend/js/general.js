@@ -1,10 +1,9 @@
-let port = 8080;
-
 function countChildren(element) {
-	return element.childNodes.length;
+	var relem = element;
+	return relem.childNodes.length;
 }
 
-function apiGET(path){
-    fetch("http://localhost:"+String(port)+"/"+path)
-        .then(response => response.text())
+function gotosite(site) {
+	var content = document.getElementById("content");
+	content.innerHTML = "<iframe src='"+site+"' frameborder='0' width='100%' height='100%'>"
 }
