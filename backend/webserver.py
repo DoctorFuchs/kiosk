@@ -4,6 +4,7 @@ from backend import config
 import socketserver
 from http import server
 import os
+import base64
 
 PORT = 80
 
@@ -53,12 +54,11 @@ class Webserver(server.SimpleHTTPRequestHandler):
 
         self.path = self.path.replace("/", os.sep)
         try:
-            encoding = "utf-8"
-
             if self.path.endswith(".png"):
-                encoding = "base-64"
+                self.wfile.write(bytes("<body><img src=\"data:image/png;base64,"+base64.b64encode(open(path+self.path, "rb").read()).decode("ascii")+"\"></img></body>", "utf-8"))
 
-            self.wfile.write(bytes("".join(open(path + self.path, "rt").readlines()), encoding))
+            else:
+                self.wfile.write(bytes("".join(open(path + self.path, "rt").readlines()), "utf-8"))
 
         except (FileNotFoundError, IsADirectoryError, OSError):
             self.wfile.write(bytes("".join(open(path + os.sep + "index.html", "rt").readlines()), "utf-8"))
