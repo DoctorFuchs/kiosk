@@ -5,6 +5,7 @@ import socketserver
 from http import server
 import os
 import base64
+import sys
 
 PORT = 80
 
@@ -48,6 +49,8 @@ class Webserver(server.SimpleHTTPRequestHandler):
             return
 
         self.send_response(200)
+        if self.path.endswith(".png"):
+            self.send_header("Content-type", "image/png")
         self.end_headers()
 
         path = getFrontendPath()
@@ -55,7 +58,7 @@ class Webserver(server.SimpleHTTPRequestHandler):
         self.path = self.path.replace("/", os.sep)
         try:
             if self.path.endswith(".png"):
-                self.wfile.write(bytes("<body><img src=\"data:image/png;base64,"+base64.b64encode(open(path+self.path, "rb").read()).decode("ascii")+"\"></img></body>", "utf-8"))
+                self.wfile.write(open(path+self.path, "rb").read())
 
             else:
                 self.wfile.write(bytes("".join(open(path + self.path, "rt").readlines()), "utf-8"))
@@ -80,7 +83,15 @@ def main():
                         .replace("%service%", "WEBSERVER")
                         .replace("%port%", str(PORT))
                 )
-                httpd.serve_forever()
+                try:
+                    httpd.serve_forever()
+                
+                except KeyboardInterrupt:
+                    httpd.server_close()
+                    print(config.Backend.stopping.value.replace("%service%", "WEBSERVER"))
+
+                    print(config.Backend.stopping.value.replace("%service%", "WEBSERVER"), file=sys.stderr)
+
                 break
 
         except OSError:

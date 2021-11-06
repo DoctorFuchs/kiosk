@@ -5,6 +5,7 @@ import socketserver
 from backend.webserver import getFrontendPath
 from backend.filewriter import writeToLog
 from backend import config
+import sys
 
 PORT = 8080
 
@@ -101,7 +102,17 @@ def main():
                         .replace("%port%", str(PORT))
                 )
                 open(getFrontendPath()+"/js/port.js", "w+t").write("var API = "+str(PORT))
-                httpd.serve_forever() 
+                try:
+                    httpd.serve_forever() 
+                
+                except KeyboardInterrupt:
+                    httpd.server_close()
+                    print(config.Backend.stopping.value
+                        .replace("%service%", "API"))
+
+                    print(config.Backend.stopping.value
+                        .replace("%service%", "API"), file=sys.stderr)
+
                 break  # on failure the program ends (or keyboard interrupt)
 
         except OSError:

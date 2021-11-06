@@ -5,7 +5,7 @@ html, body, nav.dashboard_nav, nav.dashboard_nav ul {
 }
 
 .non-nav {
-	height: 88%;
+	height: 88vh;
 }
 
 nav.dashboard_nav ul {
@@ -48,7 +48,7 @@ nav.dashboard_nav ul li:hover {
 }
 
 nav.dashboard_nav *{
-	font-size: 8vh;
+	font-size: 11vh;
 	font-weight: 700;
 	text-decoration: none;
 	color: #0e0e0e;

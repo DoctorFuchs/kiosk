@@ -27,4 +27,3 @@ class apiConnection {
         return String(s).replace("]]", "").replace("[[", "").split("], [");
     }
 }
-

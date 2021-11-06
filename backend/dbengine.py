@@ -24,7 +24,7 @@ def createDatabaseConnection():
 
 
 def getDatabaseConnection():
-    """create a database connection from configuration"""
+    """get a database connection"""
     return connection
 
 
@@ -48,4 +48,4 @@ def executeCode(code="") -> object:
     return cursor.fetchall()
 
 
-connection = createDatabaseConnection()
+createDatabaseConnection()

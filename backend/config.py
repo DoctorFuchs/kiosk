@@ -21,7 +21,7 @@ mysql_database_username: str = "root"
 mysql_database_password: str = "root1234"
 
 # shell configurations
-modified_output: bool = False  # default: True (False is better for debug)
+modified_output: bool = True  # default: True (False is better for debug)
 
 # firewall
 firewall: bool = True
@@ -35,3 +35,4 @@ class Backend(enum.Enum):
     on_request_header = "\n" + "–" * 15 + "GET REQUEST FROM %ip_address%  AT %time%" + "–" * 16 + "\n"
     on_request = "%service%>>> can access: %canAccess% \trequested path: %path%\n"
     serving = "serving %service% at http://localhost:%port%"
+    stopping = "stopping %service%"

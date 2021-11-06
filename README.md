@@ -2,14 +2,14 @@
 
 ## install
 
-install module mysql
+install module mysql (optional)
 
 ```commandline
 pip3 install mysql
 ```
 
 Then download the community edition of mysql. And start mysql.
-Now you need to change config data.
+Now you need to change config data. (much fun)
 
 ## run
 
@@ -23,7 +23,7 @@ python3 run.py
 
 at windows:
 
-idk
+double click at the python3 run.py and run it
 
 ## Devs
 
@@ -31,7 +31,7 @@ Backend:
 - Main-dev: DoctorFuchs, MexLab
 
 Frontend:
-- Devs: DoctorFuchs (idk if they want this, so I will ask them for permission or for an alias)
+- Devs: NicCode, DoctorFuchs
 
 ## Information's
 This app is an assignment. 
