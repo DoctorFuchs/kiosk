@@ -5,12 +5,12 @@ var edit_box = "<div><h1 style='font-size: 6vh'>BEARBEITUNG - %itemname%</h1>"+
 "<label class='edit-label' for='item_name_new'>Name</label><br>"+
 "<input required class='edit' id='item_name_new' name='item_name_new' value='%itemname%' type='text'><br>"+
 "<label class='edit-label' for='item_cost_new'>Preis</label><br>"+
-"<input required class='edit' id='item_cost_new' name='item_cost_new' value=%itemcost% type='number' min='0' step='0.1'><br>"+
+"<input required class='edit' id='item_cost_new' name='item_cost_new' value=%itemcost% type='number' min='0' step='0.01'><br>"+
 "<label class='edit-label' for='item_amount_new'>Verfügbare Menge</label><br>"+
 "<input required class='edit' id='item_amount_new' name='item_amount_new' value=%itemamount% type='number' min=0 step='1'><br>"+
 "<button class='submit-button' type='submit'>Okay</button>"+
-"<button class='exit' onclick='exitForm()'>Exit</button>"+
-"<button class='delete' onclick='deleteitem('%itemname%'); exitForm()' type='button'>Löschen</button>"+
+"<button class='delete' onclick='deleteitem(\"%itemname%\"); exitForm()' type='button' type='reset'>Löschen</button>"+
+"<button class='exit' onclick='exitForm()' type='reset'>Exit</button>"+
 "</form></div>"
 
 var create_box = "<div><h1 style='font-size: 6vh'>ERSTELLUNG</h1>"+
@@ -19,17 +19,17 @@ var create_box = "<div><h1 style='font-size: 6vh'>ERSTELLUNG</h1>"+
 "<label class='create-label' for='item_name_new'>Name</label><br>"+
 "<input required class='create' id='item_name' name='item_name' type='text' requiered=True></input><br>"+
 "<label class='create-label' for='item_cost'>Preis</label><br>"+
-"<input required class='create' id='item_cost' name='item_cost' type='number' min='0' step='0.1'><br>"+
+"<input required class='create' id='item_cost' name='item_cost' type='number' min='0' step='0.01'><br>"+
 "<label class='create-label' for='item_amount'>Verfügbare Menge</label><br>"+
 "<input required class='create' id='item_amount' name='item_amount' type='number' min=0 step='1'><br>"+
-"<button style='width: 49%' class='submit-button' type='submit'>Okay</button>"+
-"<button style='width: 49%' class='exit' onclick='exitForm()'>Exit</button>"+
+"<button style='width: 48%' class='submit-button' type='submit'>Okay</button>"+
+"<button style='width: 48%' class='exit' onclick='exitForm()' type='reset'>Exit</button>"+
 "</form></div>"
 
 function edit(itemnumber) {
     var item = document.getElementById("item_"+String(itemnumber));
     var itemname = item.childNodes[0].textContent;
-    var itemcost = item.childNodes[1].textContent;
+    var itemcost = item.childNodes[1].textContent.replace("€", "");
     var itemamount = item.childNodes[2].textContent;
     overlay_on(edit_box
         .replaceAll("%itemname%", itemname)
@@ -48,11 +48,11 @@ function loadItems() {
         for (let i = 0; i < req.length ; i++) {
             let req_ = req[i].split(",")
             req_[0] = req_[0].replaceAll("'", "") 
-            item.innerHTML += "<tr class='item' id='item_"+i+"' onclick='edit("+i+")'><td class='left'>"+req_[0].replaceAll("+", " ")+"</td><td>"+req_[1]+"</td><td class='right'>"+req_[2]+"</td></tr>"
+            item.innerHTML += "<tr class='item' id='item_"+i+"' onclick='edit("+i+")'><td class='left'>"+req_[0].replaceAll("+", " ")+"</td><td>"+req_[1]+"€</td><td class='right'>"+req_[2]+"</td></tr>"
         }
     }
     api_con.request("/shop/list", callback=items_callback)
-    setTimeout(loadItems, 500)
+    setTimeout(loadItems, 700)
 }
 
 function create() {
@@ -66,6 +66,7 @@ function exitForm() {
 function deleteitem(itemname) {
     var api_con = new apiConnection();
     api_con.request("/shop/delete?item_name="+itemname);
+    overlay_off()
 }
 
 

@@ -32,6 +32,7 @@ tr:hover td.left {
 input.submit,
 input.edit,
 input.create {
+    width: 100%;
     color: #0e0e0e;
     padding-top: 1%;
     padding-bottom: 1%;
@@ -45,6 +46,7 @@ label.create-label {
 
 
 button {
+    font-size: 3vh;
     width: 100%;
     border: 1px solid #f2f2f2;
     color: #f2f2f2;
@@ -58,13 +60,15 @@ button:hover {
     background-color: #f2f2f2;
 }
 
-.submit-button,
-.exit, 
+.submit-button, 
 .delete {
     margin-top: 3vh;
-    width: 29% !important;
-}
-
-.submit-button {
+    width: 31%;
     margin-right: 4%;
 }
+
+.exit {
+    margin-top: 3vh;
+    width: 30%;
+}
+

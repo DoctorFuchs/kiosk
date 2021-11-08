@@ -27,6 +27,8 @@ modified_output: bool = True  # default: True (False is better for debug)
 firewall: bool = True
 firewall_allowed_ips: list = ["127.0.0.1"]
 
+# debug
+debug: bool = False
 
 # PROPERTIES
 

@@ -1,6 +1,7 @@
 import sqlite3
 import sys
 from backend import config
+from backend.filewriter import writeToLog
 
 connection = None
 
@@ -42,10 +43,12 @@ def executeCode(code="") -> object:
             exit(5)
 
         else:
-            raise(err)
+            if config.debug:
+                print(err)
+            
+            
 
     connection.commit()
     return cursor.fetchall()
 
 
-createDatabaseConnection()

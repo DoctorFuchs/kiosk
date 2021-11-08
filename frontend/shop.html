@@ -5,36 +5,35 @@
 	<title>Kiosk</title>
 	<link rel="stylesheet" type="text/css" href="css/defaultstyle.css">
 	<link rel="stylesheet" type="text/css" href="css/shop.css">
-	<script src="js/notifications.js"></script>
 	<script src="js/general.js"></script>
-	<script src="js/shop.js"></script>
 	<script src="js/dashboard.js"></script>
+	<script src="js/port.js"></script>
+	<script src="js/api.js"></script>
+	<script>
+		function callback(response) {
+			let item = document.getElementById("products");
+			let req =  api_con.reformat(response);
+			item.innerHTML = req.length==0?"<h1 style='font-size: 8vh; color: white'>Keine Produkte vorhanden! Gehen sie zum Lager um weitere Produkte hinzuzufügen</h1>": ""
+			for (let i = 0; i < req.length ; i++) {
+				let req_ = req[i].split(",")
+				req_[0] = req_[0].replaceAll("'", "") 
+				item.innerHTML += '<div class="product"><h1 style="font-size: 300%">'+req_[2]+'</h1><h4>'+req_[0].replaceAll('+', " ")+'</h4><br><span class="price">'+req_[1]+'€</span></div>'
+				//item.innerHTML += "<tr class='item' id='item_"+i+"' onclick='edit("+i+")'><td class='left'>"+req_[0].replaceAll("+", " ")+"</td><td>"+req_[1]+"€</td><td class='right'>"+req_[2]+"</td></tr>"
+			} 
+		}
+
+		api_con = new apiConnection()
+		api_con.request("/shop/list", callback) 
+	</script>
 </head>
 <body>
 	<div id="non-nav">
 		<div id="content">
 			<div id=products>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
-				<div class="product"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				
 			</div>
 			<div id="itembag">
-				<h3>Warenkorb</h3>
+				<h3 style="position:fixed;">Warenkorb</h3><br><br>
 				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
 				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
 				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
@@ -45,6 +44,17 @@
 				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
 				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
 				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				<div class="item"><h4>Schokolade</h4><br><span class="price">1,00€</span></div>
+				<br><br><br>
 			</div>
 			<div id="hoveringBar"><button id="sum">5,00€</button><button id="submit">Abschlie&szlig;en<img src="./icons/icons8-warenkorb-100.png"></button></div>
 		</div>

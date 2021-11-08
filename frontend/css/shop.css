@@ -72,20 +72,17 @@ h4 {
 	width: 26vw;
 	padding: 1%;
 	padding-top: 0;
-	margin-top: 1%;
 	height: 100%;
 	overflow-y: auto;
 }
 
 #itembag h3 {
 	text-align: left;
-	font-size: 150%;
-	font-family: monospace, sans-serif;
+	font-size: 3vh;
+	/*font-family: monospace, sans-serif;*/
 	letter-spacing: 0;
 
-	margin: 0.3vw 0;
-    top: 0.3vw;    
-	position: sticky;
+	position: fixed;
     background-color: #0e0e0e;
     width: 100%;
     /* box-shadow: 0 0 1vw 0 grey; */
@@ -97,7 +94,7 @@ h4 {
 	border-top: solid white 1px;
 	border-radius: 0;
 	padding: 1%;
-	font-size: 100%;
+	font-size: 2vh;
 }
 
 .item .price {
@@ -135,8 +132,8 @@ h4 {
 }
 
 #submit {
-	background-color: rgb(94, 219, 10);
-	box-shadow: 0 0 1vw 0.1vw rgb(94, 219, 10);
+	background-color: #2f2f2f;
+	box-shadow: 0 0 1vw 0.1vw #2f2f2f;
 	border: solid 0.2vw #f0f0f0;
 	/* outline: solid 2px #f0f0f0; */
 }
