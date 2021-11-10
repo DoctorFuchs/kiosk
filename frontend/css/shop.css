@@ -17,7 +17,7 @@
 	margin-right: 2vw;
 }
 
-/* produkte */
+/* products */
 
 #products {
 	display: flex;
@@ -37,7 +37,6 @@
 	margin: 0.7vw;
 	padding: 0.5vw;
 	overflow: hidden;
-
 	text-align: center;
 }
 
@@ -53,8 +52,7 @@ h4 {
 	font-weight: bold;
 }
 
-.preis {
-	font-style: italic;
+.price{
 }
 
 .product:hover {
@@ -81,13 +79,16 @@ h4 {
 	font-size: 3vh;
 	/*font-family: monospace, sans-serif;*/
 	letter-spacing: 0;
-
 	position: fixed;
-    background-color: #0e0e0e;
-    width: 100%;
-    /* box-shadow: 0 0 1vw 0 grey; */
-    border-bottom: solid white 1px;
+	background-color: #0e0e0e;
+	width: 100%;
+	/* box-shadow: 0 0 1vw 0 grey; */
+	border-bottom: solid white 1px;
 	border-radius: 0;
+}
+
+#itembag :nth-child(2) {
+	margin-top: 5vh;
 }
 
 .item {
@@ -116,7 +117,7 @@ h4 {
 	border-style: none;
 	padding: 1vw;
 	margin: 0 0.5vw;
-	font-size: 2vw;
+	font-size: 2vh;
 	display: flex;
 	align-items: center;
 }
