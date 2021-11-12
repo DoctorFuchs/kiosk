@@ -52,9 +52,6 @@ h4 {
 	font-weight: bold;
 }
 
-.price{
-}
-
 .product:hover {
 	background-color: rgb(131, 129, 129);
 	color: #f0f0f0;
@@ -87,9 +84,7 @@ h4 {
 	border-radius: 0;
 }
 
-#itembag :nth-child(2) {
-	margin-top: 5vh;
-}
+
 
 .item {
 	border-top: solid white 1px;
@@ -99,7 +94,7 @@ h4 {
 }
 
 .item .price {
-	text-align: right;
+	width: 50%;
 }
 
 /* hoveringBar */

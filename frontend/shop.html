@@ -16,7 +16,8 @@
 		}
 
 		function itembag_add(item_name, item_cost, item_amount) {
-			let template = "<div class='item'><h4>"+item_name+"</h4><br><span class='price'>"+item_cost+"€</span></div>"
+			let template = "<div class='item'><h4>"+item_name+"</h4><span><p class='price' style='align: left'>"+item_cost+"€</p><p style='text-align: right; width: 30%'>"+item_amount+"</p></span></div>"
+			document.getElementById("itembag").innerHTML += template
 		}
 
 		function callback(response) {
@@ -42,7 +43,8 @@
 				
 			</div>
 			<div id="itembag">
-				<h3 style="position:fixed;">Warenkorb</h3
+				<h3 style="position:fixed;">Warenkorb</h3>
+				<div style="height: 4vh;"></div>
 				<div class="item"><h4>Schokolade</h4><span class="price">1,00€</span></div>
 			</div>
 			<div id="hoveringBar"><button id="sum">5,00€</button><button id="submit">Abschlie&szlig;en<img src="./icons/icons8-warenkorb-100.png"></button></div>
