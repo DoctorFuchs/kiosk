@@ -32,7 +32,7 @@ Backend:
 - Main-devs: MexLab, DoctorFuchs
 
 Frontend:
-- Devs: NicCode, DoctorFuchs
+- Devs: NiCode, DoctorFuchs
 
 ## Information's
 This app is an assignment. 
