@@ -1,10 +1,20 @@
 # Kiosk app
 
+This project builds a basic chashbox system for small kiosk's, stall's and sales. You are invited to improve the system and contribute to the project. Just ask if there are questions.
+
 ## install
 
+Clone the repository:
+```
+git clone https://github.com/DoctorFuchs/kiosk
+```
+
+Then make sure python 3 is installed. If not please install(https://www.python.org/downloads/).
+
+#### optional!
 install module mysql -> When you want to use mysql (change it in config) else this step is optional
 
-```commandline
+```
 pip3 install mysql
 ```
 
@@ -15,28 +25,31 @@ Now you need to change config data. (much fun, because the config is so beautifu
 ## run
 
 Once installed and mysql server running (when you use mysql) it's very simple to use this app.
-On commandline at linux/macos with python3 installed:
 
-```commandline
-cd kiosk_folder
+at linux, macOS:
+```
+cd <kiosk_folder>
 python3 run.py
 ```
 
 at windows:
 
-double click at the python3 run.py and run it (i guess)
+```
+cd <kiosk_folder>
+python run.py
+```
 
 ## Devs
-
-Backend:
-- Main-devs: MexLab, DoctorFuchs
-
-Frontend:
-- Devs: NiCode, DoctorFuchs
+##### Backend:
+- MexLab
+- DoctorFuchs
+##### Frontend:
+- NiCode
+- DoctorFuchs
 
 ## Information's
 This app is an assignment. 
 The frontend is designed in german language (because it is an assignment from germany). 
-All comments, readme's or tips is 100% english. 
+All comments, readme's or tips are in english. 
 
-If you have question, open an issue in this repo
+If you have question, open an issue in this repository.
