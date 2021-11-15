@@ -9,7 +9,7 @@ Clone the repository:
 git clone https://github.com/DoctorFuchs/kiosk
 ```
 
-Then make sure python 3 is installed. If not please install(https://www.python.org/downloads/).
+Then make sure python 3 is installed. If not please install (https://www.python.org/downloads/).
 
 #### optional!
 install module mysql -> When you want to use mysql (change it in config) else this step is optional
