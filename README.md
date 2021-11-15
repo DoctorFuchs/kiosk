@@ -1,6 +1,6 @@
 # Kiosk app
 
-This project builds a basic chashbox system for small kiosk's, stall's and sales. You are invited to improve the system and contribute to the project. Just ask if there are questions.
+This project builds a basic chashbox system for small kiosk’s, stall’s and sales. The backend is build in python, the frontend with the three web design technologies HTML, CSS and JavaScript. You are invited to improve the system and contribute to the project. Just ask if there are questions.
 
 ## install
 
