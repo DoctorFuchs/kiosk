@@ -33,7 +33,6 @@ python3 run.py
 ```
 
 at windows:
-
 ```
 cd <kiosk_folder>
 python run.py
@@ -44,7 +43,7 @@ python run.py
 - MexLab
 - DoctorFuchs
 ##### Frontend:
-- NiCode
+- codenius
 - DoctorFuchs
 
 ## Information's
