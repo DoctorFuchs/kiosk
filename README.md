@@ -5,35 +5,35 @@ This project builds a basic chashbox system for small kiosk’s, stall’s and s
 ## install
 
 Clone the repository:
-```
+```shell
 git clone https://github.com/DoctorFuchs/kiosk
 ```
 
 Then make sure python 3 is installed. If not please install (https://www.python.org/downloads/).
 
 #### optional!
-install module mysql -> When you want to use mysql (change it in config) else this step is optional
+install module MySQL for python (only if you want to use MySQL, else this step is not required):
 
-```
+```shell
 pip3 install mysql
 ```
 
-Then download the community edition of mysql. And start mysql.
-Now you need to change config data. (much fun, because the config is so beautiful :D) 
+Then download the community edition of MySQL and start MySQL.
+Now you need to change the config file. (much fun, because of the config is so beautiful :D) 
 (/backend/config.py)
 
 ## run
 
-Once installed and mysql server running (when you use mysql) it's very simple to use this app.
+Once installed and MySQL server running (if you're using MySQL) it's very simple to use this app.
 
 at linux, macOS:
-```
+```shell
 cd <kiosk_folder>
 python3 run.py
 ```
 
 at windows:
-```
+```shell
 cd <kiosk_folder>
 python run.py
 ```
