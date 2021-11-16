@@ -18,7 +18,7 @@ var tutorial_overlay_slide_2 = "<div style='transform: translate(-50vw, -40vh)'>
 function overlay_on(content) {
     document.getElementById("overlay").innerHTML = content;
     document.getElementById("overlay").style.display = "block";
-    document.getElementById("overlay").style.opacity = "1";
+    setTimeout(()=> {document.getElementById("overlay").style.opacity = "1";}, 0)
 }
 
 function overlay_off() {

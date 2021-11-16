@@ -1,5 +1,5 @@
 function loadingAnimation() {
-    document.getElementById('iframe').addEventListener('load', function () {
+    document.getElementById('iframe').addEventListener('load',() => {
         // Hide the loading indicator
         // document.getElementById('loadingAnimation').style.opacity = '0';
         setTimeout(overlay_off, 1000);
