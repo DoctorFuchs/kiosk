@@ -19,7 +19,7 @@ pip3 install mysql
 ```
 
 Then download the community edition of MySQL and start MySQL.
-Now you need to change the config file. (much fun, because of the config is so beautiful :D) 
+Now you need to change the config file. (much fun, because the config is so beautiful :D) 
 (/backend/config.py)
 
 ## run
