@@ -7,7 +7,7 @@ function dashboard() {
 function date() {
 	let now = new Date(),
 		day = now.getDate(),
-		month = now.getMonth(),
+		month = now.getMonth() + 1,
 		year = now.getFullYear();
 	day = reformat(day);
 	month = reformat(month);
@@ -27,7 +27,7 @@ function time() {
 	s = reformat(s);
 	document.getElementById('time')
 		.innerHTML = h + ':' + m + ':' + s;
-	setTimeout(time, 100);
+	setTimeout(time, 1000);
 }
 
 function reformat(number) {
