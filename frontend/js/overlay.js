@@ -16,12 +16,14 @@ var tutorial_overlay_slide_2 = "<div style='transform: translate(-50vw, -40vh)'>
     "<button onclick='overlay_off(); removeClassesOnObejects(\"tutorial-foreground\")'>Exit</button></div>"
 
 function overlay_on(content) {
-    document.getElementById("overlay").innerHTML = content
+    document.getElementById("overlay").innerHTML = content;
     document.getElementById("overlay").style.display = "block";
+    document.getElementById("overlay").style.opacity = "1";
 }
 
 function overlay_off() {
-    document.getElementById("overlay").style.display = "none";
+    document.getElementById("overlay").style.opacity = "0";
+    setTimeout(document.getElementById("overlay").style.display = "none", 1000);
 }
 
 function removeClassesOnObejects(class_name) {
