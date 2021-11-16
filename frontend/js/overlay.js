@@ -23,7 +23,7 @@ function overlay_on(content) {
 
 function overlay_off() {
     document.getElementById("overlay").style.opacity = "0";
-    setTimeout(function (){document.getElementById("overlay").style.display = "none";}, 1000);
+    setTimeout(function() {document.getElementById("overlay").style.display = "none";}, 1000);
 }
 
 function removeClassesOnObejects(class_name) {
