@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="KIOSK APP -> OPEN SOURCE ON DoctorFuchs/Github">
     <meta name="robots" content="noindex">
     <title>Kiosk</title>
@@ -17,14 +17,19 @@
     <script src="js/general.js"></script>
     <script src="js/loadingAnimation.js"></script>
 </head>
+
 <body>
     <div id="overlay"></div>
     <div id="nav">
         <nav class="nav">
-            <div class="logo">
-                <a href="/">KIOSK</a>
+            <div class="logo left-navbar-item">
+                <a href="index.html">KIOSK</a>
             </div>
-            <ul>
+            <div id="statusbar">
+                <span id="time" class="clock"></span>
+                <span id="date" class="clock"></span>
+            </div>
+            <ul class="right-navbar-item">
                 <li>
                     <a onclick="gotosite('shop.html')">SHOP</a>
                 </li>
@@ -38,21 +43,17 @@
         </nav>
     </div>
     <div class="non-nav">
-        <div id="sidebar-left">
-            <span id="time" class="clock"></span>
-            <span id="date" class="clock"></span>
-        </div>
         <div id="content">
             <nav class="dashboard_nav">
                 <ul>
-                    <li  onclick="gotosite('shop.html')">SHOP</li>
+                    <li onclick="gotosite('shop.html')">SHOP</li>
                     <li onclick="gotosite('storage.html')">LAGER</li>
                     <li>KASSE</li>
                 </ul>
             </nav>
         </div>
-        <div id="sidebar-right">
-            <h1 style="font-size: 200%;" onclick="tutorial()">?</h1>
+        <div id="tutorial">
+            <h1 id="?" onmouseover="document.getElementById('?').className = 'callout';setTimeout(`document.getElementById('?').addEventListener('click', tutorial)`, 100)" onmouseleave="document.getElementById('?').className = '';document.getElementById('?').removeEventListener('click', tutorial)" >?</h1>
         </div>
     </div>
 </body>
