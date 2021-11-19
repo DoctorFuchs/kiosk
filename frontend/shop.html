@@ -22,7 +22,7 @@
 
 		function callback(response) {
 			let item = document.getElementById("products");
-			let req =  api_con.reformat(response);
+			let req =  reformat(response);
 			item.innerHTML = req.length==0?"<h1 style='font-size: 8vh; color: white'>Keine Produkte vorhanden! Gehen sie zum Lager um weitere Produkte hinzuzufügen</h1>": ""
 			for (let i = 0; i < req.length ; i++) {
 				let req_ = req[i].split(",")
@@ -32,8 +32,7 @@
 			} 
 		}
 
-		api_con = new apiConnection()
-		api_con.request("/shop/list", callback) 
+		request("/shop/list", callback) 
 	</script>
 </head>
 <body>

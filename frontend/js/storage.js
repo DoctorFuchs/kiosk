@@ -38,11 +38,10 @@ function edit(itemnumber) {
 }
 
 function loadItems() {
-    var api_con = new apiConnection();
-
     function items_callback(response) {
+        document.getElementById("item-loader").style.display = "none"
         let item = document.getElementById("item-table");
-        let req =  api_con.reformat(response);
+        let req =  reformat(response);
         item.innerHTML = ""
         item.innerHTML += "<tr class='header'><th>Produktname</th><th>Preis</th><th>Verfügbare Menge</th></tr>"
         for (let i = 0; i < req.length ; i++) {
@@ -50,9 +49,9 @@ function loadItems() {
             req_[0] = req_[0].replaceAll("'", "") 
             item.innerHTML += "<tr class='item' id='item_"+i+"' onclick='edit("+i+")'><td class='left'>"+req_[0].replaceAll("+", " ")+"</td><td>"+req_[1]+"€</td><td class='right'>"+req_[2]+"</td></tr>"
         }
+        setTimeout(loadItems, 700)
     }
-    api_con.request("/shop/list", callback=items_callback)
-    setTimeout(loadItems, 700)
+    request("/shop/list", callback=items_callback)
 }
 
 function create() {
@@ -64,8 +63,7 @@ function exitForm() {
 }
 
 function deleteitem(itemname) {
-    var api_con = new apiConnection();
-    api_con.request("/shop/delete?item_name="+itemname);
+    request("/shop/delete?item_name="+itemname);
     overlay_off()
 }
 
