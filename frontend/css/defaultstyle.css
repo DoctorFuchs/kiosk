@@ -32,11 +32,11 @@ body {
 }
 
 .left-navbar-item {
-	justify-content: start;
+	justify-content: flex-start;
 }
 
 .right-navbar-item {
-	justify-content: end;
+	justify-content: flex-end;
 }
 
 .nav ul {
