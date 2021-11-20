@@ -74,7 +74,14 @@ nav.dashboard_nav *{
 	margin: 1%;
 }
 
+#statusbar {
+	padding: 0.5vw;
+	border: dotted 0.1vw #f2f2f2;
+}
+
 .clock {
 	font-size: 3vh;
 	font-family: freemono, monospace;
+	padding: 0 1vw;
+	border-radius: 0;
 }

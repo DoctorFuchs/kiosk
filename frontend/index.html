@@ -26,8 +26,7 @@
                 <a href="index.html">KIOSK</a>
             </div>
             <div id="statusbar">
-                <span id="time" class="clock"></span>
-                <span id="date" class="clock"></span>
+                <span id="time" class="clock" style="border-right: solid 0.1vw #f2f2f2;"></span><span id="date" class="clock" style="border-left: solid 0.1vw #f2f2f2;"></span>
             </div>
             <ul class="right-navbar-item">
                 <li>
@@ -53,7 +52,10 @@
             </nav>
         </div>
         <div id="tutorial">
-            <h1 id="?" onmouseenter="document.getElementById('?').className = 'callout';setTimeout(`document.getElementById('?').addEventListener('click', tutorial)`, 100)" onmouseleave="document.getElementById('?').className = '';document.getElementById('?').removeEventListener('click', tutorial)" >?</h1>
+            <h1 id="?"
+                onmouseenter="document.getElementById('?').className = 'callout';setTimeout(`document.getElementById('?').addEventListener('click', tutorial)`, 100)"
+                onmouseleave="document.getElementById('?').className = '';document.getElementById('?').removeEventListener('click', tutorial)">
+                ?</h1>
         </div>
     </div>
 </body>
