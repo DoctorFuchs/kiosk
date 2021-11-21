@@ -47,7 +47,7 @@ function loadItems() {
         for (let i = 0; i < req.length ; i++) {
             let req_ = req[i].split(",")
             req_[0] = req_[0].replaceAll("'", "") 
-            item.innerHTML += "<tr class='item' id='item_"+i+"' onclick='edit("+i+")'><td class='left'>"+req_[0].replaceAll("+", " ")+"</td><td>"+req_[1]+"€</td><td class='right'>"+req_[2]+"</td></tr>"
+            item.innerHTML += "<tr class='item' id='item_"+i+"' onclick='edit("+i+")'><td class='left'>"+req_[0]+"</td><td>"+req_[1]+"€</td><td class='right'>"+req_[2]+"</td></tr>"
         }
         setTimeout(loadItems, 700)
     }
