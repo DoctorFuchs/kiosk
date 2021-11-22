@@ -51,6 +51,10 @@ class Webserver(server.SimpleHTTPRequestHandler):
         self.send_response(200)
         if self.path.endswith(".png"):
             self.send_header("Content-type", "image/png")
+        
+        if self.path.endswith(".html"):
+            self.send_header('Content-type', 'text/html;encoding=UTF-8')
+
         self.end_headers()
 
         path = getFrontendPath()

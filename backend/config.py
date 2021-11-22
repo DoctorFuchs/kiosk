@@ -21,10 +21,10 @@ mysql_database_username: str = "root"
 mysql_database_password: str = "root1234"
 
 # shell configurations
-modified_output: bool = True  # default: True (False is better for debug)
+modified_output: bool = False  # default: True (False is better for debug)
 
 # firewall
-firewall: bool = True
+firewall: bool = False
 firewall_allowed_ips: list = ["127.0.0.1"]
 
 # debug
