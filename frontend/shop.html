@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
-	<meta charset="UTF-8">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Kiosk</title>
 	<link rel="stylesheet" type="text/css" href="css/defaultstyle.css">
@@ -22,7 +23,7 @@
 
 		function callback(response) {
 			let item = document.getElementById("products");
-			let req =  api_con.reformat(response);
+			let req =  reformat(response);
 			item.innerHTML = req.length==0?"<h1 style='font-size: 8vh; color: white'>Keine Produkte vorhanden! Gehen sie zum Lager um weitere Produkte hinzuzufügen</h1>": ""
 			for (let i = 0; i < req.length ; i++) {
 				let req_ = req[i].split(",")
@@ -32,8 +33,7 @@
 			} 
 		}
 
-		api_con = new apiConnection()
-		api_con.request("/shop/list", callback) 
+		request("/shop/list", callback) 
 	</script>
 </head>
 <body>

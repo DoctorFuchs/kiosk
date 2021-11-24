@@ -52,19 +52,15 @@ class Webserver(server.SimpleHTTPRequestHandler):
         if self.path.endswith(".png"):
             self.send_header("Content-type", "image/png")
         self.end_headers()
-
+        #self.wfile = open("test.txt", "w+b")
         path = getFrontendPath()
 
         self.path = self.path.replace("/", os.sep)
         try:
-            if self.path.endswith(".png"):
-                self.wfile.write(open(path+self.path, "rb").read())
-
-            else:
-                self.wfile.write(bytes("".join(open(path + self.path, "rt").readlines()), "utf-8"))
+            self.wfile.write(open(path+self.path, "rb").read())
 
         except (FileNotFoundError, IsADirectoryError, OSError):
-            self.wfile.write(bytes("".join(open(path + os.sep + "index.html", "rt").readlines()), "utf-8"))
+            self.wfile.write(open(path + os.sep + "index.html", "rb").read())
 
     def end_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
