@@ -49,6 +49,8 @@ body {
 
 .nav ul li {
 	margin: 0 0.3vw;
+	display: flex;
+	align-items: center;
 }
 
 #logo {
