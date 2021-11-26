@@ -13,7 +13,7 @@ con = dbengine.getDatabaseConnection()
 
 
 class API(SimpleHTTPRequestHandler):
-    """default API, that can exec mySQL code to the server"""
+    """default API, that can return executed mySQL code result to the server"""
     def do_GET(self):
         writeToLog(
             config.Backend.on_request_header.value

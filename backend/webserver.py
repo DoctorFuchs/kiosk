@@ -4,7 +4,6 @@ from backend import config
 import socketserver
 from http import server
 import os
-import base64
 import sys
 
 PORT = 80
@@ -17,7 +16,6 @@ def getFrontendPath() -> str:
 
 class Webserver(server.SimpleHTTPRequestHandler):
     """A webserver, that streams all files from frontend to the web"""
-
     def do_GET(self):
         writeToLog(
             config.Backend.on_request_header.value

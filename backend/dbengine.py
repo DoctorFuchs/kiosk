@@ -51,4 +51,3 @@ def executeCode(code="") -> object:
     connection.commit()
     return cursor.fetchall()
 
-

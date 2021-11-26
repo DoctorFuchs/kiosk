@@ -5,6 +5,7 @@ import enum
 
 class DBType(enum.Enum):
     sqlite = "sqlite3"
+    foxy = "foxy" #in production
     mysql = "mysql"  # requires installing with pip
 
 
