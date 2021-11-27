@@ -35,7 +35,3 @@ div#overlay div button {
     color: #0e0e0e;
     padding: 10px 10px;
 }
-
-div.tutorial-foreground {
-    z-index: 3;
-}
