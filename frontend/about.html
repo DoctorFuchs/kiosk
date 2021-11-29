@@ -15,11 +15,11 @@
         function goToWebsite(url) {
             var onlineStatus = navigator.onLine
             if (onlineStatus == true) {
-
+                window.open(url, "_blank")
             };
-            if (onlineStatus == true) {
+            if (onlineStatus == false) {
                 overlay_on(
-                    `<div id="qrcode"></div>`
+                    `<div id="qrcode"></div><br><button onclick="overlay_off()">Schließen</button>`
                     );
                 new QRCode(document.getElementById("qrcode"), url);
             };
@@ -31,7 +31,7 @@
     <div id="overlay"></div>
     <h1>In development</h1>
     <button onclick='new QRCode(document.getElementById("qrcodespace"), "https://google.com")'>kashgkjasd</button>
-    <button onclick="goToWebsite('google.com')">Test</button>
+    <button onclick="goToWebsite('https://google.com')">Test</button>
     <div id='qrcodespace'></div>
 </body>
 
