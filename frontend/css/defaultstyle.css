@@ -94,8 +94,3 @@ h1 {
 iframe {
 	border: 0;
 }
-
-.callout {
-	transform: scale(120%);
-	margin: +1vw 1vw !important;
-}
