@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÜBER</title>
+    <script src="js/qrcode.min.js"></script>
+    <script src="js/overlay.js"></script>
+    <script>
+        //document.getElementById("qrcode").addEventListener("DOMContentLoaded", () => {new QRCode(document.getElementById("qrcode"), "https://google.com")})
+        document.getElementsByName("A").addEventListener("click", goToWebsite(this.value))
+
+        function goToWebsite(url) {
+            var onlineStatus = navigator.onLine
+            if (onlineStatus == true) {
+                
+            }
+            if (onlineStatus == false){
+                overlay_on(new QRCode(document.getElementById("qrcode"), url))
+                
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>In development</h1>
+    <button onclick='new QRCode(document.getElementById("qrcode"), "https://google.com")'>kashgkjasd</button>
+    <div id='qrcode'></div>
+</body>
+</html>
