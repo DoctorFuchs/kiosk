@@ -9,8 +9,15 @@
     <script src="js/overlay.js"></script>
     <link rel="stylesheet" href="css/overlay.css">
     <script>
-        //document.getElementById("qrcode").addEventListener("DOMContentLoaded", () => {new QRCode(document.getElementById("qrcode"), "https://google.com")})
-        // document.getElementsByName("A").addEventListener("click", goToWebsite(this.value));
+        document.addEventListener("DOMContentLoaded", () => {
+            var a = document.getElementsByTagName("a");
+            for (let index = 0; index < a.length; index++) {
+                a[index].addEventListener("click", (element) => {
+                    element.preventDefault();
+                    goToWebsite(element.target.getAttribute("href"));
+                })
+            }
+        });
 
         function goToWebsite(url) {
             var onlineStatus = navigator.onLine
@@ -20,7 +27,7 @@
             if (onlineStatus == false) {
                 overlay_on(
                     `<div id="qrcode"></div><br><button onclick="overlay_off()">Schließen</button>`
-                    );
+                );
                 new QRCode(document.getElementById("qrcode"), url);
             };
         };
@@ -32,6 +39,12 @@
     <h1>In development</h1>
     <button onclick='new QRCode(document.getElementById("qrcodespace"), "https://google.com")'>kashgkjasd</button>
     <button onclick="goToWebsite('https://google.com')">Test</button>
+    <button href="tefksls"></button>
+    <a href="https://kgsdhfshkdfg.sdf">asf</a>
+    <a href="https://kgsdhfshkdfg.sdf">asdg</a>
+    <a href="https://kgsdhfshkdfg.sdf">asdg</a>
+    <a href="google.com">google</a>
+
     <div id='qrcodespace'></div>
 </body>
 
