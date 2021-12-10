@@ -11,7 +11,7 @@ function request(path, callback_func=callback) {
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
-            callback_func(xhr.response);
+            callback_func(decodeURI(xhr.response));
         }
     }
 

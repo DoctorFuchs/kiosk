@@ -46,7 +46,7 @@ function loadItems() {
         item.innerHTML += "<tr class='header'><th>Produktname</th><th>Preis</th><th>Verfügbare Menge</th></tr>"
         for (let i = 0; i < req.length ; i++) {
             let req_ = req[i].split(",")
-            req_[0] = decodeURI(req_[0]).replaceAll("'", "").replaceAll("+", " ")
+            req_[0] = req_[0].replaceAll("'", "").replaceAll("+", " ")
             item.innerHTML += "<tr class='item' id='item_"+i+"' onclick='edit("+i+")'><td class='left'>"+req_[0]+"</td><td>"+req_[1]+"€</td><td class='right'>"+req_[2]+"</td></tr>"
         }
         setTimeout(loadItems, 700)
