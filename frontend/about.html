@@ -8,6 +8,8 @@
     <script src="js/qrcode.min.js"></script>
     <script src="js/overlay.js"></script>
     <link rel="stylesheet" href="css/overlay.css">
+    <link rel="stylesheet" href="css/defaultstyle.css">
+    <link rel="stylesheet" href="css/about.css">
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             var a = document.getElementsByTagName("a");
@@ -18,6 +20,27 @@
                 })
             }
         });
+
+        function getJSON(url, callback) {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.responseType = 'json';
+
+            xhr.onload = function () {
+
+                var status = xhr.status;
+
+                if (status == 200) {
+                    return xhr.response;
+                } else {
+                    return status;
+                }
+            };
+
+            xhr.send();
+
+        };
 
         function goToWebsite(url) {
             var onlineStatus = navigator.onLine
@@ -36,16 +59,17 @@
 
 <body>
     <div id="overlay"></div>
-    <h1>In development</h1>
-    <button onclick='new QRCode(document.getElementById("qrcodespace"), "https://google.com")'>kashgkjasd</button>
-    <button onclick="goToWebsite('https://google.com')">Test</button>
-    <button href="tefksls"></button>
-    <a href="https://kgsdhfshkdfg.sdf">asf</a>
-    <a href="https://kgsdhfshkdfg.sdf">asdg</a>
-    <a href="https://kgsdhfshkdfg.sdf">asdg</a>
-    <a href="google.com">google</a>
-
-    <div id='qrcodespace'></div>
+    <div id="content">
+        <h1>Über dieses Projekt</h1>
+        <p>Dieses dieses Programm ist ein einfaches Kassenystem für kleine Kioske, Stände und Buden. Das Backend ist in
+            Python aufgebaut, das Frontend mit den drei Webdesign-Technologien HTML, CSS und JavaScript programmiert.
+            Sie sind eingeladen, das System zu verbessern und zum Projekt beizutragen. Fragen Sie einfach, wenn es
+            Fragen gibt.
+        </p>
+        <p>Haben sie Fragen, Probleme oder einen Verbesserungsvorschlag, dann wenden sie sich an ihren Administrator.
+        </p>
+        <p></p>
+    </div>
 </body>
 
 </html>
