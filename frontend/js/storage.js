@@ -43,7 +43,7 @@ function loadItems() {
         let item = document.getElementById("item-table");
         let req =  reformat(response);
         item.innerHTML = ""
-        item.innerHTML += "<tr class='header'><th>Produktname</th><th>Preis</th><th>Verfügbare Menge</th></tr>"
+        item.innerHTML += "<tr class='header'><th id='product_name'>Produktname</th><th id='product_price'>Preis</th><th id='product_amount'>Verfügbare Menge</th></tr>"
         for (let i = 0; i < req.length ; i++) {
             let req_ = req[i].split(",")
             req_[0] = req_[0].replaceAll("'", "").replaceAll("+", " ")
@@ -67,5 +67,4 @@ function deleteitem(itemname) {
     overlay_off()
 }
 
-
-loadItems()
+document.addEventListener("DOMContentLoaded", loadItems())

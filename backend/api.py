@@ -66,7 +66,9 @@ class API(SimpleHTTPRequestHandler):
             code = f"insert into shop(item_name, item_cost, item_amount)\nVALUES ('{form.get('item_name')}', {form.get('item_cost')}, {form.get('item_amount')})"
 
         elif self.path.startswith("/shop/delete"):
-            code = f"delete from shop\nWHERE item_name='{form.get('item_name')}'"
+            temp = form.get('item_name').replace(" ", "+")
+            code = f"delete from shop\nWHERE item_name='{temp}'"
+            del temp
 
         elif self.path.startswith("/shop/edit"):
             code = f"""update shop\nset item_name='{form.get('item_name_new')}',\n\titem_cost={form.get('item_cost_new')},\n\titem_amount={form.get('item_amount_new')}\nwhere item_name='{form.get('item_name_old')}'"""
