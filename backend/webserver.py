@@ -49,6 +49,8 @@ class Webserver(server.SimpleHTTPRequestHandler):
         self.send_response(200)
         if self.path.endswith(".png"):
             self.send_header("Content-type", "image/png")
+        if self.path.endswith(".svg"):
+            self.send_header("Content-type", "image/svg+xml")
         self.end_headers()
         #self.wfile = open("test.txt", "w+b")
         path = getFrontendPath()
