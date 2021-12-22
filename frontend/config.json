@@ -1,4 +1,6 @@
 {
-    "admin-email":"test@test.test",
-    "admin-name": "Test Test"
+    "admin-name": "Test Test",
+    "admin-email": "test@test.test",
+    "telegram-username": "username",
+    "whatsapp-number": "491525557912"
 }
