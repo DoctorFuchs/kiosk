@@ -16,3 +16,30 @@ p {
     font-size: 1.5rem;
     margin: 1rem;
 }
+
+#links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+}
+
+.links a{
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    color: #0e0e0e;
+    width: fit-content;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.logo {
+    height: 2rem;
+    width: 2rem;
+    margin: 0.5rem;
+}
