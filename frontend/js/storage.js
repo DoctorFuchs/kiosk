@@ -1,6 +1,6 @@
 var edit_box = "<div><h1 style='font-size: 6vh'>BEARBEITUNG - %itemname%</h1>"+
 "<iframe style='display:none' name='hiddenframe'></iframe>"+
-"<form action='http://localhost:"+String(API)+"/shop/edit' target='hiddenframe' method='GET' onsubmit='overlay_off()'>"+
+"<form action='/api/shop/edit' target='hiddenframe' method='GET' onsubmit='overlay_off()'>"+
 "<input required name='item_name_old' type='hidden' value='%itemname%'>"+
 "<label class='edit-label' for='item_name_new'>Name</label><br>"+
 "<input required class='edit' id='item_name_new' name='item_name_new' value='%itemname%' type='text'><br>"+
@@ -15,7 +15,7 @@ var edit_box = "<div><h1 style='font-size: 6vh'>BEARBEITUNG - %itemname%</h1>"+
 
 var create_box = "<div><h1 style='font-size: 6vh'>ERSTELLUNG</h1>"+
 "<iframe style='display:none' name='hiddenframe'></iframe>"+
-"<form action='http://localhost:"+String(API)+"/shop/additem' target='hiddenframe' onsubmit='exitForm()' method='GET'>"+
+"<form action='/api/shop/additem' target='hiddenframe' onsubmit='exitForm()' method='GET'>"+
 "<label class='create-label' for='item_name_new'>Name</label><br>"+
 "<input required class='create' id='item_name' name='item_name' type='text' requiered=True></input><br>"+
 "<label class='create-label' for='item_cost'>Preis</label><br>"+
@@ -47,6 +47,8 @@ function loadItems() {
         for (let i = 0; i < req.length ; i++) {
             let req_ = req[i].split(",")
             req_[0] = req_[0].replaceAll("'", "").replaceAll("+", " ")
+            req_[1] = req_[1].replaceAll("'", "")
+            req_[2] = req_[2].replaceAll("'", "")
             item.innerHTML += "<tr class='item' id='item_"+i+"' onclick='edit("+i+")'><td class='left'>"+req_[0]+"</td><td>"+req_[1]+"€</td><td class='right'>"+req_[2]+"</td></tr>"
         }
         setTimeout(loadItems, 700)

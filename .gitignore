@@ -1,3 +1,6 @@
+# savefiles for storage are saved here
+storages 
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

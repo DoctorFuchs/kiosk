@@ -1,6 +1,9 @@
 {
     "admin-name": "Test Test",
+    "show-mail": false,
     "admin-email": "test@test.test",
+    "show-telegram": false,
     "telegram-username": "username",
+    "show-whatsapp": false,
     "whatsapp-number": "491525557912"
 }

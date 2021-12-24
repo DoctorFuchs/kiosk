@@ -2,9 +2,6 @@ function callback(str) {
     console.log(str)
 }
 
-function getAPIport() {
-    return API
-}
 
 function request(path, callback_func=callback) {
     var xhr = new XMLHttpRequest();
@@ -15,7 +12,7 @@ function request(path, callback_func=callback) {
         }
     }
 
-    xhr.open('GET', "http://localhost:"+String(getAPIport())+path, true);
+    xhr.open('GET', "/api"+path, true);
     xhr.send(null);
 }
 
