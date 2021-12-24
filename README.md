@@ -17,14 +17,14 @@ Then make sure python 3 is installed. If not please install (https://www.python.
 
 at linux, macOS:
 ```shell
-cd <kiosk_folder>/backend
-python3 server.py
+cd <kiosk_folder>
+python3 run.py
 ```
 
 at windows:
 ```shell
-cd <kiosk_folder>/backend
-python server.py or py server.py
+cd <kiosk_folder>
+python run.py or py run.py
 ```
 
 ## Devs
