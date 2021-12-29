@@ -17,19 +17,13 @@ if args.upgrade:
     upgradeDependencys()
 
 try:
-    import pkg_resources
-    dist = pkg_resources.get_distribution("flask")
-except pkg_resources.DistributionNotFound:
+    import flask
+except ImportError:
+    try:
         upgradeDependencys()
-
-# try:
-#     import flask
-# except ImportError:
-#     try:
-#         upgradeDependencys()
-#     except ImportError:
-#         print("Unable to install dependencies. Please install flask and it's dependencies manually (e.g. pip3 install flask).")
-#         sys.exit()
+    except ImportError:
+        print("Unable to install dependencies. Please install flask and it's dependencies manually (e.g. pip3 install flask).")
+        sys.exit()
 
 if args.browser:
     def openBrowser():
