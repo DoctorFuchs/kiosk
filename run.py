@@ -11,6 +11,7 @@ sys.path.append("./lib")
 def upgradeDependencys():   #not working with autoreload of flask
     import pip
     pip.main(["install", "flask", "pip", "-t", "./lib", "--upgrade"])
+    import flask
     print("\nStarting now...\n")
 
 if args.upgrade:
