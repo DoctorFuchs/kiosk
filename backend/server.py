@@ -49,4 +49,4 @@ application = DispatcherMiddleware(app, {
     '/api/shop': shop
 })
 
-run_simple('localhost', 1024, application, use_reloader=True, use_debugger=True, use_evalex=True)
+run_simple('localhost', 1024, application, use_reloader=False, use_debugger=True, use_evalex=True)

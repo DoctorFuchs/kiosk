@@ -24,15 +24,16 @@ python3 run.py
 at windows:
 ```shell
 cd <kiosk_folder>
-python run.py or py run.py
+python run.py
 ```
 
 ## Devs
 ##### Backend:
-- MexLab
 - DoctorFuchs
+- codenius
+- MexLab
 ##### Frontend:
-- Codenius
+- codenius
 - DoctorFuchs
 
 ## Information's

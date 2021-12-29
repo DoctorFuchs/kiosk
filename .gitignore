@@ -1,3 +1,7 @@
+# flask and dependencies
+lib/*
+!lib/pip*
+
 # savefiles for storage are saved here
 storages 
 
@@ -17,7 +21,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+#lib/
 lib64/
 parts/
 sdist/
