@@ -6,11 +6,17 @@ parser.add_argument("-f", "--fullscreen", help="Launch browser fullscreen (chrom
 args = parser.parse_args()
 
 import sys
+import subprocess
 sys.path.append("./lib")
 
 def upgradeDependencys():   #not working with autoreload of flask
+    try:
+        import pip
+    except ImportError:
+        subprocess.check_call([sys.executable, "-m", "ensurepip"])
+    # subprocess.check_call([sys.executable ,"-m" , "pip", "install", "flask", "-t", "./lib", "--upgrade"])
     import pip
-    pip.main(["install", "flask", "pip", "-t", "./lib", "--upgrade"])
+    pip.main(["install", "flask", "-t", "./lib", "--upgrade"])
     import flask
     print("\nStarting now...\n")
 
@@ -32,7 +38,6 @@ if args.browser:
         webbrowser.open_new("http://localhost:1024")    #Dont now why it opens two tabs sometimes???
     try:
         if args.fullscreen:
-            import subprocess
             subprocess.Popen(["C:\Program Files\Google\Chrome\Application\chrome.exe", "http://localhost:1024", "--kiosk"])   #Add cross-platform support
         else:
             openBrowser()
