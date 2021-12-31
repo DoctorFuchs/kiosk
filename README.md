@@ -11,20 +11,13 @@ Clone the repository:
 git clone https://github.com/DoctorFuchs/kiosk
 ```
 
-Then make sure python 3 is installed. If not please install (https://www.python.org/downloads/).
+Then make sure python 3 is installed. If not please install (https://www.python.org/downloads/). (Python>=3.4)
 
 ## run
 
-at linux, macOS:
 ```shell
 cd <kiosk_folder>
 python3 run.py
-```
-
-at windows:
-```shell
-cd <kiosk_folder>
-python run.py
 ```
 
 ## Devs

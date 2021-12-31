@@ -1,44 +1,31 @@
 import argparse
-parser = argparse.ArgumentParser(description="Launcher for kiosk application")
-parser.add_argument("-u", "--upgrade", help="Upgrade flask and it's dependencys, stored in lib folder", action="store_true")
-parser.add_argument("-b", "--browser", help="Launch browser while starting", action="store_true")
-parser.add_argument("-f", "--fullscreen", help="Launch browser fullscreen (chrome need to be installed, exit with Alt+F4)", action="store_true")
-args = parser.parse_args()
+import sys, os, threading
+import webbrowser as web
+from time import sleep
 
-import sys
-sys.path.append("./lib")
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Launcher for kiosk application")
+    parser.add_argument("-b", "--browser", help="Launch browser while starting", action="store_true")
+    # At the moment in development
+    # parser.add_argument("-f", "--fullscreen", help="Launch browser fullscreen (chrome need to be installed, exit with Alt+F4)", action="store_true") 
+    args = parser.parse_args()
 
-def upgradeDependencys():   #not working with autoreload of flask
-    import pip
-    pip.main(["install", "flask", "pip", "-t", "./lib", "--upgrade"])
-    import flask
-    print("\nStarting now...\n")
-
-if args.upgrade:
-    upgradeDependencys()
-
-try:
-    import flask
-except ImportError:
     try:
-        upgradeDependencys()
+        __import__("flask")
+
     except ImportError:
-        print("Unable to install dependencies. Please install flask and it's dependencies manually (e.g. pip3 install flask).")
-        sys.exit()
+        # retry after installing
+        os.system("python3 -m pip install flask")
+        sys.exit("Please restart the program, because flask is now installed")
 
-if args.browser:
-    def openBrowser():
-        import webbrowser 
-        webbrowser.open_new("http://localhost:1024")    #Dont now why it opens two tabs sometimes???
-    try:
-        if args.fullscreen:
-            import subprocess
-            subprocess.Popen(["C:\Program Files\Google\Chrome\Application\chrome.exe", "http://localhost:1024", "--kiosk"])   #Add cross-platform support
-        else:
-            openBrowser()
-    except FileNotFoundError:
-        openBrowser()
+    if args.browser:
+        def startWebbrowser():
+            sleep(1) # with delay, because the server is not started
+            web.open_new("http://localhost:1024")
 
+        threading.Thread(target=startWebbrowser).start()
+        
 
-sys.path.append("./backend")
-from backend import server
+    sys.path.append(__file__.replace("run.py", "backend"))
+    # starts the server 
+    from backend import server
