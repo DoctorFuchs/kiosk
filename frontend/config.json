@@ -1,9 +1,27 @@
 {
-    "admin-name": "Test Test",
-    "show-mail": false,
-    "admin-email": "test@test.test",
-    "show-telegram": false,
-    "telegram-username": "username",
-    "show-whatsapp": false,
-    "whatsapp-number": "491525557912"
+    "admin": {
+        "name": "Test Test",
+        "contact": [
+            [
+                "Email",
+                "mailto:test@test.test", 
+                "mail.svg"
+            ],
+            [
+                "Telegram",
+                "//telegram.me/username", 
+                "telegram.svg"
+            ],
+            [
+                "WhatsApp",
+                "//api.whatsapp.com/send/?phone=491525557912&text&app_absent=0", 
+                "whatsapp.svg"
+            ],
+            [
+                "Website",
+                "//google.com",
+                "//google.com/favicon.ico"
+            ]
+        ]
+    }
 }

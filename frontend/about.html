@@ -10,36 +10,30 @@
     <link rel="stylesheet" href="css/overlay.css">
     <link rel="stylesheet" href="css/defaultstyle.css">
     <link rel="stylesheet" href="css/about.css">
+    <base target="_blank" /> <!-- makes sure that every link is opended in new tab/window -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            var a = document.getElementsByTagName("a");
-            for (let index = 0; index < a.length; index++) {
-                a[index].addEventListener("click", (element) => {
-                    element.preventDefault();
-                    goToWebsite(element.target.getAttribute("href"));
-                })
-            }
+            fetch('config.json')
+                .then(response => response.json())
+                .then(config => {
+                    for (let i = 0; i < config.admin.contact.length; i++) {
+                        var element = config.admin.contact[i];
+                        document.getElementById("contact").innerHTML += `<a href="${element[1]}" title="${element[0]}"><img src="./icons/${element[2]}" alt="${element[0]} Logo"></a>`;
+                    };
+                    makeLinksAvailableOfflineAsQrCode();
+                });
         });
 
-        function getJSON(url, callback) {
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
-            xhr.responseType = 'json';
-
-            xhr.onload = function () {
-
-                var status = xhr.status;
-
-                if (status == 200) {
-                    return xhr.response;
-                } else {
-                    return status;
-                }
-            };
-
-            xhr.send();
-
+        function makeLinksAvailableOfflineAsQrCode() {
+            document.addEventListener("DOMContentLoaded", () => {
+                var a = document.getElementsByTagName("a");
+                for (let index = 0; index < a.length; index++) {
+                    a[index].addEventListener("click", (element) => {
+                        element.preventDefault();
+                        goToWebsite(element.target.getAttribute("href"));
+                    });
+                };
+            });
         };
 
         function goToWebsite(url) {
@@ -61,10 +55,10 @@
     <div id="overlay"></div>
     <div id="content">
         <h1>Über dieses Projekt</h1>
-        <p>Dieses dieses Programm ist ein einfaches Kassenystem für kleine Kioske, Stände und Buden. Das Backend ist in
-            Python aufgebaut, das Frontend mit den drei Webdesign-Technologien HTML, CSS und JavaScript programmiert.
-            Sie sind eingeladen, das System zu verbessern und zum Projekt beizutragen. Fragen Sie einfach, wenn es
-            Fragen gibt.
+        <p>Diese Anwendung ist ein einfaches Kassenystem für kleine Kioske, Stände und Buden. Das Backend ist in
+            Python geschrieben, das Frontend mit den drei Webdesign-Technologien HTML, CSS und JavaScript programmiert.
+            Die Kommunikation zwischen ihnen wird durch einen Webserver mit Flask sichergestellt. Sie sind eingeladen,
+            das System zu verbessern und zum Projekt beizutragen.
         </p>
         <p>Haben sie Fragen, Probleme oder einen Verbesserungsvorschlag, dann wenden sie sich an ihren Administrator
             oder öffnen sie ein Issue auf auf der GitHub-Seite.
@@ -73,10 +67,8 @@
             <span class="links">
                 <a href="https://github.com/Doctorfuchs/kiosk"><img src="./icons/github.svg" alt="GitHub Logo">GitHub</a>
             </span>
-            <span class="links">
-                <a href="mailto:test@test.test"><img src="./icons/mail.svg" alt="Email Logo"></a>
-                <a href="//telegram.me/username"><img src="./icons/telegram.svg" alt="Telegram Logo"></a>
-                <a href="//wa.me/491525557912"><img src="./icons/whatsapp.svg" alt="WhatsApp Logo"></a>
+            <span class="links" id="contact">
+
             </span>
         </p>
     </div>
