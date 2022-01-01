@@ -3,7 +3,7 @@ var edit_box = "<div><h1 style='font-size: 6vh'>BEARBEITUNG - %itemname%</h1>"+
 "<form action='/api/shop/edit' target='hiddenframe' method='GET' onsubmit='overlay_off()'>"+
 "<input required name='item_name_old' type='hidden' value='%itemname%'>"+
 "<label class='edit-label' for='item_name_new'>Name</label><br>"+
-"<input required class='edit' id='item_name_new' name='item_name_new' value='%itemname%' type='text'><br>"+
+"<input required pattern='[a-zA-Z0-9\\s]+' class='edit' id='item_name_new' name='item_name_new' value='%itemname%' type='text'><br>"+
 "<label class='edit-label' for='item_cost_new'>Preis</label><br>"+
 "<input required class='edit' id='item_cost_new' name='item_cost_new' value=%itemcost% type='number' min='0' step='0.01'><br>"+
 "<label class='edit-label' for='item_amount_new'>Verfügbare Menge</label><br>"+
@@ -17,7 +17,7 @@ var create_box = "<div><h1 style='font-size: 6vh'>ERSTELLUNG</h1>"+
 "<iframe style='display:none' name='hiddenframe'></iframe>"+
 "<form action='/api/shop/additem' target='hiddenframe' onsubmit='exitForm()' method='GET'>"+
 "<label class='create-label' for='item_name_new'>Name</label><br>"+
-"<input required class='create' id='item_name' name='item_name' type='text' requiered=True></input><br>"+
+"<input required pattern='[a-zA-Z0-9\\s]+' class='create' id='item_name' name='item_name' type='text' requiered=True></input><br>"+
 "<label class='create-label' for='item_cost'>Preis</label><br>"+
 "<input required class='create' id='item_cost' name='item_cost' type='number' min='0' step='0.01'><br>"+
 "<label class='create-label' for='item_amount'>Verfügbare Menge</label><br>"+
