@@ -52,16 +52,6 @@ h4 {
 	font-weight: bold;
 }
 
-.product:hover {
-	background-color: rgb(131, 129, 129);
-	color: #f0f0f0;
-	transition: all 0.3s ease;
-}
-
-.product:hover * {
-	color: #f0f0f0;
-	transition: all 0.3s ease;
-}
 
 #itembag {
 	width: 26vw;
