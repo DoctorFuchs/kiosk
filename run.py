@@ -23,7 +23,7 @@ def upgradeDependencies():   #not working with autoreload of flask
             subprocess.check_call([sys.executable ,"-m" , "pip", "install", "-r", "requirements.txt", "-t", os.path.join(workdir, "lib"), "--upgrade", "--no-user"]) # --no-user => python 3.9 on Windows
 
 def updateApplication():
-    branch = "stable" # change the branch here
+    branch = "min" # change the branch here => main (unstable), stable
     # check that git is installed 
     try:
         subprocess.check_call(["git", "--version"])
