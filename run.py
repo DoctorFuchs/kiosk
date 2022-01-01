@@ -28,8 +28,7 @@ if __name__ == "__main__":
         upgradeDependencies()
 
     try:
-        __import__("flask")
-
+        import pip
     except ImportError:
         upgradeDependencies()
         __import__("flask")
