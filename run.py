@@ -35,5 +35,5 @@ if __name__ == "__main__":
         __import__("flask")
 
     # starts the server 
-    from backend import server
+    import server
     server.main(args)
