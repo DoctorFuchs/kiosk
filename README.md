@@ -21,11 +21,6 @@ python3 run.py
 ```
 
 ## Devs
-##### Backend:
-- DoctorFuchs
-- codenius
-- MexLab
-##### Frontend:
 - codenius
 - DoctorFuchs
 
