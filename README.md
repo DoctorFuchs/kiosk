@@ -11,7 +11,7 @@ Clone the repository:
 git clone https://github.com/DoctorFuchs/kiosk
 ```
 
-Then make sure python 3 is installed. If not please install (https://www.python.org/downloads/). (Python>=3.4)
+Then make sure python 3 is installed. If not please install (https://www.python.org/downloads/). (We used python 3.6 (tested on 3.9.9))
 
 ## run
 

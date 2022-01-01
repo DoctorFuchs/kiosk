@@ -1,7 +1,9 @@
+from sys import stderr
+import threading
 from flask import Flask, request, Response, send_file
 import config
 from shop import shop
-import os 
+import os, subprocess
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
 
@@ -49,4 +51,20 @@ application = DispatcherMiddleware(app, {
     '/api/shop': shop
 })
 
-run_simple('localhost', 1024, application, use_reloader=False, use_debugger=True, use_evalex=True)
+def main(args):
+    if args.browser:
+        import browserpath
+        arguments = ["--start-maximized"]
+        if args.kiosk:
+            arguments = ["--kiosk"]
+        elif args.fullscreen:
+            arguments = ["--start-fullscreen"]
+
+        def startbrowser():
+            import time
+            time.sleep(2)
+            subprocess.Popen([browserpath.get_default_chrome_path()]+arguments+["--app=http://localhost:1024"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+        threading.Thread(target=startbrowser).start()
+
+    run_simple('localhost', 1024, application, use_reloader=False, use_debugger=True, use_evalex=True)
