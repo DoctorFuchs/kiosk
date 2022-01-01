@@ -67,4 +67,4 @@ def main(args):
 
         threading.Thread(target=startbrowser).start()
 
-    run_simple('localhost', 1024, application, use_reloader=False, use_debugger=True, use_evalex=True)
+    run_simple('localhost', 1024, application, use_reloader=False, use_debugger=False, use_evalex=True)
