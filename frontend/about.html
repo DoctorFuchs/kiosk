@@ -18,7 +18,7 @@
                 .then(config => {
                     for (let i = 0; i < config.admin.contact.length; i++) {
                         var element = config.admin.contact[i];
-                        document.getElementById("contact").innerHTML += `<a href="${element[1]}" title="${element[0]}"><img src="./icons/${element[2]}" alt="${element[0]} Logo"></a>`;
+                        document.getElementById("contact").innerHTML += `<a href="${element[1].replace("%m", config.admin.message).replace("%a", config.admin.name)}" title="${element[0]}"><img src="./icons/${element[2]}" alt="${element[0]} Logo"></a>`;
                     };
                     makeLinksAvailableOfflineAsQrCode();
                 });

@@ -4,24 +4,20 @@
         "contact": [
             [
                 "Email",
-                "mailto:test@test.test", 
+                "mailto:test@test.test?subject=Problem mit der Kiosk-Anwendung&body=%m",
                 "mail.svg"
             ],
             [
                 "Telegram",
-                "//telegram.me/username", 
+                "//telegram.me/username",
                 "telegram.svg"
             ],
             [
                 "WhatsApp",
-                "//api.whatsapp.com/send/?phone=491525557912&text&app_absent=0", 
+                "https://wa.me/491525557912/?text=%m",
                 "whatsapp.svg"
-            ],
-            [
-                "Website",
-                "//google.com",
-                "//google.com/favicon.ico"
             ]
-        ]
+        ],
+        "message": "Hallo %a%2C %0D%0Aich habe ein Problem mit dem Kiosk-Programm. %0D%0A"
     }
 }
