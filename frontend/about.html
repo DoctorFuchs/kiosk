@@ -16,9 +16,10 @@
             fetch('config.json')
                 .then(response => response.json())
                 .then(config => {
+                    document.getElementById("admin-name").innerHTML = config.admin.name
                     for (let i = 0; i < config.admin.contact.length; i++) {
                         var element = config.admin.contact[i];
-                        document.getElementById("contact").innerHTML += `<a href="${element[1].replace("%m", config.admin.message).replace("%a", config.admin.name)}" title="${element[0]}"><img src="./icons/${element[2]}" alt="${element[0]} Logo"></a>`;
+                        document.getElementById("admin-contact").innerHTML += `<a href="${element[1].replaceAll("!m", encodeURIComponent(config.admin.message)).replaceAll("!a", encodeURIComponent(config.admin.name)).replaceAll("!b", "%0D%0A")}" title="${element[0]}"><img src="./icons/${element[2]}" alt="${element[0]} Logo"></a>`;
                     };
                     makeLinksAvailableOfflineAsQrCode();
                 });
@@ -65,10 +66,12 @@
         </p>
         <p id="links">
             <span class="links">
+                <span></span>
                 <a href="https://github.com/Doctorfuchs/kiosk"><img src="./icons/github.svg" alt="GitHub Logo">GitHub</a>
             </span>
-            <span class="links" id="contact">
-
+            <span id="contact">
+                <span id="admin-name">Test Test</span>
+                <span class="links" id="admin-contact"></span>
             </span>
         </p>
     </div>
