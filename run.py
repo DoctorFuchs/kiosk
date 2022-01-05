@@ -1,8 +1,8 @@
 import argparse
 import sys, os, subprocess
 
-workdir = os.path.split(__file__)[0]
-sys.path+=[os.path.join(workdir, "lib"), os.path.join(workdir, "backend")] # adds import paths
+os.chdir(os.path.split(__file__)[0] if os.path.split(__file__)[0] != "" else ".") 
+sys.path += ["lib", "backend"] # adds import paths
 
 def restart(addArgs=[]):
     """Restart the run.py without upgrading and updating by default. addArgs adds arguments to run.py"""
@@ -20,10 +20,10 @@ def upgradeDependencies():   #not working with autoreload of flask
             subprocess.check_call([sys.executable, "-m", "ensurepip"])
 
         finally:
-            subprocess.check_call([sys.executable ,"-m" , "pip", "install", "-r", "requirements.txt", "-t", os.path.join(workdir, "lib"), "--upgrade", "--no-user"]) # --no-user => python 3.9 on Windows
+            subprocess.check_call([sys.executable ,"-m" , "pip", "install", "-r", "requirements.txt", "-t", "lib", "--upgrade", "--no-user"]) # --no-user => python 3.9 on Windows
 
 def updateApplication():
-    branch = "min" # change the branch here => main (unstable), stable
+    branch = "stable" # change the branch here => main (unstable), stable
     # check that git is installed 
     try:
         subprocess.check_call(["git", "--version"])
@@ -32,7 +32,7 @@ def updateApplication():
         return
 
     # check if this folder is a git repo
-    if not os.path.isdir(os.path.join(workdir, ".git")): 
+    if not os.path.isdir(".git"): 
         print("This is not a git repo")
     else: 
         subprocess.check_call(f"git pull origin {branch}".split(" "))
