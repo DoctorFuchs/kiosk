@@ -24,6 +24,17 @@ cd <kiosk_folder>
 python3 run.py
 ```
 
+### options
+```
+  -h, --help        show this help message and exit
+  -U, --upgrade     Upgrade the kiosk application, only available if git repository (git needs to be installed)
+  -u, --update      Force updating dependencies
+  -b, --browser     Launch browser while starting
+  -w, --window      Launch native looking window
+  -f, --fullscreen  Launch window in fullscreen
+  -k, --kiosk       Launch chromium's kiosk mode(a 'super' fullscreen, chrom[e/ium] or edge with chromium engine needs to be installed, exit with Alt+F4)
+```
+
 ## Devs
 - codenius
 - DoctorFuchs

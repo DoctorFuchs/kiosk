@@ -35,23 +35,23 @@ def updateApplication():
     if not os.path.isdir(".git"): 
         print("This is not a git repo")
     else: 
-        subprocess.check_call(f"git pull origin {branch}".split(" "))
+        subprocess.check_call(f"git pull origin {branch} && git checkout {branch}".split(" "))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Launcher for kiosk application")
-    parser.add_argument("-u", "--upgrade", help="Upgrade requirements and it's dependencys, stored in lib folder", action="store_true")
-    parser.add_argument("-up", "--update", help="looks for a newer version. Only available if cloned with git (git need to be installed)", action="store_true")
+    parser.add_argument("-U", "--upgrade", help="Upgrade the kiosk application, only available if git repository (git needs to be installed)", action="store_true")
+    parser.add_argument("-u", "--update", help="Force updating dependencies", action="store_true")
     parser.add_argument("-b", "--browser", help="Launch browser while starting", action="store_true")
-    parser.add_argument("-f", "--fullscreen", help="Launch browser in fullscreen", action="store_true") 
-    parser.add_argument("-k", "--kiosk", help="Launch browser in a 'super' fullscreen (chrome need to be installed, exit with Alt+F4)", action="store_true") 
+    parser.add_argument("-w", "--window", help="Launch native looking window", action="store_true")
+    parser.add_argument("-f", "--fullscreen", help="Launch window in fullscreen", action="store_true") 
+    parser.add_argument("-k", "--kiosk", help="Launch chromium's kiosk mode(a 'super' fullscreen, chrom[e/ium] or edge with chromium engine needs to be installed, exit with Alt+F4)", action="store_true") 
     args = parser.parse_args()
 
-    if args.upgrade:
+    if args.update:
         upgradeDependencies()
     
-    if args.update:
+    if args.upgrade:
         updateApplication()
-        restart(["--upgrade"]) # restart with upgrade
 
     try:
         __import__("flask")

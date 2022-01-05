@@ -52,7 +52,7 @@ application = DispatcherMiddleware(app, {
 })
 
 def main(args):
-    if args.browser:
+    if args.window or args.kiosk:
         import browserpath
         arguments = ["--start-maximized"]
         if args.kiosk:
@@ -66,5 +66,9 @@ def main(args):
             subprocess.Popen([browserpath.get_default_chrome_path()]+arguments+["--app=http://localhost:1024"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         threading.Thread(target=startbrowser).start()
+
+    elif args.browser:
+        import webbrowser
+        webbrowser.open_new("http://localhost:1024")
 
     run_simple('localhost', 1024, application, use_reloader=False, use_debugger=False, use_evalex=True)
