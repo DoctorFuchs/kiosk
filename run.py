@@ -1,68 +1,61 @@
-import argparse
-import sys, os, subprocess
+import os
+import sys
+import time
+from threading import *
+from backend import api, webserver, dbengine, config
 
-os.chdir(os.path.split(__file__)[0] if os.path.split(__file__)[0] != "" else ".") 
-sys.path += ["lib", "backend"] # adds import paths
+# mySQL code snippets, that creates default database and table
+CREATEKIOSK = """CREATE DATABASE if not EXISTS `kiosk`"""
+USEKIOSK = """use kiosk;"""
+CREATESHOP = """create table if not EXISTS shop (
+    item_name text,
+    item_cost double,
+    item_amount int
+);"""
 
-def restart(addArgs=[]):
-    """Restart the run.py without upgrading and updating by default. addArgs adds arguments to run.py"""
-    browser = ["-b"] if args.browser else []
-    mode = ["-k"] if args.kiosk else ["-f"] if args.fullscreen else []
-    sys.exit(subprocess.check_call([sys.executable, __file__]+browser+mode+addArgs))
 
-def upgradeDependencies():   #not working with autoreload of flask
-        try:
-            # checks for pip module
-            __import__("pip")
+def getLoading(pro):
+    """returns a string, that make a simple loading bar. """
+    com = round((pro/100)*20)
+    uncom = round(20-com)
+    if com-uncom != 20:
+        uncom += com-uncom
 
-        except ImportError:
-            # if pip wasn't found, it will install pip with ensurepip
-            subprocess.check_call([sys.executable, "-m", "ensurepip"])
+    return "\r ["+"-"*com+" "*uncom+"] - "+str(pro) + "%"
 
-        finally:
-            subprocess.check_call([sys.executable ,"-m" , "pip", "install", "-r", "requirements.txt", "-t", "lib", "--upgrade", "--no-user"]) # --no-user => python 3.9 on Windows
 
-def updateApplication():
-    branch = "stable" # change the branch here => main (unstable), stable
-    # check that git is installed 
-    try:
-        subprocess.check_call(["git", "--version"])
-    except:
-        print("\n\033[93mGit isn't installed, so updating is not available.\033[0m\n")
-        return
+print("–"*25+"PREPARING SERVER"+"–"*25)
 
-    # check if this folder is a git repo
-    if not os.path.isdir(".git"): 
-        print("\n\033[93mThis is not a git repo. Can't update.\033[0m\n")
-    else: 
-        try:
-            subprocess.check_call(f"git pull origin {branch}".split(" "))
-            subprocess.check_call(f"git checkout {branch}".split(" "))
-        except subprocess.CalledProcessError:
-            print("\n\033[91mWhile trying to update the app an error occured. Please check the the log above for more information.\033[0m\n")
+print(getLoading(0), end="")
+dbengine.executeCode(code=CREATEKIOSK)
+print(getLoading(33), end="")
+dbengine.executeCode(code=USEKIOSK)
+print(getLoading(66), end="")
+dbengine.executeCode(code=CREATESHOP)
+print(getLoading(100)+" - DATABASE INIT SUCCESS")
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Launcher for kiosk application")
-    parser.add_argument("-U", "--upgrade", help="Upgrade the kiosk application, only available if git repository (git needs to be installed)", action="store_true")
-    parser.add_argument("-u", "--update", help="Force updating dependencies", action="store_true")
-    parser.add_argument("-b", "--browser", help="Launch browser while starting", action="store_true")
-    parser.add_argument("-w", "--window", help="Launch native looking window", action="store_true")
-    parser.add_argument("-f", "--fullscreen", help="Launch window in fullscreen", action="store_true") 
-    parser.add_argument("-k", "--kiosk", help="Launch chromium's kiosk mode(a 'super' fullscreen, chrom[e/ium] or edge with chromium engine needs to be installed, exit with Alt+F4)", action="store_true") 
-    args = parser.parse_args()
+# starts webserver and api
+print("–"*25+"STARTING SERVER"+"–"*26)
 
-    if args.update:
-        upgradeDependencies()
-    
-    if args.upgrade:
-        updateApplication()
+api_thread = Thread(target=api.main)
+api_thread.start()
 
-    try:
-        __import__("flask")
-    except ImportError:
-        upgradeDependencies()
-        __import__("flask")
+webserver_thread = Thread(target=webserver.main)
+webserver_thread.start()
 
-    # starts the server 
-    import server
-    server.main(args)
+time.sleep(1)  # This wait block is needed, because on startup the servers raise sometimes errors, so you can see them
+
+# server starts logging process
+print("–"*25+"SERVER LOGGING"+"–"*27, end="")
+
+time.sleep(1)
+
+# prevent that the default messages from httpd.serve_forever() will printed (the new client is better :)
+# but you can change it in backend/config.py)
+if config.modified_output:
+    print("\nMODIFIED OUTPUT ENABLED")
+    sys.stderr = open(os.devnull, "w")
+
+else:
+    print("\nMODIFIED OUTPUT DISABLED", file=sys.stderr)
+    sys.stdout = open(os.devnull, "w")

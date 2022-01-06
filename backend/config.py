@@ -1,21 +1,9 @@
-firewall_active: bool = True
-firewall_allowedips: list = ["127.0.0.1"]
+# all database configurations
+database_active: bool = False
+database_host: str = "127.0.0.1"  # default: "127.0.0.1"
+database_port: int = 3306  # default: 3306
+database_username: str = "root"
+database_password: str = "root1234"
 
-mimetypes = {
-    # text MIME types
-    "html": "text/html",
-    "css": "text/css",
-    "js": "text/js",
-    "json": "application/json",
-
-    # image MIME types
-    "gif": "image/gif",
-    "jpg":"image/jpeg",
-    "jpeg":"image/jpeg",
-    "png": "image/png",
-    "svg": "image/svg+xml",
-
-    # other MIME types
-    "pdf": "application/pdf"
-}
-mimetypes_default = "text/plain"
+# shell configurations
+modified_output: bool = True  # default: True (False is better for debug)

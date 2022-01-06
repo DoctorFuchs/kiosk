@@ -1,21 +1,23 @@
+var port = "5000/";
+
 function countChildren(element) {
 	var relem = element;
 	return relem.childNodes.length;
 }
 
-function gotosite(site) {
-	var content = document.getElementById("content");
-	content.innerHTML = `<iframe src='${site}' frameborder='0' width='100%' height='100%' id='iframe' style='opacity:0; transition:opacity 0.3s ease;'>`;
-	loadingAnimation();
+function apiGET(path){
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "localhost"+port+path, false ); 
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
 }
 
-function toggleFullScreen() {
-	if (!document.fullscreenElement) {
-		document.documentElement.requestFullscreen();
-	} else {
-	  if (document.exitFullscreen) {
-		document.exitFullscreen();
-	  }
-	}
-  }
+function kasse(){
+    document.getElementById("content")
+        .innerHTML = '<iframe src="kasse.html" height=100% width=100%></iframe>';
+}
 
+function lager(){
+    document.getElementById("content")
+        .innerHTML = '<iframe src="lager.html" height=100% width=100%></iframe>';
+}

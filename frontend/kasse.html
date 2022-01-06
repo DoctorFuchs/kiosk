@@ -1,0 +1,91 @@
+<!-- <!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/defaultstyle.css">
+    <link rel="stylesheet" type="text/css" href="css/kasse.css">
+    <script src="js/notifications.js"></script>
+    <script src="js/general.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/dashboard.js"></script>
+</head>
+ -->
+
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Kiosk</title>
+	<link rel="stylesheet" type="text/css" href="css/defaultstyle.css">
+	<link rel="stylesheet" type="text/css" href="css/kasse.css">
+	<script src="js/notifications.js"></script>
+	<script src="js/general.js"></script>
+	<script src="js/shop.js"></script>
+	<script src="js/dashboard.js"></script>
+</head>
+
+<body>
+	<nav class="nav">
+		<div class="logo">
+			<a href="/">KIOSK</a>
+		</div>
+		<ul>
+			<li>
+				<a onclick="">SHOP</a>
+			</li>
+			<li>
+				<a onclick="lager()">LAGER</a>
+			</li>
+			<li>
+				<a onclick="kasse()">KASSE</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="non-nav">
+		<div id="content">
+			<div id=produkte>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="produkt"><img src="./icons/icons8-info-100.png" alt=""><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+
+h
+
+			</div>
+			<div id="warenkorb">
+				<h3>Warenkorb</h3>
+				<div class="ware"><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="ware"><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="ware"><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="ware"><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="ware"><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="ware"><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="ware"><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="ware"><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="ware"><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+				<div class="ware"><h4>Schokolade</h4><br><span class="preis">1,00€</span></div>
+
+
+			</div>
+			<div id="hoveringBar"><button id="summe">5,00€</button><button id=abschließen>Abschließen<img src="./icons/icons8-warenkorb-100.png"></button></div>
+		</div>
+
+	</div>
+</body>
+
+</html>

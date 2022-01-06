@@ -1,0 +1,1284 @@
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-30––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-30––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-32––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-32––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-37––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-37––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-45––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-46––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-46––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-50––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-50––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-52––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-52––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-53––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-53––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-54––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-55––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-55––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-55––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-55––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-58––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-58––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 13-59––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-00––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-00––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-00––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-00––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-00––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-00––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-00––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-03––––––––––––––––
+webserver>>> can access: True	requested path: /
+MySQL> permission denied 
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-03––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+MySQL> permission denied 
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-09––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-09––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-09––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-09––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-09––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-09––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-09––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-09––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-09––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-11––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-11––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-11––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-11––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-11––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-11––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-11––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-11––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /shop
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /shop.html
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-16––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-17––––––––––––––––
+webserver>>> can access: True	requested path: /shop
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-17––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-17––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-17––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-17––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-17––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-18––––––––––––––––
+webserver>>> can access: True	requested path: /shop
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-18––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-18––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-18––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-18––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-18––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-18––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-18––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-19––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-23––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-23––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-23––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-23––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-23––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-23––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-23––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-23––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-23––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-23––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-24––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-24––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-24––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-24––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-24––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-24––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-24––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-24––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-25––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-25––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-27––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-27––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-27––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-27––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-27––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-27––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-27––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /robots.txt
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-28––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-30––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-30––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-30––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-30––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-30––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-30––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-30––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-30––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+API>>> can access: True	requested path: /
+{'invalid request'}
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+API>>> can access: True	requested path: /favicon.ico
+{'invalid request'}
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /robots.txt
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /robots.txt
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-31––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /robots.txt
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-32––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /shop
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /shop.html
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 14-53––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-04––––––––––––––––
+webserver>>> can access: True	requested path: /shop
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-04––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-04––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-04––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-04––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-04––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-04––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-04––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-04––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-04––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-07––––––––––––––––
+webserver>>> can access: True	requested path: /shop.html
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-07––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-07––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-07––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-07––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-07––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-07––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-09––––––––––––––––
+webserver>>> can access: True	requested path: /shop.html
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-09––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-09––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-09––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-09––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-09––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-11––––––––––––––––
+webserver>>> can access: True	requested path: /shop
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-11––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-11––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-11––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-11––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-11––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-11––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-11––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-13––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-13––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /shop
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-17––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-18––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-18––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-18––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-18––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-18––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-18––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-18––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-18––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-19––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-20––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-22––––––––––––––––
+webserver>>> can access: True	requested path: /
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-22––––––––––––––––
+webserver>>> can access: True	requested path: /css/defaultstyle.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-22––––––––––––––––
+webserver>>> can access: True	requested path: /css/dashboard.css
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-22––––––––––––––––
+webserver>>> can access: True	requested path: /js/notifications.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-22––––––––––––––––
+webserver>>> can access: True	requested path: /js/general.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-22––––––––––––––––
+webserver>>> can access: True	requested path: /js/shop.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-22––––––––––––––––
+webserver>>> can access: True	requested path: /js/dashboard.js
+
+–––––––––––––––GET REQUEST FROM 127.0.0.1 AT 15-22––––––––––––––––
+webserver>>> can access: True	requested path: /favicon.ico

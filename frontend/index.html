@@ -2,56 +2,59 @@
 <html lang="de">
 
 <head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="KIOSK APP -> OPEN SOURCE ON DoctorFuchs/Github">
-    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kiosk</title>
     <link rel="stylesheet" type="text/css" href="css/defaultstyle.css">
     <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="css/overlay.css">
-    <script src="js/overlay.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="js/notifications.js"></script>
     <script src="js/general.js"></script>
-    <script src="js/loadingAnimation.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/dashboard.js"></script>
 </head>
-<body id="body">
-    <div id="overlay"></div>
-    <div id="nav">
+
+<body>
+   
         <nav class="nav">
-            <div class="logo left-navbar-item">
-                <a href="index.html">KIOSK</a>
+            <div class="logo">
+                <a href="/">KIOSK</a>
             </div>
-            <div id="statusbar">
-                <span id="time" class="clock" style="border-right: solid 0.1vw #f2f2f2;"></span><span id="date" class="clock" style="border-left: solid 0.1vw #f2f2f2;"></span>
-            </div>
-            <ul class="right-navbar-item">
+            <ul>
                 <li>
-                    <a onclick="gotosite('shop.html')">SHOP</a>
+                    <a onclick="">SHOP</a>
                 </li>
                 <li>
-                    <a onclick="gotosite('storage.html')">LAGER</a>
+                    <a onclick="lager()">LAGER</a>
                 </li>
                 <li>
-                    <a onclick="gotosite('about.html')">ÜBER</a>
+                    <a onclick="kasse()">KASSE</a>
                 </li>
-                <!--<li>
-                    <a onclick="toggleFullScreen()">&#9974;</a>
-                </li>-->
             </ul>
         </nav>
-    </div>
+    
     <div class="non-nav">
+        <div id=sidebar>
+            <span id=uhr></span>
+            <span id=datum></span>
+        </div>
         <div id="content">
-            <nav class="dashboard_nav">
+            <nav class="dashboard_nav" onload="createNotification('<span id=uhr></span>', ''), uhrzeit()">
                 <ul>
-                    <li onclick="gotosite('shop.html')">SHOP</li>
-                    <li onclick="gotosite('storage.html')">LAGER</li>
-                    <li onclick="gotosite('about.html')">ÜBER</li>
+                    <li onclick="">
+                        SHOP
+                    </li>
+                    <li onclick="lager()">
+                        LAGER
+                    </li>
+                    <li onclick="kasse()">
+                        KASSE
+                    </li>
                 </ul>
             </nav>
+
+        </div>
+        <div id="notifications">
+
         </div>
     </div>
 </body>
