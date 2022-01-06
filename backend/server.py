@@ -61,9 +61,12 @@ def main(args):
             arguments = ["--start-fullscreen"]
 
         def startbrowser():
-            import time
-            time.sleep(2)
-            subprocess.Popen([browserpath.get_default_chrome_path()]+arguments+["--app=http://localhost:1024"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            try:
+                subprocess.Popen([browserpath.get_default_chrome_path()]+arguments+["--app=http://localhost:1024"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            except subprocess.CalledProcessError:
+                print("\n\033[93mThe desired mode could not be started. Please check if chrom[e/ium] or edge is installed.\033[0m\n")
+                import webbrowser
+                webbrowser.open_new("http://localhost:1024")
 
         threading.Thread(target=startbrowser).start()
 

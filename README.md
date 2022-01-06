@@ -16,6 +16,15 @@ Then make sure python 3 is installed. If not please install (https://www.python.
 ## configurate
 
 To setup contact information of the administrator for support reason, edit the config file (kiosk/frontend/config.json). First of all you can fill in the name. Secondly choose your different contacting possibilities. The first value of each holds the name, the second one the link or url (like mailto). Use "!m" to insert the message from below. The third contains the filename of your icon, wich have to be placed in kiosk/frontend/icons folder. The message field holds a personal message, wich you can insert in your links using "!m" there. To automaticly insert author name use "!a" and for a line break "!b" inside the message.
+```json
+["<Label/Name>", "<link/adress>", "<icon name>"]
+```
+
+| where to use | command | what it does      |
+|--------------|:-------:|-------------------|
+| in links     |    !m   | insert message    |
+| in message   |    !a   | insert author     |
+|              |    !b   | generate new line |
 
 ## run
 

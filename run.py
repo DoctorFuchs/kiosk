@@ -28,14 +28,18 @@ def updateApplication():
     try:
         subprocess.check_call(["git", "--version"])
     except:
-        print("git isn't installed. So we can't update")
+        print("\n\033[93mGit isn't installed, so updating is not available.\033[0m\n")
         return
 
     # check if this folder is a git repo
     if not os.path.isdir(".git"): 
-        print("This is not a git repo")
+        print("\n\033[93mThis is not a git repo. Can't update.\033[0m\n")
     else: 
-        subprocess.check_call(f"git pull origin {branch} && git checkout {branch}".split(" "))
+        try:
+            subprocess.check_call(f"git pull origin {branch}".split(" "))
+            subprocess.check_call(f"git checkout {branch}".split(" "))
+        except subprocess.CalledProcessError:
+            print("\n\033[91mWhile trying to update the app an error occured. Please check the the log above for more information.\033[0m\n")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Launcher for kiosk application")
