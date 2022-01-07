@@ -1,5 +1,6 @@
 from flask import Flask, request
 import os
+import re
 import pickle
 
 # create default variables
@@ -41,7 +42,7 @@ def additem():
     global items
     # check for requiered keys
     if not set(["item_name", "item_cost", "item_amount"]).issubset(set(request.args.keys())): return "failed"   
-    if not hasItem(items, request.args["item_name"])[0]:
+    if not hasItem(items, request.args["item_name"])[0] and re.match("[A-Za-z0-9]", request.args["item_name"]):
         items.append([request.args["item_name"], request.args["item_cost"], request.args["item_amount"]])
         return "success"
     

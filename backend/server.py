@@ -7,9 +7,10 @@ import os, subprocess
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
 
+
 def getFrontendPath():
     """Get path to the frontend"""
-    return __file__.replace("backend"+os.sep+"server.py", "frontend")+os.sep
+    return os.path.split(os.path.split(os.path.abspath(__file__))[0])[0]+os.sep+"frontend"+os.sep
 
 def getMimetype(filepath: str):
     """Get mimetype from file. (For example: .html => text/html) 
