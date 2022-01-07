@@ -26,6 +26,30 @@ var create_box = "<div><h1 style='font-size: 6vh'>ERSTELLUNG</h1>"+
 "<button style='width: 48%' class='exit' onclick='exitForm()' type='reset'>Exit</button>"+
 "</form></div>"
 
+var bar = "<tr class='header'>"+
+"<th id='product_name' onclick='order(\"name\")'>Produktname</th>"+
+"<th id='product_price' onclick='order(\"cost\")'>Preis</th>"+
+"<th id='product_amount' onclick='order(\"amount\")'>Verfügbare Menge</th>"+
+"</tr>"
+
+var req_args = "?sort=%sort%&revert=%revert%"
+var _by = ""
+var _revert = "false"
+
+function order(by) {
+    if (by==_by) {
+        _revert = _revert=="false"?"true":"false";
+    }
+    else {
+        _by = by
+        _revert = false
+    }
+}
+
+function get_order() {
+    return req_args.replaceAll("%sort%", _by).replaceAll("%revert%", _revert)
+}
+
 function edit(itemnumber) {
     var item = document.getElementById("item_"+String(itemnumber));
     var itemname = item.childNodes[0].textContent;
@@ -43,7 +67,7 @@ function loadItems() {
         let item = document.getElementById("item-table");
         let req =  reformat(response);
         item.innerHTML = ""
-        item.innerHTML += "<tr class='header'><th id='product_name'>Produktname</th><th id='product_price'>Preis</th><th id='product_amount'>Verfügbare Menge</th></tr>"
+        item.innerHTML += bar
         for (let i = 0; i < req.length ; i++) {
             let req_ = req[i].split(",")
             req_[0] = req_[0].replaceAll("'", "").replaceAll("+", " ")
@@ -53,7 +77,7 @@ function loadItems() {
         }
         setTimeout(loadItems, 700)
     }
-    request("/shop/list", callback=items_callback)
+    request("/shop/list"+get_order(), callback=items_callback)
 }
 
 function create() {

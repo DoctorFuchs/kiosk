@@ -75,4 +75,4 @@ def main(args):
         import webbrowser
         webbrowser.open_new("http://localhost:1024")
 
-    run_simple('localhost', 1024, application, use_reloader=False, use_debugger=False, use_evalex=True)
+    run_simple('localhost', 1024, application, use_reloader=True, use_debugger=False, use_evalex=True)

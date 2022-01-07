@@ -34,8 +34,21 @@ shop = Flask(__name__)
 
 @shop.route("/list")
 def get():
-    global items
-    return str(items)
+    sort = request.args.get("sort", "")
+    revert = request.args.get("revert", "false")
+
+    def take(elem):
+        if sort == "cost":
+            ind = 1
+        elif sort == "amount":
+            ind = 2
+        else:
+            ind = 0
+        return elem[ind]
+
+    local = items.copy()
+    local.sort(key=take, reverse=True if revert == "true" else False)
+    return str(local)
 
 @shop.route("/additem")
 def additem():
