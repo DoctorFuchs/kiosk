@@ -21,6 +21,7 @@ def upgradeDependencies():   #not working with autoreload of flask
 
         finally:
             subprocess.check_call([sys.executable ,"-m" , "pip", "install", "-r", "requirements.txt", "-t", "lib", "--upgrade", "--no-user"]) # --no-user => python 3.9 on Windows
+            sys.path.insert(1, "lib")
 
 def updateApplication():
     branch = "stable" # change the branch here => main (unstable), stable
