@@ -4,12 +4,6 @@ import sys, os, subprocess
 os.chdir(os.path.split(__file__)[0] if os.path.split(__file__)[0] != "" else ".") 
 sys.path += ["lib", "backend"] # adds import paths
 
-def restart(addArgs=[]):
-    """Restart the run.py without upgrading and updating by default. addArgs adds arguments to run.py"""
-    browser = ["-b"] if args.browser else []
-    mode = ["-k"] if args.kiosk else ["-f"] if args.fullscreen else []
-    sys.exit(subprocess.check_call([sys.executable, __file__]+browser+mode+addArgs))
-
 def upgradeDependencies():   #not working with autoreload of flask
         try:
             # checks for pip module
