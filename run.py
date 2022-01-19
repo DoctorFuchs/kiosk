@@ -54,9 +54,12 @@ if __name__ == "__main__":
 
     try:
         __import__("flask")
-    except ImportError:
+    
+    except ImportError or ModuleNotFoundError:
         upgradeDependencies()
-        __import__("flask")
+        # restart the process
+        subprocess.call([sys.executable]+[__file__]+sys.argv[2:])
+        sys.exit(0)
 
     # starts the server 
     import server
