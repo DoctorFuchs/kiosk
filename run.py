@@ -15,8 +15,10 @@ def upgradeDependencies():   #not working with autoreload of flask
 
         finally:
             subprocess.check_call([sys.executable ,"-m" , "pip", "install", "-r", "requirements.txt", "-t", "lib", "--upgrade", "--no-user"]) # --no-user => python 3.9 on Windows
-            sys.path.insert(1, "lib")
-
+            import site
+            from importlib import reload
+            reload(site)
+            
 def updateApplication():
     branch = "stable" # change the branch here => main (unstable), stable
     # check that git is installed 
@@ -54,12 +56,9 @@ if __name__ == "__main__":
 
     try:
         __import__("flask")
-    
-    except ImportError or ModuleNotFoundError:
+    except ImportError:
         upgradeDependencies()
-        # restart the process
-        subprocess.call([sys.executable]+[__file__]+sys.argv[2:])
-        sys.exit(0)
+        __import__("flask")
 
     # starts the server 
     import server
