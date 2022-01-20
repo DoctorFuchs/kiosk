@@ -75,4 +75,18 @@ def main(args):
         import webbrowser
         webbrowser.open_new("http://localhost:1024")
 
-    run_simple('localhost', 1024, application, use_reloader=True, use_debugger=False, use_evalex=True)
+    # @api.route("/firstRun") #dont now why it isn't working, should set first run to 0 when there is a request /api/firstRun?readed=1
+    # def firstRunCheck():
+    #     if int(request.args["readed"]) == 1:
+    #         args.firstRun = 0
+    #         return args.firstRun
+    #     else:
+    #         return str(int(args.firstRun))
+    
+    @api.route("/firstRun")
+    def firstRunCheck():
+        fR = str(int(args.firstRun))
+        args.firstRun = 0
+        return fR
+
+    run_simple('localhost', 1024, application, use_reloader=config.auto_reload, use_debugger=config.debugger, use_evalex=config.evalex)

@@ -8,13 +8,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
 
     transition: opacity 0.3s ease;
 }
 
-div#overlay div{
+#overlay div {
     border-radius: 20px;
     background: #0e0e0e;
     position: absolute;
@@ -26,12 +26,19 @@ div#overlay div{
     border: 2px solid #f2f2f2;
 }
 
-div#overlay div * {
-    font-size:4vh;
+#overlay div * {
+    font-size: 4vh;
 }
 
-div#overlay div button {
+#overlay div button {
     background: #f2f2f2;
     color: #0e0e0e;
     padding: 10px 10px;
 }
+
+#overlay * h1 {
+    font-size: 5vh;
+}
+
+#overlay * p {
+margin: 1rem 0;}

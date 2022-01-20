@@ -1,8 +1,18 @@
 import argparse
 import sys, os, subprocess
+from shutil import copyfile
 
 os.chdir(os.path.split(__file__)[0] if os.path.split(__file__)[0] != "" else ".") 
 sys.path += ["lib", "backend"] # adds import paths
+
+firstRun = 0
+if not os.path.exists("frontend/config.json"):
+    copyfile("frontend/js/templates/config.json", "frontend/config.json")
+    firstRun = 1
+if not os.path.exists("backend/config.py"):
+    copyfile("backend/templates/config.py", "backend/config.py")
+    firstRun = 1
+import config
 
 def upgradeDependencies():   #not working with autoreload of flask
         try:
@@ -18,7 +28,7 @@ def upgradeDependencies():   #not working with autoreload of flask
             sys.path.insert(1, "lib")
 
 def updateApplication():
-    branch = "stable" # change the branch here => main (unstable), stable
+    branch = config.update_branch # change the branch in config.py
     # check that git is installed 
     try:
         subprocess.check_call(["git", "--version"])
@@ -57,6 +67,8 @@ if __name__ == "__main__":
     except ImportError:
         upgradeDependencies()
         __import__("flask")
+
+    args.firstRun = firstRun
 
     # starts the server 
     import server
