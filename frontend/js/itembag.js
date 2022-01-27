@@ -1,3 +1,5 @@
+let itembag_pay_overlay = "<div>"
+
 let itembag = []
 
 function get_amount_from_itembag(item_name) {
@@ -43,18 +45,31 @@ function itembag_add(item_name, item_cost, item_amount) {
     itembag_render()
 }
 
-function itembag_render() {
+function itembag_render(to_pay = false) {
     itembag_update()
-    let elem = document.getElementById("itembag");
+    let elem = document.getElementById(to_pay?"to_pay_itembag":"itembag");
     sum = 0
     elem.innerHTML = itembag.length<=0?
     "<h1 style='font-size: 4vh; color: white'>Fügen sie Produkte durch anklicken hinzu</h1>": 
     "<h3 style=\"position:fixed;\">Warenkorb</h3><div style=\"height: 4vh;\"></div>"
-    itembag.forEach(item=>{
-        elem.innerHTML += "<div class='item' onclick='itembag_remove(\""+item[0]+"\", 1)'><h4>"+item[0]+"</h4><span>"+item[1]*item[2]+"€</span><span style='float: right'>"+item[2]+"</span></div>"
+    itembag.forEach(item => {
+        item[1] < 0 ? itembag_remove(item[0], 1) : ""
+        if (to_pay) {
+            elem.innerHTML += "<div class='item'><h4>" + item[0] + "</h4><span>" + item[1] * item[2] + "€</span><span style='float: right'>" + item[2] + "</span></div>"
+        }
+        else {
+            elem.innerHTML += "<div class='item' onclick='itembag_remove(\""+item[0]+"\", 1)'><h4>"+item[0]+"</h4><span>"+item[1]*item[2]+"€</span><span style='float: right'>"+item[2]+"</span></div>"
+        }
+        
         sum += item[1]*item[2]
     })
-    let sumelem = document.getElementById("sum").innerText = sum+"€"
+    document.getElementById("sum").innerText = sum + "€"
+}
+
+function itembag_pay() {
+    overlay_on(itembag_pay_overlay)
+    itembag_render(to_pay=true)
+    request("")
 }
 
 function callback(response) {
