@@ -1,6 +1,16 @@
+#application
+update_branch: str = "stable" # main (unstable), stable
+
+#firewall
 firewall_active: bool = True
 firewall_allowedips: list = ["127.0.0.1"]
 
+#server
+auto_reload: bool = False
+debugger: bool = False
+evalex: bool = False
+
+#mimetypes
 mimetypes = {
     # text MIME types
     "html": "text/html",

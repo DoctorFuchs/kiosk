@@ -1,3 +1,6 @@
+#configuration files
+backend/config.py
+frontend/config.json
 # savefiles for storage are saved here
 storages 
 
