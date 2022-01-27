@@ -55,7 +55,7 @@ def additem():
     global items
     # check for requiered keys
     if not set(["item_name", "item_cost", "item_amount"]).issubset(set(request.args.keys())): return "failed"   
-    if not hasItem(items, request.args["item_name"])[0] and re.match("[A-Za-z0-9]", request.args["item_name"]):
+    if not hasItem(items, request.args["item_name"])[0] and re.match("[A-Za-z0-9+]", request.args["item_name"]) and re.match("[0-9+]", request.args["item_amount"]) and re.match("[0-9+]", request.args["item_amount"]):
         items.append([request.args["item_name"], request.args["item_cost"], request.args["item_amount"]])
         return "success"
     
@@ -68,6 +68,20 @@ def delete():
     if not set(["item_name"]).issubset(set(request.args.keys())): return "failed"   
     return ("success" if hasItem(items, request.args["item_name"], delete=True)[0] else "failed")
         
+
+@shop.route("/buy")
+def buy():
+    global items
+    # check for required keys
+    if not set(["item_name", "item_amount"]).issubset(set(request.args.keys())): return "failed"   
+    if not hasItem(items, request.args["item_name"])[0] or re.match("[0-9+]", request.args["item_amount"]):
+        return "failed-format check failed"
+    else:
+        items[hasItem(items, request.args["item_name"])[1]][2] = str(int(items[hasItem(items, request.args["item_name"])[1]][2]) - int(request.args["item_name"]))
+        if int(items[hasItem(items, request.args["item_name"])[1]][2]) <= 0:
+            del items[hasItem(items, request.args["item_name"])[1]]
+
+    return "success"
 
 @shop.route("/edit")
 def edit():
