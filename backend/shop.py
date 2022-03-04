@@ -74,10 +74,10 @@ def buy():
     global items
     # check for required keys
     if not set(["item_name", "item_amount"]).issubset(set(request.args.keys())): return "failed"   
-    if not hasItem(items, request.args["item_name"])[0] or re.match("[0-9+]", request.args["item_amount"]):
+    if not hasItem(items, request.args["item_name"])[0] or not re.match("[0-9]+", request.args["item_amount"]):
         return "failed-format check failed"
     else:
-        items[hasItem(items, request.args["item_name"])[1]][2] = str(int(items[hasItem(items, request.args["item_name"])[1]][2]) - int(request.args["item_name"]))
+        items[hasItem(items, request.args["item_name"])[1]][2] = str(int(items[hasItem(items, request.args["item_name"])[1]][2]) - int(request.args["item_amount"]))
         if int(items[hasItem(items, request.args["item_name"])[1]][2]) <= 0:
             del items[hasItem(items, request.args["item_name"])[1]]
 

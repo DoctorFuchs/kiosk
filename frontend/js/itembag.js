@@ -82,6 +82,9 @@ function itembag_pay_finish() {
     itembag.forEach(item => {
         request("/shop/buy?item_name=" + item[0] + "&item_amount=" + item[2], a => {})
     })
+    itembag = []
+    itembag_render()
+    
 }
 
 function callback(response) {
