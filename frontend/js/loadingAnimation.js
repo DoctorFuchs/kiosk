@@ -1,13 +1,14 @@
 function loadingAnimation() {
-    document.getElementById('iframe').addEventListener('load',() => {
+    document.getElementById('iframe').addEventListener('load', async () => {
         // Hide the loading indicator
-        setTimeout(overlay_off, 1000);
+        // await new Promise(resolve => setTimeout(resolve, 0)) //wait time before disable loader
+        overlay_off()
         // Bring the iframe back
         document.getElementById('iframe').style.opacity = '1';
     });
     document.getElementById('iframe').style.opacity = '0';
     var month = new Date().getMonth() + 1
-    if(month === 12) {
+    if (month === 12) {
         var loadingAnimation = "christmasLoadingAnimation.html"
     } else {
         var loadingAnimation = "loadingAnimation.html"
