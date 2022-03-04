@@ -43,18 +43,48 @@ function itembag_add(item_name, item_cost, item_amount) {
     itembag_render()
 }
 
-function itembag_render() {
+function itembag_render(to_pay = false) {
     itembag_update()
-    let elem = document.getElementById("itembag");
+    let elem = document.getElementById(to_pay?"to_pay_itembag":"itembag");
     sum = 0
-    elem.innerHTML = itembag.length<=0?
-    "<h1 style='font-size: 4vh; color: white'>Fügen sie Produkte durch anklicken hinzu</h1>": 
-    "<h3 style=\"position:fixed;\">Warenkorb</h3><div style=\"height: 4vh;\"></div>"
-    itembag.forEach(item=>{
-        elem.innerHTML += "<div class='item' onclick='itembag_remove(\""+item[0]+"\", 1)'><h4>"+item[0]+"</h4><span>"+item[1]*item[2]+"€</span><span style='float: right'>"+item[2]+"</span></div>"
+    if (!to_pay) {
+        elem.innerHTML = itembag.length <= 0 ?
+            "<h1 style='font-size: 4vh; color: white'>Fügen sie Produkte durch anklicken hinzu</h1>" :
+            "<h3 style=\"position:fixed;\">Warenkorb</h3><div style=\"height: 4vh;\"></div>"
+    }
+    else {
+        elem.innerHTML = itembag.length <= 0 ?
+            "<h1 style='font-size: 4vh; color: white'>Fügen sie Produkte durch anklicken hinzu</h1>" :
+            ""
+    }
+    
+    itembag.forEach(item => {
+        item[1] < 0 ? itembag_remove(item[0], 1) : ""
+        if (to_pay) {
+            elem.innerHTML += "<section><h4>" + item[0] + "</h4><span>" + item[1] * item[2] + "€</span><span style='float: right'>" + item[2] + "</span></section>"
+        }
+        else {
+            elem.innerHTML += "<div class='item' onclick='itembag_remove(\""+item[0]+"\", 1)'><h4>"+item[0]+"</h4><span>"+item[1]*item[2]+"€</span><span style='float: right'>"+item[2]+"</span></div>"
+        }
+        
         sum += item[1]*item[2]
     })
-    let sumelem = document.getElementById("sum").innerText = sum+"€"
+    document.getElementById("sum").innerText = sum + "€"
+}
+
+function itembag_pay() {
+    itembag_pay_overlay = "<div><h1>Abschließen</h1><h3 style='position:fixed'>Kassenzettel</h3><section style='height:5vh'></section><hr><section style='height:50vh; overflow:auto' id='to_pay_itembag'></section><button onclick='overlay_off()' style='padding:1rem'>Abbrechen</button><button onclick='itembag_pay_finish();overlay_off()' style='padding:1rem'>Bezahlt!</button></div>"
+    overlay_on(itembag_pay_overlay)
+    itembag_render(to_pay=true)
+}
+
+function itembag_pay_finish() {
+    itembag.forEach(item => {
+        request("/shop/buy?item_name=" + item[0] + "&item_amount=" + item[2], a => {})
+    })
+    itembag = []
+    itembag_render()
+    
 }
 
 function callback(response) {
