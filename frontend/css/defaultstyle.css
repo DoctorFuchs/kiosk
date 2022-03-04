@@ -88,7 +88,7 @@ input, input:before, input:after {
 
 .nav ul li *:hover,
 .logo *:hover, .nav ul li *:active,
-.logo *:active  {
+.logo *:active, .active  {
 	color: #0e0e0e;
 	background-color: #f2f2f2;
 }

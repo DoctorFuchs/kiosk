@@ -19,7 +19,7 @@ nav.dashboard_nav ul {
 	flex-wrap: wrap;
 }
 
-nav.dashboard_nav ul li {
+nav.dashboard_nav ul a {
 	width: 30vw;
 	height: 30vw;
 	margin: 1%;
@@ -41,7 +41,7 @@ nav.dashboard_nav ul li {
 	box-shadow: 0 0 1px 1px #f2f2f2;
 }
 
-nav.dashboard_nav ul li:hover, nav.dashboard_nav ul li:active {
+nav.dashboard_nav ul a:hover, nav.dashboard_nav ul a:active {
 	color: #f2f2f2;
 	background-color: #0e0e0e;
 	

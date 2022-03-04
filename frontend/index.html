@@ -4,7 +4,7 @@
 <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="KIOSK APP -> OPEN SOURCE ON DoctorFuchs/Github">
     <meta name="robots" content="noindex">
     <title>Kiosk</title>
@@ -17,6 +17,7 @@
     <script src="js/general.js"></script>
     <script src="js/loadingAnimation.js"></script>
 </head>
+
 <body id="body">
     <div id="overlay"></div>
     <div id="nav">
@@ -25,17 +26,18 @@
                 <a href="index.html">KIOSK</a>
             </div>
             <div id="statusbar">
-                <span id="time" class="clock" style="border-right: solid 0.1vw #f2f2f2;"></span><span id="date" class="clock" style="border-left: solid 0.1vw #f2f2f2;"></span>
+                <span id="time" class="clock" style="border-right: solid 0.1vw #f2f2f2;"></span><span id="date"
+                    class="clock" style="border-left: solid 0.1vw #f2f2f2;"></span>
             </div>
             <ul class="right-navbar-item">
                 <li>
-                    <a onclick="gotosite('shop.html')">SHOP</a>
+                    <a href="shop.html">SHOP</a>
                 </li>
                 <li>
-                    <a onclick="gotosite('storage.html')">LAGER</a>
+                    <a href="storage.html">LAGER</a>
                 </li>
                 <li>
-                    <a onclick="gotosite('about.html')">ÜBER</a>
+                    <a href="about.html">ÜBER</a>
                 </li>
                 <li>
                     <a onclick="toggleFullScreen()">&#9974;</a>
@@ -47,9 +49,9 @@
         <div id="content">
             <nav class="dashboard_nav">
                 <ul>
-                    <li onclick="gotosite('shop.html')">SHOP</li>
-                    <li onclick="gotosite('storage.html')">LAGER</li>
-                    <li onclick="gotosite('about.html')">ÜBER</li>
+                    <a href="shop.html">SHOP</a>
+                    <a href="storage.html">LAGER</a>
+                    <a href="about.html">ÜBER</a>
                 </ul>
             </nav>
         </div>
