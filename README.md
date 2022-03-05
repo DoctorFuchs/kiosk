@@ -53,6 +53,6 @@ python3 run.py
 This app is an assignment. 
 The frontend is designed in german language (because it is an assignment from germany). 
 All comments, readme's or tips are in english. 
-Therefor we are no english native speaker so feel free to submit your language improvments.
+Therefor we are no english native speakers so feel free to submit your language improvments.
 
 If you have a question, open an issue in this repository.
