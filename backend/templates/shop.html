@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="css/shop.css">
+	<link rel="stylesheet" type="text/css" href="css/overlay.css">
+	<script src="js/general.js"></script>
+	<script src="js/dashboard.js"></script>
+	<script src="js/api.js"></script>
+	<script src="js/itembag.js"></script>
+	<script src="js/overlay.js"></script>
+{% endblock %}
+{% block body %}
+	<div id="non-nav">
+		<div id="content">
+			<div id="products">
+
+			</div>
+			<div id="itembag">
+				<h1 style='font-size: 4vh; color: white'>{{ lang.add_products_warning }}</h1>
+			</div>
+			<div id="hoveringBar"><button id="sum">0€</button><button onclick="itembag_pay()" id="submit">{{ lang.pay }}<img src="./icons/icons8-warenkorb-100.png"></button></div>
+		</div>
+	</div>
+{% endblock %}

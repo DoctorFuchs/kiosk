@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="css/storage.css">
+    <link rel="stylesheet" type="text/css" href="css/overlay.css">
+    <script src="js/api.js"></script>
+    <script src="js/overlay.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/general.js"></script>
+{% endblock %}
+{% block body %}
+    <div id="menu">
+        <button id="create" onclick='create()'>{{ lang.new_product }}</button>
+    </div>
+    <div id="items">
+        <table id="item-table" cellpadding="0">
+            
+        </table>
+    </div>
+{% endblock %}

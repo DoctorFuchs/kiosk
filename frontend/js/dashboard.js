@@ -37,11 +37,3 @@ function reformat(number) {
 
 document.addEventListener('DOMContentLoaded', date);
 document.addEventListener('DOMContentLoaded', time);
-
-fetch("/api/firstRun")
-	.then(response => response.text())
-	.then(data => {
-		if (data == 1) {
-			overlay_on(greeting)
-		}
-	});

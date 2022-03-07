@@ -1,36 +1,20 @@
-var edit_box = "<div><h1 style='font-size: 6vh'>BEARBEITUNG - %itemname%</h1>"+
-"<iframe style='display:none' name='hiddenframe'></iframe>"+
-"<form action='/api/shop/edit' target='hiddenframe' method='GET' onsubmit='overlay_off()'>"+
-"<input required name='item_name_old' type='hidden' value='%itemname%'>"+
-"<label class='edit-label' for='item_name_new'>Name</label><br>"+
-"<input required pattern='[a-zA-Z0-9\\s]+' class='edit' id='item_name_new' name='item_name_new' value='%itemname%' type='text'><br>"+
-"<label class='edit-label' for='item_cost_new'>Preis</label><br>"+
-"<input required class='edit' id='item_cost_new' name='item_cost_new' value=%itemcost% type='number' min='0' step='0.01'><br>"+
-"<label class='edit-label' for='item_amount_new'>Verfügbare Menge</label><br>"+
-"<input required class='edit' id='item_amount_new' name='item_amount_new' value=%itemamount% type='number' min=0 step='1'><br>"+
-"<button class='submit-button' type='submit'>Okay</button>"+
-"<button class='delete' onclick='deleteitem(\"%itemname%\"); exitForm()' type='button' type='reset'>Löschen</button>"+
-"<button class='exit' onclick='exitForm()' type='reset'>Exit</button>"+
-"</form></div>"
+var edit_box;
+var create_box;
+var bar;
 
-var create_box = "<div><h1 style='font-size: 6vh'>ERSTELLUNG</h1>"+
-"<iframe style='display:none' name='hiddenframe'></iframe>"+
-"<form action='/api/shop/additem' target='hiddenframe' onsubmit='exitForm()' method='GET'>"+
-"<label class='create-label' for='item_name_new'>Name</label><br>"+
-"<input required pattern='[a-zA-Z0-9\\s]+' class='create' id='item_name' name='item_name' type='text' requiered=True></input><br>"+
-"<label class='create-label' for='item_cost'>Preis</label><br>"+
-"<input required class='create' id='item_cost' name='item_cost' type='number' min='0' step='0.01'><br>"+
-"<label class='create-label' for='item_amount'>Verfügbare Menge</label><br>"+
-"<input required class='create' id='item_amount' name='item_amount' type='number' min=0 step='1'><br>"+
-"<button style='width: 48%' class='submit-button' type='submit'>Okay</button>"+
-"<button style='width: 48%' class='exit' onclick='exitForm()' type='reset'>Exit</button>"+
-"</form></div>"
+fetch("storage/edit_box.html")
+    .then(res => res.text())
+    .then(data => edit_box = data)
 
-var bar = "<tr class='header'>"+
-"<th id='product_name' onclick='order(\"name\")'>Produktname</th>"+
-"<th id='product_price' onclick='order(\"cost\")'>Preis</th>"+
-"<th id='product_amount' onclick='order(\"amount\")'>Verfügbare Menge</th>"+
-"</tr>"
+fetch("storage/create_box.html")
+    .then(res => res.text())
+    .then(data => create_box = data)
+
+fetch("storage/header_bar.html")
+    .then(res => res.text())
+    .then(data => bar = data)
+
+
 
 var req_args = "?sort=%sort%&revert=%revert%"
 var _by = ""
@@ -44,6 +28,7 @@ function order(by) {
         _by = by
         _revert = false
     }
+    loadItems()
 }
 
 function get_order() {
@@ -56,14 +41,14 @@ function edit(itemnumber) {
     var itemcost = item.childNodes[1].textContent.replace("€", "");
     var itemamount = item.childNodes[2].textContent;
     overlay_on(edit_box
-        .replaceAll("%itemname%", itemname)
-        .replaceAll("%itemcost%", itemcost)
-        .replaceAll("%itemamount%", itemamount))
+        .replaceAll("%itemname%", itemname.trim())
+        .replaceAll("%itemcost%", itemcost.trim())
+        .replaceAll("%itemamount%", itemamount.trim()))
+    loadItems()
 }
 
 function loadItems() {
     function items_callback(response) {
-        document.getElementById("item-loader").style.display = "none"
         let item = document.getElementById("item-table");
         let req =  reformat(response);
         item.innerHTML = ""
@@ -75,7 +60,6 @@ function loadItems() {
             req_[2] = req_[2].replaceAll("'", "")
             item.innerHTML += "<tr class='item' id='item_"+i+"' onclick='edit("+i+")'><td class='left'>"+req_[0]+"</td><td>"+req_[1]+"€</td><td class='right'>"+req_[2]+"</td></tr>"
         }
-        setTimeout(loadItems, 700)
     }
     request("/shop/list"+get_order(), callback=items_callback)
 }
@@ -86,11 +70,14 @@ function create() {
 
 function exitForm() {
     overlay_off();
+    loadItems()
 }
 
 function deleteitem(itemname) {
     request("/shop/delete?item_name="+itemname);
     overlay_off()
+    loadItems()
 }
 
 document.addEventListener("DOMContentLoaded", loadItems())
+document.addEventListener("submit", loadItems())

@@ -5,13 +5,11 @@ from shutil import copyfile
 os.chdir(os.path.split(__file__)[0] if os.path.split(__file__)[0] != "" else ".") 
 sys.path += ["lib", "backend"] # adds import paths
 
-firstRun = 0
-if not os.path.exists("frontend/config.json"):
-    copyfile("frontend/js/templates/config.json", "frontend/config.json")
-    firstRun = 1
+firstrun = False
 if not os.path.exists("backend/config.py"):
-    copyfile("backend/templates/config.py", "backend/config.py")
-    firstRun = 1
+    copyfile("config_template/config.py", "backend/config.py")
+    firstRun = True
+
 import config
 
 def upgradeDependencies():   #not working with autoreload of flask
@@ -70,7 +68,7 @@ if __name__ == "__main__":
         upgradeDependencies()
         __import__("flask")
 
-    args.firstRun = firstRun
+    args.firstrun = firstrun
 
     # starts the server 
     import server

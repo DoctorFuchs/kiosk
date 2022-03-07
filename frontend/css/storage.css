@@ -44,7 +44,6 @@ label.create-label {
     font-size: 3vh;
 }
 
-
 button {
     font-size: 3vh;
     width: 100%;
@@ -61,14 +60,8 @@ button:hover {
 }
 
 .submit-button, 
-.delete {
-    margin-top: 3vh;
-    width: 31%;
-    margin-right: 4%;
-}
-
+.delete,  
 .exit {
-    margin-top: 3vh;
-    width: 30%;
+    margin-top: 2vh;
+    width: 100%;
 }
-

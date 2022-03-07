@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+<link rel="stylesheet" type="text/css" href="css/overlay.css">
+<script src="js/overlay.js"></script>
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/loadingAnimation.js"></script>
+{% endblock %}
+{% block body %}
+<div class="non-nav">
+    <div id="content">
+        <nav class="dashboard_nav">
+            <ul>
+                <a href="shop.html">{{ lang.shop }}</a>
+                <a href="storage.html">{{ lang.storage }}</a>
+                <a href="about.html">{{ lang.about }}</a>
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}

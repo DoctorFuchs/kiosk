@@ -1,12 +1,14 @@
-from sys import stderr
 import threading
-from flask import Flask, request, Response, send_file
+from flask import Flask, request, Response, send_file, render_template
 import config
-from shop import shop
+from languages import languages
+from api import api
 import os, subprocess
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
+from jinja2.exceptions import TemplateNotFound
 
+firstrun = False
 
 def getFrontendPath():
     """Get path to the frontend"""
@@ -19,9 +21,7 @@ def getMimetype(filepath: str):
     
 
 app = Flask(__name__)
-api = Flask(__name__)
 
-@shop.before_request
 @api.before_request
 @app.before_request
 def firewall():
@@ -29,30 +29,40 @@ def firewall():
         return "You have no access to this application.", 401
 
 @app.errorhandler(404)
-def appFallback(error):
-    return send_file("index.html")
+def app_fallback(error):
+    return render_template("index.html")
 
-@shop.errorhandler(404)
 @api.errorhandler(404)
-def apiFallback(error):
+def api_fallback(error):
     return "invalid request"
 
-@app.route('/', defaults={'reqPath': 'index.html'})
-@app.route('/<path:reqPath>')
-def appServe(reqPath):
+@app.route('/', defaults={'req_path': 'index.html'})
+@app.route('/<path:req_path>')
+def app_serve(req_path):
+    lang = request.cookies.get("lang", config.default_language)
     try:
-        return send_file(getFrontendPath()+reqPath.replace("/", os.sep), mimetype=getMimetype(reqPath))
-    
+        try:
+            return render_template(req_path, **{
+                "lang": languages.get(lang),
+                "firstrun":firstrun,
+                "contact":config.contact,
+                "langs":languages.keys(),
+                "active_language":lang
+                })
+        
+        except TemplateNotFound:
+            return send_file(getFrontendPath()+req_path.replace("/", os.sep), mimetype=getMimetype(req_path))
+
     except FileNotFoundError:
         return Response("", 404)
 
 
 application = DispatcherMiddleware(app, {
-    '/api': api,
-    '/api/shop': shop
+    '/api/shop': api
 })
 
 def main(args):
+    global firstrun 
     if args.window or args.kiosk:
         import browserpath
         arguments = ["--start-maximized"]
@@ -74,19 +84,7 @@ def main(args):
     elif args.browser:
         import webbrowser
         webbrowser.open_new("http://localhost:1024")
-
-    # @api.route("/firstRun") #dont now why it isn't working, should set first run to 0 when there is a request /api/firstRun?readed=1
-    # def firstRunCheck():
-    #     if int(request.args["readed"]) == 1:
-    #         args.firstRun = 0
-    #         return args.firstRun
-    #     else:
-    #         return str(int(args.firstRun))
     
-    @api.route("/firstRun")
-    def firstRunCheck():
-        fR = str(int(args.firstRun))
-        args.firstRun = 0
-        return fR
+    firstrun = args.firstrun
 
-    run_simple('localhost', 1024, application, use_reloader=config.auto_reload, use_debugger=config.debugger, use_evalex=config.evalex)
+    run_simple('localhost', config.port, application, use_reloader=config.auto_reload, use_debugger=config.debugger, use_evalex=config.evalex)

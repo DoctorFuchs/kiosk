@@ -13,16 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function gotosite(site) {
-	document.querySelectorAll(".right-navbar-item > li > a").forEach((element) => {
-		element.classList.remove("active")
-	})
-	document.querySelectorAll(`.right-navbar-item > li > a`).forEach((element) => {
-		if (element.href == site) {
-			element.classList.add("active")
-		}
-	})
-	document.getElementById("content").innerHTML = `<iframe src='${site}' frameborder='0' width='100%' height='100%' id='iframe' style='opacity:0; transition:opacity 0.3s ease;'>`;
-	loadingAnimation();
+	window.location.href = site
 }
 
 function toggleFullScreen() {
@@ -34,3 +25,23 @@ function toggleFullScreen() {
 		}
 	}
 }
+
+function getCookie(cname) {
+	let name = cname + "=";
+	let decodedCookie = decodeURIComponent(document.cookie);
+	let ca = decodedCookie.split(';');
+	for (let i = 0; i < ca.length; i++) {
+		let c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+
+addEventListener("DOMContentLoaded", e => {
+	getCookie("fullscreen") === "1" ? toggleFullScreen : "";
+})

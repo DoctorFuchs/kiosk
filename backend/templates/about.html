@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block head %}
+    <script src="js/qrcode.min.js"></script>
+    <link rel="stylesheet" href="css/about.css">
+    <script>
+        function makeLinksAvailableOfflineAsQrCode() {
+            document.addEventListener("DOMContentLoaded", () => {
+                var a = document.getElementsByTagName("a");
+                for (let index = 0; index < a.length; index++) {
+                    a[index].addEventListener("click", (element) => {
+                        element.preventDefault();
+                        goToWebsite(element.target.getAttribute("href"));
+                    });
+                };
+            });
+        };
+
+        function goToWebsite(url) {
+            var onlineStatus = navigator.onLine
+            if (onlineStatus == true) {
+                window.open(url, "_blank")
+            };
+            if (onlineStatus == false) {
+                overlay_on(
+                    `<div id="qrcode" onclick="overlay_off()"></div>`
+                );
+                new QRCode(document.getElementById("qrcode"), url);
+            };
+        };
+    </script>
+{% endblock %}
+{% block body %}
+    <div id="content">
+        <h1> {{ lang.about_attributes.header }} </h1>
+        {% for body in lang.about_attributes.bodys%}
+            <p>{{ body }}</p>
+        {% endfor %}
+        <p id="links">
+            <span class="links">
+                <span></span>
+                <a target="_blank" href="https://github.com/Doctorfuchs/kiosk"><img src="./icons/github.svg" alt="GitHub">GitHub</a>
+            </span>
+            <span id="contact">
+                <span id="admin-name">{{ contact.admin_name }}</span>
+                <span class="links" id="admin-contact">
+                    {% for contact_way in contact.contact_ways%}
+                        <a href="{{contact_way.link}}" target="_blank" title="{{contact_way.name}}"><img src="./icons/{{contact_way.icon}}" alt="{{contact_way.icon}} Logo"></a>
+                    {% endfor %}
+                </span>
+            </span>
+        </p>
+    </div>
+{% endblock %}
