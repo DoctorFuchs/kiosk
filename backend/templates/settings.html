@@ -30,17 +30,17 @@
 </script>
 {% endblock %}
 {% block body %}
-<div id="non-nav">
+<div id="non-nav" style="margin-left: 10vw">
 
     <h1 style="font-size:5vh">{{lang.settings}}</h1>
     <h2 style="font-size:3vh">{{lang.language}}</h2>
-    <fieldset id="lang">
+    <fieldset id="lang" style="width:max-content">
         {% for language in langs %}
         <input class="lang" type="checkbox" onclick='uncheckOthers("{{language}}", "lang")' id="{{language}}" value="{{language}}" {% if language== active_language %}checked{% endif %}>
         <label for="{{language}}">{{language}}</label>
         {% endfor %}
     </fieldset>
-    <hr />
+    <br />
     <button onclick="submit()" type="submit" style="color:black">{{lang.save}}</button>
 </div>
 {% endblock %}

@@ -45,6 +45,8 @@ function itembag_render(to_pay = false) {
     itembag_update()
     let elem = document.getElementById(to_pay?"to_pay_itembag":"itembag");
     sum = 0
+
+    elem.innerHTML = ""
     
     itembag.forEach(item => {
         item[1] < 0 ? itembag_remove(item[0], 1) : ""
@@ -61,7 +63,9 @@ function itembag_render(to_pay = false) {
 }
 
 function itembag_pay() {
-    itembag_pay_overlay = 
+    fetch("/storage/itembag_pay.html")
+        .then(res => res.text())
+        .then(data => itembag_pay_overlay = data)
     overlay_on(itembag_pay_overlay)
     itembag_render(to_pay=true)
 }
