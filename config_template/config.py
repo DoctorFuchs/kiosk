@@ -8,11 +8,11 @@ firewall_active: bool = True
 firewall_allowedips: list = ["127.0.0.1"]
 
 #server
-auto_reload: bool = True
+auto_reload: bool = False
 debugger: bool = False
 evalex: bool = False
 
-port: int = 1025
+port: int = 1024
 
 #mimetypes
 mimetypes = {
@@ -36,11 +36,10 @@ mimetypes_default = "text/plain"
 
 default_language = "de"
 
-# ü -> \u00FC
-# Ü -> \u00DC
-# ä -> \u00E4
-# ö -> \u00F6
-# ß -> \u00DF
+# Ãœ, Ã¼     \u00dc, \u00fc
+# Ã„, Ã¤     \u00c4, \u00e4
+# Ã–, Ã¶     \u00d6, \u00f6
+# ÃŸ        \u00df
 
 contact = {
         "admin_name": "Test Test",
