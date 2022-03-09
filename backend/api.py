@@ -9,7 +9,7 @@ savefilePath = storageDir + os.sep + "shop"
 items = []
 
 # creates file and folder if they don't exist
-if not os.path.isdir(storageDir): os.mkdir(__file__.replace(f"backend{os.sep}shop.py", "storages"))
+if not os.path.isdir(storageDir): os.mkdir(__file__.replace(f"backend{os.sep}api.py", "storages"))
 if not os.path.isfile(savefilePath): open(savefilePath, "w+b").close()
 
 savefile = open(savefilePath, "r+b")
