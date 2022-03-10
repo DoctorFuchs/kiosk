@@ -6,8 +6,8 @@ os.chdir(os.path.split(__file__)[0] if os.path.split(__file__)[0] != "" else "."
 sys.path += ["lib", "backend"] # adds import paths
 
 firstrun = False
-if not os.path.exists("backend/config.py"):
-    copyfile("config_template/config.py", "backend/config.py")
+if not os.path.exists("./config.py"):
+    copyfile("./backend/config_template/config.py", "./config.py")
     firstRun = True
 
 import config
