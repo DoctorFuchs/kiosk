@@ -32,6 +32,11 @@ input, input:before, input:after {
 	user-select: auto;
 }
 
+#nav {
+	position: sticky;
+	top: 0;
+}
+
 .nav {
 	display: flex;
 	width: 100%;
@@ -40,6 +45,9 @@ input, input:before, input:after {
 	justify-content: space-between;
 	padding: 2%;
 	flex-wrap: nowrap;
+	background-color: #0e0e0e;
+	box-shadow: 0 0 0.3rem 0px #000;
+	border-radius: 0;
 }
 
 .left-navbar-item, .right-navbar-item {
@@ -108,6 +116,17 @@ h1 {
 	font-weight: bolder;
 }
 
-iframe {
-	border: 0;
+#statusbar {
+	padding: 1vh 0.5vw;
+	border: dotted 0.1vw #f2f2f2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.clock {
+	font-size: 1.5vw;
+	font-family: freemono, monospace;
+	padding: 0 1vh;
+	border-radius: 0;
 }

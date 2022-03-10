@@ -1,5 +1,4 @@
-
-function overlay_on(content=null) {
+function overlay_on(content = null) {
     if (content != null) {
         document.getElementById("overlay").innerHTML = content;
     }

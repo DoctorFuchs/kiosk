@@ -1,7 +1,6 @@
 html, body, nav.dashboard_nav, nav.dashboard_nav ul {
 	height: 100%;
 	width: 100%;
-	overflow: hidden;
 }
 
 .non-nav {
@@ -53,38 +52,4 @@ nav.dashboard_nav *{
 	font-weight: 700;
 	text-decoration: none;
 	color: #0e0e0e;
-}
-
-#sidebar-left {
-	width: 8vw;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-end;
-	margin: 1%;	
-}
-
-#sidebar-right {
-	width: 7vw;
-	font-size: 3vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-end;
-	margin: 1%;
-}
-
-#statusbar {
-	padding: 1vh 0.5vw;
-	border: dotted 0.1vw #f2f2f2;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.clock {
-	font-size: 1.5vw;
-	font-family: freemono, monospace;
-	padding: 0 1vh;
-	border-radius: 0;
 }
