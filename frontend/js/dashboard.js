@@ -1,9 +1,3 @@
-function dashboard() {
-	let content = document.getElementById("content")
-	content.innerHTML = ""
-	content.innerHTML = "<nav></nav>"
-}
-
 function date() {
 	let now = new Date(),
 		day = now.getDate(),
