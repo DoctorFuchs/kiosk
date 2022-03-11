@@ -2,11 +2,12 @@ import threading
 from flask import Flask, request, Response, send_file, render_template
 import config
 from languages import languages
-from api import api
+from api import api, items
 import os, subprocess
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
 from jinja2.exceptions import TemplateNotFound
+from tinydb import Query
 
 firstrun = False
 
@@ -32,9 +33,7 @@ def firewall():
 def app_fallback(error):
     return render_template("index.html")
 
-@api.errorhandler(404)
-def api_fallback(error):
-    return "invalid request"
+
 
 @app.route('/', defaults={'req_path': 'index.html'})
 @app.route('/<path:req_path>')
@@ -44,10 +43,15 @@ def app_serve(req_path):
         try:
             return render_template(req_path, **{
                 "lang": languages.get(lang),
+                "langs":languages.keys(),
+                "active_language":lang,
+
                 "firstrun":firstrun,
                 "contact":config.contact,
-                "langs":languages.keys(),
-                "active_language":lang
+
+                "items": items,
+                "query": Query()
+
                 })
         
         except TemplateNotFound:

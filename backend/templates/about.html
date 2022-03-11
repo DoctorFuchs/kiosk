@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block head %}
     <script src="js/qrcode.min.js"></script>
-    <link rel="stylesheet" href="css/about.css">
     <script>
         function makeLinksAvailableOfflineAsQrCode() {
             document.addEventListener("DOMContentLoaded", () => {
@@ -30,24 +29,23 @@
     </script>
 {% endblock %}
 {% block body %}
-    <div id="content">
+    <div class="w3-content">
         <h1> {{ lang.about_attributes.header }} </h1>
         {% for body in lang.about_attributes.bodys%}
             <p>{{ body }}</p>
         {% endfor %}
-        <p id="links">
-            <span class="links">
-                <span></span>
-                <a target="_blank" href="https://github.com/Doctorfuchs/kiosk"><img src="./icons/github.svg" alt="GitHub">GitHub</a>
+        <div class="w3-row">
+            <span class="w3-button w3-row-item">
+                <a target="_blank" href="https://github.com/Doctorfuchs/kiosk"><img style="width:32px; height:32px;" src="./icons/github.svg" alt="GitHub"> GitHub</a>
             </span>
-            <span id="contact">
-                <span id="admin-name">{{ contact.admin_name }}</span>
-                <span class="links" id="admin-contact">
-                    {% for contact_way in contact.contact_ways%}
-                        <a href="{{contact_way.link}}" target="_blank" title="{{contact_way.name}}"><img src="./icons/{{contact_way.icon}}" alt="{{contact_way.icon}} Logo"></a>
-                    {% endfor %}
-                </span>
-            </span>
-        </p>
+            <div class="w3-card-2 w3-padding w3-row-item w3-right" style="width: max-content;">
+                <h3>{{ contact.admin_name }}</h3><br />
+                {% for contact_way in contact.contact_ways%}
+                    <a class="w3-button" href="{{contact_way.link}}" target="_blank" title="{{contact_way.name}}">
+                        <img style="width:32px; height:32px;" src="./icons/{{contact_way.icon}}" alt="{{contact_way.icon}} Logo">
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -1,85 +1,89 @@
-from flask import Flask, request
+from typing import List
+from flask import Flask, request, jsonify, Response
 import os
 import re
-import pickle
+from tinydb import TinyDB, where
+import time
 
-# create default variables
-storageDir = __file__.replace(f"backend{os.sep}api.py", "storages")
-savefilePath = storageDir + os.sep + "shop"
-items = []
+from tinydb.queries import Query
 
-# creates file and folder if they don't exist
-if not os.path.isdir(storageDir): os.mkdir(__file__.replace(f"backend{os.sep}shop.py", "storages"))
-if not os.path.isfile(savefilePath): open(savefilePath, "w+b").close()
+# creates folder if they don't exist
+if not os.path.isdir("storages"): os.mkdir("storages")
 
-savefile = open(savefilePath, "r+b")
-
-try:
-    items = pickle.load(savefile) 
-
-except EOFError: 
-    pass
+items = TinyDB("storages/items.db")
 
 # Utils
-def hasItem(l: list, itemName: str, delete: bool=False):
-    for item in range(len(l)):
-        if itemName == l[item][0]:
-            if delete: del l[item]
-            return True, item
+def has_item(item_name: str): 
+    return items.contains(Query().name==item_name)
 
-    return False, len(l)+1
+def has_keys(_keys: List[str], _list: List[str]) -> bool:
+    return set(_keys).issubset(set(_list))
 
 # Flask app
 api = Flask(__name__)
 
+@api.errorhandler(AssertionError)
+def failed(error):
+    return "failed - "+str(error), 400
+
+@api.errorhandler(404)
+def api_fallback(error):
+    return "invalid request", 400
+
+@api.errorhandler(Exception)
+def any_fail(error):
+    return "failed - "+str(error), 403
+
 @api.route("/list")
+def get_all():
+    return jsonify(items.all()), 200
+
+@api.route("/item")
 def get():
-    sort = request.args.get("sort", "")
-    revert = request.args.get("revert", "false")
-
-    def take(elem):
-        if sort == "cost":
-            ind = 1
-        elif sort == "amount":
-            ind = 2
-        else:
-            ind = 0
-        return elem[ind]
-
-    local = items.copy()
-    local.sort(key=take, reverse=True if revert == "true" else False)
-    return str(local)
+    assert has_keys(["item_name"], request.args.keys()), "bad keys"
+    return jsonify(items.get(Query().name == request.args["item_name"])), 200
 
 @api.route("/additem")
 def additem():
     global items
-    # check for requiered keys
-    if not set(["item_name", "item_cost", "item_amount"]).issubset(set(request.args.keys())): return "failed"   
-    if not hasItem(items, request.args["item_name"])[0] and re.match("[A-Za-z0-9+]", request.args["item_name"]) and re.match("[0-9+]", request.args["item_amount"]) and re.match("[0-9+]", request.args["item_amount"]):
-        items.append([request.args["item_name"], request.args["item_cost"], request.args["item_amount"]])
-        return "success"
-    
-    return "failed"
+    assert has_keys(["item_name", "item_cost", "item_amount"], request.args.keys()), "bad keys"
+    assert not has_item(request.args["item_name"]), "bad item"
+    assert re.match("[A-Za-z0-9+]", request.args["item_name"]), "bad format"
+    assert re.match("[0-9+]", request.args["item_amount"]), "bad format"
+    assert re.match("[0-9+]", request.args["item_amount"]), "bad format"
+
+    items.insert({
+        "name":request.args["item_name"],
+        "cost":int(request.args["item_cost"]),
+        "amount":int(request.args["item_amount"])
+    })
+
+    return "success", 200
 
 @api.route("/delete")
 def delete():
     global items
     # check for requiered keys
-    if not set(["item_name"]).issubset(set(request.args.keys())): return "failed"   
-    return ("success" if hasItem(items, request.args["item_name"], delete=True)[0] else "failed")
-        
+    assert has_keys(["item_name"], request.args.keys()), "bad keys"
+    assert has_item(request.args["item_name"]), "bad item"
+    assert re.match("[A-Za-z0-9+]", request.args["item_name"]), "bad format"
 
+    items.remove(where("name") == request.args["item_name"])
+    
+    return "success", 200
+        
 @api.route("/buy")
 def buy():
     global items
     # check for required keys
-    if not set(["item_name", "item_amount"]).issubset(set(request.args.keys())): return "failed"   
-    if not hasItem(items, request.args["item_name"])[0] or not re.match("[0-9]+", request.args["item_amount"]):
-        return "failed-format check failed"
-    else:
-        items[hasItem(items, request.args["item_name"])[1]][2] = str(int(items[hasItem(items, request.args["item_name"])[1]][2]) - int(request.args["item_amount"]))
-        if int(items[hasItem(items, request.args["item_name"])[1]][2]) <= 0:
-            del items[hasItem(items, request.args["item_name"])[1]]
+    assert has_keys(["item_name", "item_amount"], request.args.keys()), "bad keys"
+    assert has_item(request.args["item_name"]), "bad item"
+    assert re.match("[0-9]+", request.args["item_amount"]), "bad format"
+    assert items.get(Query().name==request.args["item_name"]).get("amount")-int(request.args["item_amount"])<0, "item overload"
+    
+    items.update({
+        "amount":items.get(Query().name==request.args["item_name"]).get("amount")-int(request.args["item_amount"]),
+        }, where("name") == request.args["item_name"])
 
     return "success"
 
@@ -87,18 +91,17 @@ def buy():
 def edit():
     global items
     # check for requiered keys
-    if not set(["item_name_old", "item_name_new", "item_cost_new", "item_amount_new"]).issubset(set(request.args.keys())): return "failed" 
-    if hasItem(items, request.args["item_name_old"])[0]:
-        items[hasItem(items, request.args["item_name_old"])[1]] = [request.args["item_name_new"], request.args["item_cost_new"], request.args["item_amount_new"]]
-        return "success"
-    else:
-        return "failed"
+    assert has_keys(["item_name_old", "item_name_new", "item_cost_new", "item_amount_new"], request.args.keys()), "bad keys"
+    assert has_item(request.args["item_name_old"]), "bad item"
+    
+    items.update({
+            "name":request.args["item_name_new"],
+            "cost":request.args["item_cost_new"],
+            "amount":request.args["item_amount_new"]
+        }, where("name")==request.args["item_name_old"])
+
+    return "success", 200
 
 @api.after_request
 def save(response):
-    global items, savefile
-    pickle.dump(items, savefile)
-    # reopen savefile to save it
-    savefile.close()
-    savefile = open(savefilePath, savefile.mode)
     return response

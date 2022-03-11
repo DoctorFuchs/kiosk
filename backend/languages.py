@@ -9,12 +9,14 @@ languages = {
         "price":"Preis",
         "bill":"Einkaufszettel",
         "fullscreen":"Vollbild",
+        "errors":"Fehler",
         "name": "Name",
         "creation": "Erstellung",
         "editing":"Bearbeitung",
         "delete":"L\u00F6schen",
         "accept": "Okay",
         "payed": "Bezahlt", 
+        "stats": "Statistiken",
         "language":"Sprache",
         "save":"Speichern",
         "cancel":"Abbrechen",
@@ -24,12 +26,12 @@ languages = {
         "about_attributes": {
             "header":"\u00DCber dieses Projekt",
             "bodys": [
-                "Diese Anwendung ist ein einfaches Kassenystem f\u00FCr kleine Kioske, St\u00E4nde und Buden. Das Backend ist in"+
-            "Python geschrieben, das Frontend mit den drei Webdesign-Technologien HTML, CSS und JavaScript programmiert."+
-            "Die Kommunikation zwischen ihnen wird durch einen Webserver mit Flask sichergestellt. Sie sind eingeladen,"+
-            "das System zu verbessern und zum Projekt beizutragen.",
-                "Haben sie Fragen, Probleme oder einen Verbesserungsvorschlag, dann wenden sie sich an ihren Administrator"+
-            "oder \u00F6ffnen sie ein Issue auf auf der GitHub-Seite."    
+                """Diese Anwendung ist ein einfaches Kassenystem f\u00FCr kleine Kioske, St\u00E4nde und Buden. Das Backend ist in
+            Python geschrieben, das Frontend mit den drei Webdesign-Technologien HTML, CSS und JavaScript programmiert.
+            Die Kommunikation zwischen ihnen wird durch einen Webserver mit Flask sichergestellt. Sie sind eingeladen,
+            das System zu verbessern und zum Projekt beizutragen.""",
+                """Haben sie Fragen, Probleme oder einen Verbesserungsvorschlag, dann wenden sie sich an ihren Administrator
+            oder \u00F6ffnen sie ein Issue auf auf der GitHub-Seite."""  
             ]
             },
         "greeting_attributes": {
@@ -49,6 +51,7 @@ languages = {
         "amount_available":"Amount available",
         "price":"Price",
         "bill":"Bill",
+        "errors":"Errors",
         "name": "Name",
         "creation": "Creation",
         "editing":"Editing",
@@ -57,6 +60,7 @@ languages = {
         "cancel":"Cancel",
         "add_products_warning":"Add products by clicking on them",
         "pay":"pay",
+        "stats":"Stats",
         "language":"Language",
         "save":"Save",
         "settings":"Settings",
@@ -65,8 +69,8 @@ languages = {
         "about_attributes": {
             "header":"About this project",
             "bodys": [
-                "This project is a simple cashbox system. We build this tool with python3 (flask) for backend and html, js and css.",
-                "If you have any questions, suggestions, ... open an issue at github (link below)"    
+                """This project is a simple cashbox system. We build this tool with python3 (flask) for backend and html, js and css.""",
+                """If you have any questions, suggestions, ... open an issue at github (link below)"""  
             ]
             },
         "greeting_attributes": {

@@ -36,6 +36,7 @@ mimetypes_default = "text/plain"
 
 default_language = "de"
 
+# common german letters
 # ü -> \u00FC
 # Ü -> \u00DC
 # ä -> \u00E4

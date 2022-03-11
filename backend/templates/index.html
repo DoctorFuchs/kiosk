@@ -1,22 +1,20 @@
 {% extends "base.html" %}
 {% block head %}
-<link rel="stylesheet" type="text/css" href="css/dashboard.css">
-<link rel="stylesheet" type="text/css" href="css/overlay.css">
 <script src="js/overlay.js"></script>
 <script src="js/api.js"></script>
-<script src="js/dashboard.js"></script>
 <script src="js/loadingAnimation.js"></script>
+
 {% endblock %}
 {% block body %}
-<div class="non-nav">
-    <div id="content">
-        <nav class="dashboard_nav">
-            <ul>
-                <a href="shop.html">{{ lang.shop }}</a>
-                <a href="storage.html">{{ lang.storage }}</a>
-                <a href="about.html">{{ lang.about }}</a>
-            </ul>
-        </nav>
+<div class="w3-container w3-row w3-padding-32" style="width:100%">
+    <div class="w3-content">
+        <div class="w3-col w3-center" style="padding:3%">
+            <h1 class="w3-title" style="font-size: 100px; font-weight: 700">{{ lang.title }}</h1>
+            <a href="storage.html" class="w3-button w3-round-xlarge w3-padding-16 w3-block w3-black"><h1>{{ lang.storage }}</h1></a><br />
+            <a href="shop.html" class="w3-button w3-round-xlarge w3-padding-16 w3-block w3-black"><h1>{{ lang.shop }}</h1></a><br />
+            <a href="settings.html" class="w3-button w3-round-xlarge w3-padding-16 w3-block w3-black"><h1>{{ lang.settings }}</h1></a><br />
+            <a href="about.html" class="w3-button w3-round-xlarge w3-padding-16 w3-block w3-black"><h1>{{ lang.about }}</h1></a>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -1,20 +1,3 @@
-function countChildren(element) {
-	var relem = element;
-	return relem.childNodes.length;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-	document.querySelectorAll(".right-navbar-item > li > a[href], .dashboard_nav > ul > a").forEach((element) => {
-		element.addEventListener("click", (event) => {
-			event.preventDefault()
-			gotosite(event.target.href)
-		})
-	})
-})
-
-function gotosite(site) {
-	window.location.href = site
-}
 
 function toggleFullScreen() {
 	if (!document.fullscreenElement) {

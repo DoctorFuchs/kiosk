@@ -1,4 +1,4 @@
-let itembag = []
+var itembag = []
 
 function get_amount_from_itembag(item_name) {
     var index = itembag.findIndex(item=>item[0]===item_name);
@@ -29,8 +29,6 @@ function itembag_remove(item_name, many=-1) {
 }
 
 function itembag_add(item_name, item_cost, item_amount) {
-    // let template = "<div class='item'><h4>"+item_name+"</h4><span><p class='price' style='align: left'>"+item_cost+"€</p><p style='text-align: right; width: 30%'>"+item_amount+"</p></span></div>"
-    // document.getElementById("itembag").innerHTML += template
     var index = itembag.findIndex(item=>item[0]===item_name);
     if (index === -1) {
         itembag.push([item_name, new Number(item_cost), new Number(item_amount)])

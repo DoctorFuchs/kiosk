@@ -1,19 +1,15 @@
 {% extends "base.html" %}
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="css/storage.css">
-    <link rel="stylesheet" type="text/css" href="css/overlay.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/storage.css">
+    <link rel="stylesheet" type="text/css" href="css/overlay.css">-->
     <script src="js/api.js"></script>
     <script src="js/overlay.js"></script>
     <script src="js/storage.js"></script>
     <script src="js/general.js"></script>
 {% endblock %}
 {% block body %}
-    <div id="menu">
-        <button id="create" onclick='create()'>{{ lang.new_product }}</button>
-    </div>
-    <div id="items">
-        <table id="item-table" cellpadding="0">
-            
-        </table>
+    <button class="w3-button w3-block w3-black w3-hover-light-gray" onclick='create()'><h1><b>{{ lang.new_product }}</b></h1></button>
+    <div id="items" class="w3-container">
+        
     </div>
 {% endblock %}

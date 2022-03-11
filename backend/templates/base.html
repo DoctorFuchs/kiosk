@@ -7,55 +7,36 @@
     <meta name="description" content="KIOSK APP -> OPEN SOURCE ON DoctorFuchs/Github">
     <meta name="robots" content="noindex">
 
-    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="css/defaultstyle.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="css/defaultstyle.css">-->
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
 
-    <script src="js/dashboard.js"></script>
+    <style>
+        * {
+            text-decoration: none !important; 
+        }
+    </style>
+
     <script src="js/general.js"></script>
     <script src="js/overlay.js"></script>
     {% block head %}{% endblock %}
 </head>
-<body>
-    <div id="overlay">
-        {% if firstrun != False %}
-        <script>
-            addEventListener("DOMContentLoaded", e => {
-                overlay_on()
-            })
-
-        </script>
-        <div style='display:flex;flex-direction:column;justify-content:center'>
-            <h1>{{ lang.greeting_attributes.header }}</h1>
-            {% for body in lang.greeting_attributes.bodys %}
-            <p>{{ body }}</p>
-            {% endfor %}
-            <button onclick="overlay_off()" style='padding:1rem'>{{ lang.accept }}</button>
-        </div>
-        {% endif %}
+<body id="root" class="w3-mobile">
+    {% if firstrun != False %}
+    <div class="w3-modal" id="greeting">
+        <h1>{{ lang.greeting_attributes.header }}</h1>
+        {% for body in lang.greeting_attributes.bodys %}
+        <p>{{ body }}</p>
+        {% endfor %}
+        <button onclick="document.getElementById('greeting').style.display='none'">{{ lang.accept }}</button>
     </div>
-    <div id="nav">
-        <nav class="nav">
-            <div class="logo left-navbar-item">
-                <a href="index.html">{{ lang.title }}</a>
-            </div>
-            <div id="statusbar">
-                <span id="time" class="clock" style="border-right: solid 0.1vw #f2f2f2;"></span><span id="date" class="clock" style="border-left: solid 0.1vw #f2f2f2;"></span>
-            </div>
-            <ul class="right-navbar-item">
-                <li>
-                    <a href="shop.html">{{ lang.shop }}</a>
-                </li>
-                <li>
-                    <a href="storage.html">{{ lang.storage }}</a>
-                </li>
-                <li>
-                    <a href="about.html">{{ lang.about }}</a>
-                </li>
-                <li>
-                    <a href="settings.html">{{lang.settings}}</a>
-                </li>
-            </ul>
-        </nav>
+    {% endif %}
+    <div class="w3-bar w3-black">
+        <a href="index.html" class="w3-bar-item w3-button w3-left"><h2>{{ lang.title }}</h2></a>
+        <a href="about.html" class="w3-bar-item w3-button w3-right"><h2>{{ lang.about }}</h2></a>
+        <a href="settings.html" class="w3-bar-item w3-button w3-right"><h2>{{lang.settings}}</h2></a>
+        <a href="shop.html" class="w3-bar-item w3-button w3-right"><h2>{{ lang.shop }}</h2></a>
+        <a href="storage.html" class="w3-bar-item w3-button w3-right"><h2>{{ lang.storage }}</h2></a>
     </div>
     {% block body %}{% endblock %}
 </body>
