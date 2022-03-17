@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block head %}
+    <script src="js/api.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/general.js"></script>
+{% endblock %}
+{% block body %}
+    <button class="w3-button w3-block w3-theme-dark w3-hover-action" onclick='create()'><h1><b>{{ lang.get("new_product") }}</b></h1></button>
+    <div id="items" class="w3-container">
+        
+    </div>
+{% endblock %}

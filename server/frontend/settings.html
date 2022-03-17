@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block head %}
+<script>
+    function submit() {
+        for (var i = 0; i <= document.getElementById("lang").children.length; i++) {
+            try {
+                if (document.getElementById("lang").children.item(i).checked) {
+                    document.cookie = "lang=" + document.getElementById("lang").children.item(i).id+";";
+                }
+            } catch {
+                continue;
+            }
+        }
+
+        location.reload()
+    }
+
+    function uncheckOthers(id, cls) {
+        if (!document.getElementById(id).checked) {
+            document.getElementById(id).checked = true;
+        }
+
+
+        var elm = document.getElementsByClassName(cls);
+
+        // loop through all input elm in form
+
+        for (var i = 0; i < elm.length; i++) {
+            if (elm.item(i).type == "checkbox" && elm.item(i).id != id) {
+                elm.item(i).checked = false;
+            }
+        }
+    }
+</script>
+{% endblock %}
+{% block body %}
+<div id="non-nav" style="margin-left: 10vw">
+
+    <h1 style="font-size:5vh">{{lang.settings}}</h1>
+    <h2 style="font-size:3vh">{{lang.language}}</h2>
+    <fieldset id="lang" style="width:max-content">
+        {% for language in langs %}
+        <input class="lang" type="checkbox" onclick='uncheckOthers("{{language}}", "lang")' id="{{language}}" value="{{language}}" {% if language==active_language %}checked{% endif %}>
+        <label for="{{language}}">{{language}}</label>
+        {% endfor %}
+    </fieldset>
+    <br />
+    <button onclick="submit()" type="submit" class="w3-theme-light w3-button">{{lang.save}}</button>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block head %}
+<script src="js/general.js"></script>
+<script src="js/api.js"></script>
+<script src="js/itembag.js"></script>
+{% endblock %}
+{% block body %}
+    <div class="w3-sidebar w3-bar-block w3-theme-dark w3-card" id="itembag" style="width:25%;right:0;">
+        <h1 class="w3-bar-item">{{ lang.add_products_warning }}</h1>
+    </div>
+    
+    <div id="products" class="" style="margin-right:25%">
+        <h1><a href="storage.html"> > {{lang.storage}}</a></h1>
+    </div>
+    <div style="position: fixed; top: 95vh; right: 24px; z-index: 10;">
+        <button class="w3-button" id="sum">0&euro;</button>
+        <button class="w3-button" onclick="ITEMBAG.render_pay()">
+            {{ lang.pay }}
+            <img height="32px" width="32px" src="/icons/icons8-warenkorb-100.png">
+        </button>
+    </div>
+{% endblock %}
