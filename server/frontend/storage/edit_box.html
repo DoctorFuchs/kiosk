@@ -3,7 +3,7 @@
         <h1 style='font-size: 6vh'>{{lang.editing.upper()}} - %itemname%</h1>
     </header>
     <div class="w3-container">
-        <form action='/api/shop/edit' target='hiddeniframe' method='GET'>
+        <form action='/api/shop/edit' target='hiddeniframe' method='POST'>
             <input class="w3-input" name='item_name_old' type='hidden' value='%itemname%' required>
             <label for='item_name_new'>{{lang.name}}</label><br>
             <input class='w3-input' id='item_name_new' name='item_name_new' value='%itemname%' type='text' pattern='[a-zA-Z0-9\s]+' required><br>

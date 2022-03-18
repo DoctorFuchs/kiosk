@@ -3,6 +3,7 @@ backend/config.py
 frontend/config.json
 # savefiles for storage are saved here
 storages 
+config.ini
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

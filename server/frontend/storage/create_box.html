@@ -3,7 +3,7 @@
         <h1>{{lang.creation.upper()}}</h1>
     </header>
     <div class="w3-container">
-        <form action='/api/shop/additem' target='hiddeniframe' method='GET'>
+        <form action='/api/shop/additem' target='hiddeniframe' method='POST'>
             <label for='item_name_new'>{{lang.name}}</label><br>
             <input required class='w3-input' id='item_name' name='item_name' type='text' pattern='[a-zA-Z0-9\\s]+' requiered><br>
             <label for='item_cost'>{{lang.price}}</label><br>

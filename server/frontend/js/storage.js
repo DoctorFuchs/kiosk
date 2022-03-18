@@ -46,21 +46,20 @@ function exitForm() {
 }
 
 function deleteitem(itemname) {
-    request("/shop/delete?item_name="+itemname);
+    fetch("/shop/delete/"+item_name, {
+		"method":"DELETE"
+	);
     overlay_off()
     loadItems()
 }
 
 document.addEventListener("DOMContentLoaded", loadItems())
 document.addEventListener("submit", e => {
-    // TODO: submit override
+    var body = {};
+	// TODO: submit override
     e.preventDefault();
-    fetch(e.target.action, {
-        "method": "POST",
-        "body": {
-            
-        }
-    })
-    loadItems();
-    overlay_off();
+	e.target.submit();
+	// while (document.getElementById("hiddeniframe").innerHTML == "") {}
+	loadItems();
+	overlay_off();
 })
