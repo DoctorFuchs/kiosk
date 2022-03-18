@@ -7,8 +7,8 @@
     <meta name="description" content="KIOSK APP -> OPEN SOURCE ON DoctorFuchs/Github">
     <meta name="robots" content="noindex">
 
-    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/lib/w3-theme-black.css" />
+    <link rel="stylesheet" type="text/css" href="/css/themes/{{active_theme}}.css" />
+    <link rel="stylesheet" type="text/css" href="/css/w3.css" />
 
     <style>
         * {
@@ -20,7 +20,7 @@
     <script src="js/overlay.js"></script>
     {% block head %}{% endblock %}
 </head>
-<body id="root" class="w3-mobile w3-theme-dark">
+<body class="w3-mobile w3-theme-d3">
     {% if firstrun == True %}
     <div class="w3-modal" id="greeting">
         <h1>{{ lang.greeting_attributes.header }}</h1>
@@ -30,7 +30,7 @@
         <button onclick="document.getElementById('greeting').style.display='none'">{{ lang.accept }}</button>
     </div>
     {% endif %}
-    <div class="w3-bar w3-black">
+    <div class="w3-bar w3-theme-dark">
         <a href="index.html" class="w3-bar-item w3-button w3-left"><h2>{{ lang.title }}</h2></a>
         <a href="about.html" class="w3-bar-item w3-button w3-right"><h2>{{ lang.about }}</h2></a>
         <a href="settings.html" class="w3-bar-item w3-button w3-right"><h2>{{lang.settings}}</h2></a>

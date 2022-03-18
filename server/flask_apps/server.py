@@ -20,15 +20,19 @@ def firewall():
 
 @app.errorhandler(404)
 def app_fallback(error):
-    return Response("Not found")
+    return Response("Not found"), 404
 
 @app.route('/', defaults={'req_path': 'index.html'})
 @app.route('/<path:req_path>')
 def app_serve(req_path: str):
     lang = request.cookies.get("lang", config.get("LANGUAGE", "language")).upper()
+    theme = request.cookies.get("theme", config.get("THEME", "theme")).lower()
     firstrun = request.cookies.get("first", "True")
     
-    assert lang in languages.sections()
+    print(theme)
+
+    if lang not in languages.sections(): lang = config.get("LANGUAGE", "language").upper()
+    if theme+".css" not in os.listdir(get_path("/server/frontend/css/themes")): theme = config.get("THEME", "theme")
     try:
         if req_path.endswith(".html"):
             return render_template(req_path, **{
@@ -36,6 +40,10 @@ def app_serve(req_path: str):
                     "lang": dict(languages.items(lang)),
                     "langs":languages.sections(),
                     "active_language":lang,
+
+                    # theme
+                    "themes": [x.replace(".css", "") for x in os.listdir(get_path("/server/frontend/css/themes"))],
+                    "active_theme":theme,
 
                     # config 
                     "firstrun":firstrun,

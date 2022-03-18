@@ -15,6 +15,9 @@ port = 1024
 [LANGUAGE]
 language = de
 
+[THEME]
+theme = dark
+
 [CONTACT]
 admin_name = Test Test
 contact_ways = 

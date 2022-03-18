@@ -1,25 +1,32 @@
 {% extends "base.html" %}
 {% block head %}
 <script>
-    function submit() {
-        for (var i = 0; i <= document.getElementById("lang").children.length; i++) {
+    function submit_from_fieldset(fieldset_id) {
+        for (var i = 0; i <= document.getElementById(fieldset_id).children.length; i++) {
             try {
-                if (document.getElementById("lang").children.item(i).checked) {
-                    document.cookie = "lang=" + document.getElementById("lang").children.item(i).id+";";
+                if (document.getElementById(fieldset_id).children.item(i).checked) {
+                    document.cookie = fieldset_id + "=" + document.getElementById(fieldset_id).children.item(i).id + ";";
                 }
             } catch {
                 continue;
             }
         }
+    }
 
-        location.reload()
+    function submit_from_select(select_id) {
+        document.cookie = select_id + "=" + document.getElementById("theme").value;
+    }
+
+    function submit() {
+        submit_from_fieldset("lang");
+        submit_from_select("theme");
+        location.reload();
     }
 
     function uncheckOthers(id, cls) {
         if (!document.getElementById(id).checked) {
             document.getElementById(id).checked = true;
         }
-
 
         var elm = document.getElementsByClassName(cls);
 
@@ -34,17 +41,23 @@
 </script>
 {% endblock %}
 {% block body %}
-<div id="non-nav" style="margin-left: 10vw">
+<div class="w3-content">
 
     <h1 style="font-size:5vh">{{lang.settings}}</h1>
     <h2 style="font-size:3vh">{{lang.language}}</h2>
-    <fieldset id="lang" style="width:max-content">
+    <fieldset id="lang">
         {% for language in langs %}
         <input class="lang" type="checkbox" onclick='uncheckOthers("{{language}}", "lang")' id="{{language}}" value="{{language}}" {% if language==active_language %}checked{% endif %}>
         <label for="{{language}}">{{language}}</label>
         {% endfor %}
     </fieldset>
+    <h2 style="font-size:3vh">{{lang.theme}}</h2>
+    <select id="theme">
+        {% for theme in themes %}
+        <option {% if theme == active_theme %}selected{% endif %}>{{theme}}</option>
+        {% endfor %}
+    </select>
     <br />
-    <button onclick="submit()" type="submit" class="w3-theme-light w3-button">{{lang.save}}</button>
+    <button onclick="submit()" type="submit" class="w3-margin-top w3-theme-light w3-button">{{lang.save}}</button>
 </div>
 {% endblock %}

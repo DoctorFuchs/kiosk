@@ -46,9 +46,9 @@ function exitForm() {
 }
 
 function deleteitem(itemname) {
-    fetch("/shop/delete/"+item_name, {
-		"method":"DELETE"
-	);
+    fetch("/shop/delete/" + item_name, {
+        "method": "DELETE"
+    });
     overlay_off()
     loadItems()
 }
