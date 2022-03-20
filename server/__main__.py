@@ -1,14 +1,15 @@
 import argparse
 import sys, os, subprocess
+from server.utils.config_reader import config
 
-
+# get absolute path of it self and it's 
 ABS_PATH_SELF = os.path.abspath(__file__)
 ABS_MODULE_PATH = os.path.dirname(os.path.dirname(ABS_PATH_SELF))
 
-os.chdir(ABS_MODULE_PATH) 
+os.chdir(ABS_MODULE_PATH) # make project-dir to working dir
 sys.path += ["lib"] # adds lib import path
 
-def upgradeDependencies():   #not working with autoreload of flask
+def upgrade_dependencies():   #not working with autoreload of flask
         try:
             # checks for pip module
             __import__("pip")
@@ -18,16 +19,23 @@ def upgradeDependencies():   #not working with autoreload of flask
             subprocess.check_call([sys.executable, "-m", "ensurepip"])
 
         finally:
+            # install 
             subprocess.check_call([sys.executable ,"-m" , "pip", "install", "-r", "requirements.txt", "-t", "lib", "--upgrade", "--no-user"]) # --no-user => python 3.9 on Windows
             import site
             from importlib import reload
             reload(site)
-            
-def updateApplication():
-    branch = config.update_branch # change the branch in config.py
+
+def check_dependencies():
+    with open("requirements.txt", "rt") as rfile:
+        for requirement in rfile.read().split("\n"):
+            __import__(requirement.strip())
+    
+def update_application():
+    branch = config.get("APPLICATION", "branch") # get the branch from config
     # check that git is installed 
     try:
         subprocess.check_call(["git", "--version"])
+
     except:
         print("\n\033[93mGit isn't installed, so updating is not available.\033[0m\n")
         return
@@ -43,26 +51,30 @@ def updateApplication():
             print("\n\033[91mWhile trying to update the app an error occured. Please check the the log above for more information.\033[0m\n")
 
 if __name__ == "__main__":
+    # arguments
     parser = argparse.ArgumentParser(description="Launcher for kiosk application")
-    parser.add_argument("-U", "--upgrade", help="Upgrade the kiosk application, only available if git repository (git needs to be installed)", action="store_true")
-    parser.add_argument("-u", "--update", help="Force updating dependencies", action="store_true")
+    parser.add_argument("-U", "--upgrade", help="Force updating dependencies", action="store_true")
+    parser.add_argument("-u", "--update", help="Upgrade the kiosk application, only available if git repository (git needs to be installed)", action="store_true")
     parser.add_argument("-b", "--browser", help="Launch browser while starting", action="store_true")
     parser.add_argument("-w", "--window", help="Launch native looking window", action="store_true")
     parser.add_argument("-f", "--fullscreen", help="Launch window in fullscreen", action="store_true") 
     parser.add_argument("-k", "--kiosk", help="Launch chromium's kiosk mode(a 'super' fullscreen, chrom[e/ium] or edge with chromium engine needs to be installed, exit with Alt+F4)", action="store_true") 
     args = parser.parse_args()
 
-    if args.update:
-        upgradeDependencies()
-    
+    # check for arguments
     if args.upgrade:
-        updateApplication()
+        upgrade_dependencies()
+    
+    if args.update:
+        update_application()
 
+    # check dependencies and install if required
     try:
-        __import__("flask")
+        check_dependencies()
+
     except ImportError:
-        upgradeDependencies()
-        __import__("flask")
+        upgrade_dependencies()
+        check_dependencies()
         
     # starts the server 
     from server import flask_apps

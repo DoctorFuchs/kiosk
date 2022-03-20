@@ -4,18 +4,21 @@ from server.__main__ import ABS_MODULE_PATH
 from shutil import copyfile 
 from server.utils.path import get_path
 
-assert os.path.exists(ABS_MODULE_PATH + os.sep + "config.ini.default"), "config file wasn't found: "+ABS_MODULE_PATH + os.sep + "config.ini.default"
+# check that the default config exists
+assert os.path.exists(ABS_MODULE_PATH + os.sep + "config.ini.default"), "default config file wasn't found: "+ABS_MODULE_PATH + os.sep + "config.ini.default"
 
+# create normal config for editing
 if not os.path.exists("config.ini"): copyfile("config.ini.default", "config.ini")
 
-# config
+# read config
 config = ConfigParser()
 config.read("config.ini.default")
 config.read("config.ini")
 
-# language packs
+# read available language packs
 _languages = os.listdir(get_path("/packs/language"))
 
+# read languages
 languages = ConfigParser()
 for lang in _languages:
     languages.read(get_path("/packs/language/"+lang)) 
