@@ -5,7 +5,11 @@
     <script src="js/general.js"></script>
 {% endblock %}
 {% block body %}
-    <button class="w3-button w3-block w3-theme-dark w3-hover-action" onclick='create()'><h1><b>{{ lang.get("new_product") }}</b></h1></button>
+    <div class="w3-border-0 w3-cell-row" onclick='create()'>
+        <div class="w3-cell w3-theme-d4 w3-hover-theme w3-center">
+            <h1><b>{{ lang.new_product }}</b></h1>
+        </div>
+    </div>
     <div id="items" class="w3-container">
         
     </div>

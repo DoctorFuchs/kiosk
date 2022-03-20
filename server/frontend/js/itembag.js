@@ -74,14 +74,14 @@ class Itembag {
 
     render_pay() {
         if (this.itembag.length == 0) { return; }
-        overlay_on(this.itembag_pay_dialog);
+        this.itembag_pay_dialog.then(template => { overlay_on(template) });
 
         var product_list = document.getElementById("pay-dialog-itembag");
         var sum = 0;
 
         this.itembag.forEach(item => {
             this.item_in_bag_template.then(template => {
-                product_list += template
+                product_list.innerHTML += template
                     .replaceAll("/item_name/", item["name"])
                     .replaceAll("/item_cost/", item["cost"])
                     .replaceAll("/item_amount/", item["amount"]);
