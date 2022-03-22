@@ -1,7 +1,7 @@
 from configparser import ConfigParser
 import os
-from server.__main__ import ABS_MODULE_PATH
-from shutil import copyfile 
+from .path import ABS_MODULE_PATH
+from shutil import copyfile
 from server.utils.path import get_path
 
 # check that the default config exists
@@ -21,15 +21,15 @@ _languages = os.listdir(get_path("/packs/language"))
 # read languages
 languages = ConfigParser()
 for lang in _languages:
-    languages.read(get_path("/packs/language/"+lang)) 
+    languages.read(get_path("/packs/language/"+lang))
 
 # util functions
 def get_contact_dict() -> dict:
     contact_data = {}
     contact_data["admin_name"] = config.get("CONTACT", "admin_name")
     contact_data["contact_ways"] = []
-    for contact_way in config.get("CONTACT", "contact_ways").split("\n"): 
+    for contact_way in config.get("CONTACT", "contact_ways").split("\n"):
         if contact_way not in config.sections(): continue
         contact_data["contact_ways"].append(dict(config[contact_way]))
-            
+
     return contact_data
