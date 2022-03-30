@@ -1,6 +1,6 @@
 # Kiosk app
 
-This project is a basic chashbox system for small kiosk’s, stall’s and sales. The backend is build in python, the frontend with the three web design technologies HTML, CSS and JavaScript. You are invited to improve the system and contribute to the project. Just ask if there are questions.
+This project is a basic cashbox system for small kiosk’s, stall’s and sales. The backend is build in python, the frontend with the three web design technologies HTML, CSS and JavaScript. You are invited to improve the system and contribute to the project. Just ask if there are questions.
 
 ATTENTION SINCE 24. DECEMBER 2021 SQL IS NOT LONGER SUPPORTED. BUT YOU NEED TO INSTALL FLASK
 
@@ -16,9 +16,9 @@ Then make sure python 3 is installed. If not please install (https://www.python.
 ## configurate
 *Please not that the configuration files are only available after first run.*
 
-To setup contact information of the administrator for support reason, edit the config file (kiosk/frontend/config.json). First of all you can fill in the name. Secondly choose your different contacting possibilities. The first value of each holds the name, the second one the link or url (like mailto). Use "!m" to insert the message from below. The third contains the filename of your icon, wich have to be placed in kiosk/frontend/icons folder. The message field holds a personal message, wich you can insert in your links using "!m" there. To automaticly insert author name use "!a" and for a line break "!b" inside the message.
+To setup contact information of the administrator for support reason, edit the config file (kiosk/frontend/config.json). First of all you can fill in the name. Secondly choose your different contacting possibilities. The first value of each holds the name, the second one the link or url (like mailto). Use "!m" to insert the message from below. The third contains the filename of your icon, which have to be placed in kiosk/frontend/icons folder. The message field holds a personal message, which you can insert in your links using "!m" there. To automatically insert author name use "!a" and for a line break "!b" inside the message.
 ```json
-["<Label/Name>", "<link/adress>", "<icon name>"]
+["<Label/Name>", "<link/address>", "<icon name>"]
 ```
 
 | where to use | command | what it does      |
@@ -50,9 +50,9 @@ python3 run.py
 - DoctorFuchs
 
 ## Information's
-This app is an assignment. 
-The frontend is designed in german language (because it is an assignment from germany). 
-All comments, readme's or tips are in english. 
-Therefor we are no english native speaker so feel free to submit your language improvments.
+This app is an assignment.
+The frontend is designed in German language (because it is an assignment from Germany).
+All comments, readme's or tips are in English. 
+Therefor we are no English native speaker so feel free to submit your language improvements.
 
 If you have a question, open an issue in this repository.

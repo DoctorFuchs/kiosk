@@ -1,0 +1,13 @@
+<div class="w3-modal-content">
+    <h1>{{lang.pay}}</h1>
+    <h3 style='position:fixed'>{{lang.bill}}</h3>
+    <section style='height:5vh'>
+    </section>
+    <hr>
+    <section style='height:50vh; overflow:auto' id='pay-dialog-itembag'>
+    </section>
+    <hr />
+    <p id="pay-dialog-sum"></p>
+    <button onclick='overlay_off()' style='padding:1rem'>{{lang.cancel}}</button>
+    <button onclick='ITEMBAG.pay_finish();overlay_off()' style='padding:1rem'>{{lang.payed}}</button>
+</div>
