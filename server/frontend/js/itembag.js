@@ -1,5 +1,5 @@
 class Itembag {
-    // itembag class: itembag Manager 
+    // itembag class: itembag Manager
     constructor() {
         // initialize Itembag array
         this.itembag = [];
@@ -25,9 +25,9 @@ class Itembag {
     }
 
     remove(item_name, many = -1) {
-        /* remove item_name from itembag. 
+        /* remove item_name from itembag.
         By default it deletes the item from itembag
-        if many is given */ 
+        if many is given */
         var index = this.itembag.findIndex(item => item["name"] === item_name);
 
         if (index >= 0) {
@@ -59,6 +59,8 @@ class Itembag {
             // find index by item_name
             var index = this.itembag.findIndex(item => item["name"] === item_name);
 
+            if (resp["amount"] == 0 || item_amount > resp["amount"]) { return ; }
+
             if (index === -1) {
                 // if not found add item to itembag
                 this.itembag.push({
@@ -69,6 +71,9 @@ class Itembag {
             }
             else {
                 // if found add item_amount to existing item
+                if ( resp["amount"] < this.itembag[index]["amount"] + item_amount ) {
+                    item_amount = resp["amount"] - this.itembag[index]["amount"]
+                }
                 this.itembag[index]["amount"] += new Number(item_amount);
             }
             // re-render the itembag to make changes visible
@@ -77,14 +82,14 @@ class Itembag {
     }
 
     render() {
-        // (re-)render the itembag 
+        // (re-)render the itembag
         // update itembag
         this.update();
         // get itembag
         var elem = document.getElementById("itembag");
         var sum = 0;
 
-        // clear itembag 
+        // clear itembag
         elem.innerHTML = "";
 
         // for each item in itembag render template
@@ -94,47 +99,66 @@ class Itembag {
                 // replace item_values in template with item (from this.itembag.forEach loop)
                 elem.innerHTML += template
                     .replaceAll("/item_name/", item["name"])
-                    .replaceAll("/item_cost/", item["cost"]*item["amount"])
+                    .replaceAll("/item_cost/", Math.round(item["cost"]*item["amount"]*100)/100)
                     .replaceAll("/item_amount/", item["amount"]);
             });
             // add sum
             sum += item["cost"] * item["amount"];
         });
         // write sum to sum item
-        document.getElementById("sum").innerText = sum + "&euro;";
+        document.getElementById("sum").innerText = Math.round(sum*100)/100 + "€";
     };
 
     render_pay() {
-        // render items to pay dialog (it also creates the pay dialog)
-
-        // if itembag is empty return
-        if (this.itembag.length == 0) { return; }
-
         // create overlay
-        this.itembag_pay_dialog.then(template => { overlay_on(template) });
+        this.itembag_pay_dialog
+            .then(template => {
+                let elem = document.createElement("div")
+                elem.innerHTML = template;
+                elem.classList.add("w3-modal-content");
+                elem.classList.add("w3-container");
+                elem.classList.add("w3-round");
+                elem.classList.add("w3-theme-l3");
+                return elem;
+            })
+            .then(template_elem => {
+                // render items to pay dialog (it also creates the pay dialog)
+                var product_list_elem = document.createElement("div");
+                product_list_elem.classList.add("w3-container");
+                var product_sum_elem = document.createElement("div");
 
-        // get product list in pay dialog
-        var product_list = document.getElementById("pay-dialog-itembag");
-        var sum = 0;
+                // if itembag is empty return
+                if (this.itembag.length == 0) { return; }
 
-        // for each item in itembag render template
-        this.itembag.forEach(item => {
-            // take item_in_bag_tempate
-            this.item_in_bag_template.then(template => {
-                // replace item_values in template with item (from this.itembag.forEach loop)
-                product_list.innerHTML += template
-                    .replaceAll("/item_name/", item["name"])
-                    .replaceAll("/item_cost/", item["cost"])
-                    .replaceAll("/item_amount/", item["amount"]);
-            });
+                // get product list in pay dialog
+                var sum = 0;
 
-            // add sum
-            sum += item["cost"]*item["amount"]
-        });
+                // for each item in itembag render template
+                this.itembag.forEach(item => {
+                    // take item_in_bag_tempate
+                    this.item_in_bag_template.then(template => {
+                        // replace item_values in template with item (from this.itembag.forEach loop)
+                        product_list_elem.innerHTML += template
+                            .replaceAll("/item_name/", item["name"])
+                            .replaceAll("/item_cost/", item["cost"])
+                            .replaceAll("/item_amount/", item["amount"]);
+                    });
 
-        // write sum to pay dialog
-        document.getElementById("pay-dialog-sum").innerHTML = sum+"&euro;"
+                    // add sum
+                    sum += item["cost"]*item["amount"]
+                });
 
+                // write sum to pay dialog
+                product_sum_elem.innerHTML = "<h1>"+Math.round(sum*100)/100+"€</h1>";
+
+                template_elem.insertBefore(product_list_elem, template_elem.children[2]);
+                template_elem.insertBefore(product_sum_elem, template_elem.children[3]);
+
+                return template_elem;
+            })
+            .then(overlay => {
+                overlay_on(overlay.outerHTML);
+            })
     };
 
     pay_finish() {
@@ -182,5 +206,3 @@ const ITEMBAG = new Itembag();
 document.addEventListener("DOMContentLoaded", e => {
     ITEMBAG.render()
 })
-
-

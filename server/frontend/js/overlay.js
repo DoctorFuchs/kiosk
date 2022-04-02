@@ -21,7 +21,9 @@ function overlay_on(content) {
     overlay.innerHTML += content;
 
     // append child to body
-    document.body.appendChild(overlay); 
+    document.body.appendChild(overlay);
+
+    return overlay;
 }
 
 function overlay_off_brutal() {

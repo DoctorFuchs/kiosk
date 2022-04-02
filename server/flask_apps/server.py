@@ -18,7 +18,7 @@ app = Flask(__name__, template_folder=get_path("/server/frontend"))
 @api.before_request
 @app.before_request
 def firewall():
-    # check if flask app is secured through a firewall. If yes => it checks for the ip and look to the whitelist 
+    # check if flask app is secured through a firewall. If yes => it checks for the ip and look to the whitelist
     if config.getboolean("FIREWALL", "active") and request.remote_addr not in config.get("FIREWALL", "allowed_ips").split("\n"):
         return "You have no access to this application.", 401
 
@@ -52,19 +52,22 @@ def app_serve(req_path: str):
                     "themes": [x.replace(".css", "") for x in os.listdir(get_path("/server/frontend/css/themes"))],
                     "active_theme":theme,
 
-                    # config 
+                    # config
                     "firstrun":firstrun,
                     "contact":get_contact_dict(),
 
                     # database
                     "items": items,
-                    "query": Query()
+                    "query": Query(),
+
+                    # others
+                    "active":os.path.split(req_path)[1]
             })
 
         else:
             # return js, css, images, icons, ... as normal file
             return send_from_directory(get_path("/server/frontend"), req_path)
-            
+
 
     except TemplateNotFound or FileNotFoundError:
         return abort(404)
@@ -73,4 +76,3 @@ def app_serve(req_path: str):
 application = DispatcherMiddleware(app, {
     '/api/shop': api
 })
-

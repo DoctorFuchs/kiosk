@@ -9,4 +9,17 @@ async function loadTemplate(path) {
 
 }
 
+document.addEventListener("DOMContentLoaded", e => {
+	var elem = document.getElementById("navigation-bar");
+	var location = window.location.href.endsWith("/") ? "index.html" : window.location.href;
+
+	Array.from(elem.children).forEach(child => {
+		let path = child.href.split("/");
+		if (location.endsWith(path[path.length-1])) {
+			child.firstChild.classList.add("w3-bottombar")
+			child.firstChild.classList.add("w3-border-theme")
+		}
+	})
+})
+
 document.cookie = "first=False"
