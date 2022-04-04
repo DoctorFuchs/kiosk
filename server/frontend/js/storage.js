@@ -6,7 +6,7 @@ var item_template = loadTemplate("storage/item_template.html");
 
 
 function edit(itemname) {
-    /* create an edit_box from template. 
+    /* create an edit_box from template.
      * Gets template informations from item_name argument*/
 
     // get informations about the item => resp object contains values of an item_model
@@ -28,7 +28,7 @@ function loadItems() {
     // update items and render them into the list
 
     request("/shop/list", response => {
-        // get item table to render 
+        // get item table to render
         var item_table = document.getElementById("items");
 
         // render header bar from template
@@ -43,12 +43,19 @@ function loadItems() {
         // render for each item a template => item_template
         response.forEach(item => {
             item_template.then(template => {
-                item_table.innerHTML += template
+                var elem = document.createElement("div");
+                elem.innerHTML += template
                     .replaceAll("/item_name/", item["name"])
                     .replaceAll("/item_cost/", item["cost"])
                     .replaceAll("/item_amount/", item["amount"]);
-            }
-            )
+
+                if (item["amount"] <= 0) {
+                    elem.children[0].classList.add("w3-border");
+                    elem.children[0].classList.add("w3-border-red");
+                    elem.children[0].classList.add("w3-red");
+                }
+                item_table.innerHTML += elem.innerHTML;
+            })
         })
     })
 }

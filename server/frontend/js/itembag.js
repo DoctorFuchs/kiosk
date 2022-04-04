@@ -8,6 +8,7 @@ class Itembag {
         this.item_in_bag_template = loadTemplate("/shop/item_in_bag.html");
         this.item_out_bag_template = loadTemplate("/shop/item_out_bag.html");
         this.itembag_pay_dialog = loadTemplate("/shop/itembag_pay.html");
+        this.item_in_paydialog_template = loadTemplate("/shop/item_in_paydialog.html");
     }
 
     get_amount_from_itembag(item_name) {
@@ -136,7 +137,7 @@ class Itembag {
                 // for each item in itembag render template
                 this.itembag.forEach(item => {
                     // take item_in_bag_tempate
-                    this.item_in_bag_template.then(template => {
+                    this.item_in_paydialog_template.then(template => {
                         // replace item_values in template with item (from this.itembag.forEach loop)
                         product_list_elem.innerHTML += template
                             .replaceAll("/item_name/", item["name"])
