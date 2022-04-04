@@ -14,9 +14,9 @@ if not os.path.isdir("storages"): os.mkdir("storages")
 items = TinyDB("storages/items.db")
 
 # patterns
-item_name_pattern = "[A-Za-z0-9]+"
-item_amount_pattern = "[0-9]+"
-item_cost_pattern = "[0-9]+[,|.]?[0-9]*"
+item_name_pattern = r"^[A-Za-z0-9\s]+$"
+item_amount_pattern = r"^[0-9]+$"
+item_cost_pattern = r"^[0-9]+[,|.]?[0-9]*$"
 
 # Utils
 def has_item(item_name: str) -> bool:
