@@ -44,8 +44,8 @@ def update_application():
         try:
             subprocess.check_call(f"git pull origin {branch}".split(" "))
             subprocess.check_call(f"git checkout {branch}".split(" "))
-        except subprocess.CalledProcessError:
 
+        except subprocess.CalledProcessError:
             print("\n\033[91mWhile trying to update the app an error occured. Please check the the log above for more information.\033[0m\n")
 
 if __name__ == "__main__":

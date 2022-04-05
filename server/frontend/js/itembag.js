@@ -41,7 +41,7 @@ class Itembag {
                 // if many is not -1 it reduce the amount by many
                 this.itembag[index]["amount"] -= many;
                 if (this.itembag[index]["amount"] <= 0) {
-                    this.remove(item_name);
+                    this.itembag.splice(index, 1);
                 }
             }
         }
