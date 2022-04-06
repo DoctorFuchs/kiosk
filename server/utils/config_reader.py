@@ -21,7 +21,7 @@ _languages = os.listdir(get_path("/packs/language"))
 # read languages
 languages = ConfigParser()
 for lang in _languages:
-    languages.read_file(open(get_path("/packs/language/"+lang), encoding="ISO-8859-1"))
+    languages.read(get_path("/packs/language/"+lang))
 
 # util functions
 def get_contact_dict() -> dict:
