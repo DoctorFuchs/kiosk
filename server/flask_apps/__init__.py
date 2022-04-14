@@ -47,6 +47,6 @@ def main(args):
     run_simple('localhost', 
                config.getint("SERVER", "port"), 
                application, 
-               use_reloader=config.get("SERVER", "auto_reload"), 
-               use_debugger=config.get("SERVER", "debugger"), 
-               use_evalex=config.get("SERVER", "evalex"))
+               use_reloader=config.getboolean("SERVER", "auto_reload"), 
+               use_debugger=config.getboolean("SERVER", "debugger"), 
+               use_evalex=config.getboolean("SERVER", "evalex"))
