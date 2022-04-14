@@ -21,13 +21,13 @@
     {% block head %}{% endblock %}
 </head>
 <body class="w3-mobile w3-theme-d3">
-    {% if firstrun == True %}
-    <div class="w3-modal" id="greeting">
-        <h1>{{ lang.greeting_attributes.header }}</h1>
-        {% for body in lang.greeting_attributes.bodys %}
-        <p>{{ body }}</p>
-        {% endfor %}
-        <button onclick="document.getElementById('greeting').style.display='none'">{{ lang.accept }}</button>
+    {% if firstrun == "True" %}
+    <div class="w3-modal w3-block" id="greeting">
+        <div class="w3-modal-content w3-round w3-theme-l3 w3-padding">
+            <h1 class="w3-container">{{ lang.greeting_header }}</h1>
+            <p class="w3-container">{{ lang.greeting_bodys }}</p>
+            <button class="w3-margin w3-padding w3-container w3-theme-l2 w3-hover-theme w3-button" onclick="document.getElementById('greeting').style.display = 'none'; document.cookie = 'first=False'">{{ lang.accept }}</button>
+        </div>
     </div>
     {% endif %}
     <div class="w3-bar w3-theme-dark" id="navigation-bar">

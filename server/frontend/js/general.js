@@ -22,4 +22,3 @@ document.addEventListener("DOMContentLoaded", e => {
 	})
 })
 
-document.cookie = "first=False"
