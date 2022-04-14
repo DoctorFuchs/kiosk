@@ -7,7 +7,7 @@ allowed_ips =
     127.0.0.1
 
 [SERVER]
-auto_reload = True
+auto_reload = False
 debugger = False
 evalex = False
 port = 1024
@@ -20,24 +20,17 @@ theme = black
 
 [CONTACT]
 admin_name = Test Test
-contact_ways = 
-    CONTACT-WAY-1
-    CONTACT-WAY-2
-    CONTACT-WAY-3
+contact_ways =
 
+    name = Email
+    link = mailto:test@test.test
+    icon = mail.svg
 
-[CONTACT-WAY-1]
-name = Email
-link = mailto:test@test.test
-icon = mail.svg
+    name = Telegram
+    link = https://telegram.me/username
+    icon = telegram.svg
 
-[CONTACT-WAY-2]
-name = Telegram
-link = https://telegram.me/username
-icon = telegram.svg
-
-[CONTACT-WAY-3]
-name = WhatsApp
-link = https://wa.me/491525557912/
-icon = whatsapp.svg
+    name = WhatsApp
+    link = https://wa.me/491525557912/
+    icon = whatsapp.svg
 
