@@ -11,5 +11,5 @@ for x in range(3):
 def get_path(path: str) -> str:
     """get path from project dir as abs-path"""
     if path.startswith("/"):
-        path.strip()
+        path = path[1:]
     return ABS_MODULE_PATH + os.sep + path.replace("/", os.sep)
