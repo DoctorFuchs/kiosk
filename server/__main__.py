@@ -79,5 +79,5 @@ if __name__ == "__main__":
         upgrade_dependencies()
 
     # starts the server
-    from server import flask_apps
+    import flask_apps
     flask_apps.main(args)
