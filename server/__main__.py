@@ -1,9 +1,9 @@
 import argparse
 import sys, os, subprocess
 from server.utils.config_reader import config
-from server.utils.path import ABS_MODULE_PATH
+from server.utils.path import get_path
 
-os.chdir(ABS_MODULE_PATH) # make project-dir to working dir
+os.chdir(get_path("/")) # make project-dir to working dir
 sys.path += ["lib"] # adds lib import path
 
 def upgrade_dependencies():   # not working with autoreload of flask
@@ -79,5 +79,5 @@ if __name__ == "__main__":
         upgrade_dependencies()
 
     # starts the server
-    import flask_apps
+    from server import flask_apps
     flask_apps.main(args)
