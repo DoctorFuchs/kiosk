@@ -1,9 +1,18 @@
-// get templates
-var edit_box = loadTemplate("storage/edit_box.html");
-var create_box = loadTemplate("storage/create_box.html");
-var bar = loadTemplate("storage/header_bar.html");
-var item_template = loadTemplate("storage/item_template.html");
+initialize()
 
+// this is a function because this code has to be run asyncronously
+async function initialize() {
+    // get templates
+    edit_box = await loadTemplate("storage/edit_box.html");
+    create_box = await loadTemplate("storage/create_box.html");
+    bar = await loadTemplate("storage/header_bar.html");
+    item_template = await loadTemplate("storage/item_template.html");
+
+    // load items when DOMContent is loaded
+    document.addEventListener("DOMContentLoaded", loadItems())
+    // close form on submit
+    document.addEventListener("submit", exitForm)
+}
 
 function edit(itemname) {
     /* create an edit_box from template.
@@ -12,76 +21,70 @@ function edit(itemname) {
     // get informations about the item => resp object contains values of an item_model
     request("/shop/item?item_name=" + itemname, resp => {
         // create editbox overlay
-        edit_box.then(template => {
-            overlay_on(template
-                .replaceAll("%itemname%", resp["name"])
-                .replaceAll("%itemcost%", resp["cost"])
-                .replaceAll("%itemamount%", resp["amount"])
-            );
-        })
+        overlay_on(edit_box
+            .replaceAll("%itemname%", resp["name"])
+            .replaceAll("%itemcost%", resp["cost"])
+            .replaceAll("%itemamount%", resp["amount"])
+        );
     });
-    // load items to make changes visible
-    loadItems();
 }
 
+// update items and render them into the list
 function loadItems() {
-    // update items and render them into the list
+    // get item table to render
+    var item_table = document.getElementById("items");
+
+    // clear list
+    item_table.innerHTML = ""
+
+    // render header bar from template
+    item_table.innerHTML += bar
 
     request("/shop/list", response => {
-        // get item table to render
-        var item_table = document.getElementById("items");
-
-        // render header bar from template
-        bar.then(template => { item_table.innerHTML += template });
-
+        
         // if list is empty skip render and return
-        if (response.lenght === 0) { return; }
-
-        // clear list
-        item_table.innerHTML = "";
+        if (response.lenght === 0) {
+            return;
+        }
 
         // render for each item a template => item_template
         response.forEach(item => {
-            item_template.then(template => {
-                var elem = document.createElement("div");
-                elem.innerHTML += template
-                    .replaceAll("/item_name/", item["name"])
-                    .replaceAll("/item_cost/", item["cost"])
-                    .replaceAll("/item_amount/", item["amount"]);
+            var elem = document.createElement("div");
+            elem.innerHTML += item_template
+                .replaceAll("/item_name/", item["name"])
+                .replaceAll("/item_cost/", item["cost"])
+                .replaceAll("/item_amount/", item["amount"]);
 
-                if (item["amount"] <= 0) {
-                    elem.children[0].classList.add("w3-border");
-                    elem.children[0].classList.add("w3-border-red");
-                    elem.children[0].classList.add("w3-red");
-                }
-                item_table.innerHTML += elem.innerHTML;
-            })
+            if (item["amount"] <= 0) {
+                elem.children[0].classList.add("w3-border");
+                elem.children[0].classList.add("w3-border-red");
+                elem.children[0].classList.add("w3-red");
+            }
+            item_table.innerHTML += elem.innerHTML;
+
         })
     })
 }
 
 function create() {
     // create box to create new items
-    create_box.then(box => { overlay_on(box); });
+    overlay_on(create_box);
 }
 
 function exitForm() {
-    // default exit form and update by making overlay hidden and update items
+    // quit any form
     overlay_off();
-    loadItems();
 }
 
-function deleteitem(item_name) {
-    // delete item from item_name
-    fetch("/shop/delete/" + item_name, {
+async function deleteitem(item_name) {
+    // delete item item_name
+    exitForm();
+    await fetch("/api/shop/delete/" + item_name, {
         "method": "DELETE"
     });
-    exitForm();
+    loadItems()
 }
 
-// load items when DOMContent is loaded
-document.addEventListener("DOMContentLoaded", loadItems())
-// close form on submit
-document.addEventListener("submit", e => {
-    exitForm();
-})
+function waitForReload() {
+    document.getElementById("hiddeniframe").addEventListener("load", loadItems())
+}
