@@ -13,6 +13,7 @@ if not os.path.exists(get_path("/config.ini")):
 # read config
 config = ConfigParser()
 config.readfp(open(get_path("config.ini"), mode="rt", encoding="utf-8"))
+config.readfp(open(get_path("config.ini.default"), mode="rt", encoding="utf-8"))
 
 # read available language packs
 _languages = os.listdir(get_path("/packs/language"))

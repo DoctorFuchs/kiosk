@@ -1,9 +1,11 @@
 [APPLICATION]
 update_branch = stable
+backup_time_in_minutes = 10
+max_backups = 10
 
 [FIREWALL]
 active = True
-allowed_ips = 
+allowed_ips =
     127.0.0.1
 
 [SERVER]
@@ -23,7 +25,7 @@ admin_name = Test Test
 contact_ways =
 
     name = Email
-    link = mailto:test@test.test
+    link = mayilto:test@test.test
     icon = mail.svg
 
     name = Telegram
@@ -33,4 +35,3 @@ contact_ways =
     name = WhatsApp
     link = https://wa.me/491525557912/
     icon = whatsapp.svg
-
