@@ -48,6 +48,7 @@ function loadItems() {
         }
 
         // render for each item a template => item_template
+        var table_items = ""
         response.forEach(item => {
             var elem = document.createElement("div");
             elem.innerHTML += item_template
@@ -60,9 +61,9 @@ function loadItems() {
                 elem.children[0].classList.add("w3-border-red");
                 elem.children[0].classList.add("w3-red");
             }
-            item_table.innerHTML += elem.innerHTML;
-
+            table_items += elem.innerHTML;
         })
+        item_table.innerHTML += table_items
     })
 }
 
