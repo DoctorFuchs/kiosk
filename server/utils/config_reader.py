@@ -1,19 +1,18 @@
 from configparser import ConfigParser
 import os
-from .path import ABS_MODULE_PATH
+from .path import ABS_MODULE_PATH, get_path
 from shutil import copyfile
-from server.utils.path import get_path
 
 # check that the default config exists
 assert os.path.exists(ABS_MODULE_PATH + os.sep + "config.ini.default"), "Default config file wasn't found: " + ABS_MODULE_PATH + os.sep + "config.ini.default"
 
 # create normal config for editing
 if not os.path.exists("config.ini"):
-    copyfile("config.ini.default", "config.ini")
+    copyfile(get_path("/config.ini.default"), get_path("/config.ini"))
 
 # read config
 config = ConfigParser()
-config.read("config.ini")
+config.read(get_path("/config.ini"))
 
 # read available language packs
 _languages = os.listdir(get_path("/packs/language"))

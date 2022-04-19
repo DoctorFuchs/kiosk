@@ -1,6 +1,6 @@
-from server.utils.config_reader import config
-from server.utils import browserpath
-from server.flask_apps.server import application
+from utils.config_reader import config
+from utils import browserpath
+from flask_apps.server import application
 from werkzeug.serving import run_simple
 import threading, subprocess
 

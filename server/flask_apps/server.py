@@ -8,8 +8,8 @@ from jinja2.exceptions import TemplateNotFound
 from tinydb import Query
 
 from .api import api, items
-from server.utils.config_reader import languages, config, get_contact_dict
-from server.utils.path import get_path
+from utils.config_reader import languages, config, get_contact_dict
+from utils.path import get_path
 
 
 # flask app

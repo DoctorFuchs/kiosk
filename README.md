@@ -26,7 +26,7 @@ The most values are self explaining. However if you need help open an issue :D
 
 ```shell
 cd <kiosk_folder>
-python3 -m server
+python3 server
 ```
 
 ### options
