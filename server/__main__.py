@@ -69,10 +69,12 @@ if __name__ == "__main__":
     # check dependencies and install if required
     try:
         check_dependencies()
-
     except ImportError:
-        upgrade_dependencies()
-        check_dependencies()
+        try:
+            upgrade_dependencies()       
+        except subprocess.CalledProcessError:
+            print("\n\033[91mWhile trying to install the dependencies an error occured. Please check the the log above for more information.\033[0m\n")
+            sys.exit("\033[91mStartup failed.\033[0m")
 
     # starts the server
     from server import flask_apps
