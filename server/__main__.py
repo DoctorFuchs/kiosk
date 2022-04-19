@@ -6,21 +6,27 @@ from server.utils.path import ABS_MODULE_PATH
 os.chdir(ABS_MODULE_PATH) # make project-dir to working dir
 sys.path += ["lib"] # adds lib import path
 
-def upgrade_dependencies():   #not working with autoreload of flask
+def upgrade_dependencies():   # not working with autoreload of flask
+    try:
+        # checks for pip module
+        __import__("pip")
+
+    except ImportError:
+        # if pip wasn't found, it will install pip with ensurepip
+        subprocess.check_call([sys.executable, "-m", "ensurepip"])
+
+    finally:
+        # install
         try:
-            # checks for pip module
-            __import__("pip")
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt", "-t", "lib", "--upgrade", "--no-user"])  # --no-user => python 3.9 on Windows
 
-        except ImportError:
-            # if pip wasn't found, it will install pip with ensurepip
-            subprocess.check_call([sys.executable, "-m", "ensurepip"])
+        except subprocess.CalledProcessError:
+            print("\n\033[91mWhile trying to install the dependencies an error occured. Please check the the log above for more information.\033[0m\n")
+            sys.exit("\033[91mStartup failed.\033[0m")
 
-        finally:
-            # install
-            subprocess.check_call([sys.executable ,"-m" , "pip", "install", "-r", "requirements.txt", "-t", "lib", "--upgrade", "--no-user"]) # --no-user => python 3.9 on Windows
-            import site
-            from importlib import reload
-            reload(site)
+        import site
+        from importlib import reload
+        reload(site)
 
 def check_dependencies():
     with open("requirements.txt", "rt") as rfile:
@@ -70,12 +76,8 @@ if __name__ == "__main__":
     try:
         check_dependencies()
     except ImportError:
-        try:
-            upgrade_dependencies()       
-        except subprocess.CalledProcessError:
-            print("\n\033[91mWhile trying to install the dependencies an error occured. Please check the the log above for more information.\033[0m\n")
-            sys.exit("\033[91mStartup failed.\033[0m")
+        upgrade_dependencies()
 
     # starts the server
-    from server import flask_apps
+    import flask_apps
     flask_apps.main(args)
