@@ -28,7 +28,7 @@ def check_dependencies():
             __import__(requirement.strip())
 
 def update_application():
-    branch = config.get("APPLICATION", "branch") # get the branch from config
+    branch = config.get("APPLICATION", "update_branch") # get the branch from config
     # check that git is installed
     try:
         subprocess.check_call(["git", "--version"])
