@@ -170,7 +170,7 @@ def backup(resp):
     global last_backup
     if time.time() - last_backup >= config.getfloat("APPLICATION", "backup_time_in_minutes") * 60:
         def get_oldest_backup():
-            return str(min([float(file.rsplit(".", 1)[0]) for file in os.listdir(get_path("/storages/backups"))]))+".db"
+            return str(min([int(file.rsplit(".", 1)[0]) for file in os.listdir(get_path("/storages/backups"))]))+".db"
 
         while int(config.get("APPLICATION", "max_backups")) <= len(os.listdir(get_path("/storages/backups"))):
             os.remove(get_path("/storages/backups/") + get_oldest_backup())
