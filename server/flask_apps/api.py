@@ -168,17 +168,15 @@ def edit():
 @api.after_request
 def backup(resp):
     global last_backup
-    print(time.time()-last_backup)
-    if time.time() - last_backup >= int(config.get("APPLICATION", "backup_time_in_minutes"))*60:
-        print("create backup")
-        # TODO: backup
+    if time.time() - last_backup >= config.getfloat("APPLICATION", "backup_time_in_minutes") * 60:
         def get_oldest_backup():
-            return str(min([int(file.split(".")[0]) for file in os.listdir(get_path("/storages/backups"))]))+".db"
+            return str(min([float(file.rsplit(".", 1)[0]) for file in os.listdir(get_path("/storages/backups"))]))+".db"
 
         while int(config.get("APPLICATION", "max_backups")) <= len(os.listdir(get_path("/storages/backups"))):
             os.remove(get_path("/storages/backups/") + get_oldest_backup())
 
         shutil.copy(get_path("/storages/items.db"), get_path(f"/storages/backups/{time.time()}.db"))
         last_backup = time.time()
+        print(f"\033[95mBackup at {time.ctime()} created.\033[0m")
 
     return resp
