@@ -4,9 +4,8 @@ import os
 import re
 from tinydb import TinyDB, where
 from tinydb.queries import Query
-import time
-import shutil
 
+from server.utils.backup import backup
 from server.utils.config_reader import config
 from server.utils.path import get_path
 
@@ -14,16 +13,16 @@ from server.utils.path import get_path
 if not os.path.isdir(get_path("storages")): os.mkdir(get_path("storages"))
 if not os.path.isdir(get_path("storages/backups")): os.mkdir(get_path("storages/backups"))
 
+# backup database before reading it
+backup()
+
 # create item DB
-items: TinyDB = TinyDB(get_path("storages/items.db"))
+items = TinyDB(get_path("storages/items.db"))
 
 # patterns
 item_name_pattern = r"^[A-Za-z0-9\s]+$"
 item_amount_pattern = r"^[0-9]+$"
 item_cost_pattern = r"^[0-9]+[,|.]?[0-9]*$"
-
-# variables for backup
-last_backup = 0
 
 # Utils
 def has_item(item_name: str) -> bool:
@@ -36,6 +35,9 @@ def has_keys(_keys: List[str], _list: List[str]) -> bool:
 
 # Flask app
 api = Flask(__name__)
+
+# check if it's time to backup before every request
+api.before_request(backup)
 
 # handle assertion error => raised when user input is not correct
 @api.errorhandler(AssertionError)
@@ -164,19 +166,3 @@ def edit():
 
     # send response
     return "success", 200
-
-@api.after_request
-def backup(resp):
-    global last_backup
-    if time.time() - last_backup >= config.getfloat("APPLICATION", "backup_time_in_minutes") * 60:
-        def get_oldest_backup():
-            return str(min([float(file.rsplit(".", 1)[0]) for file in os.listdir(get_path("/storages/backups"))]))+".db"
-
-        while int(config.get("APPLICATION", "max_backups")) <= len(os.listdir(get_path("/storages/backups"))):
-            os.remove(get_path("/storages/backups/") + get_oldest_backup())
-
-        shutil.copy(get_path("/storages/items.db"), get_path(f"/storages/backups/{time.time()}.db"))
-        last_backup = time.time()
-        print(f"\033[95mBackup at {time.ctime()} created.\033[0m")
-
-    return resp

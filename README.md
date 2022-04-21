@@ -31,13 +31,38 @@ python3 server
 
 ### options
 ```
+usage: server [-h] [-U] [-u] [-b] [-w] [-f] [-k] {backup} ...
+
+Launcher for kiosk application
+
+optional arguments:
   -h, --help        show this help message and exit
-  -U, --upgrade     Upgrade the kiosk application, only available if git repository (git needs to be installed)
-  -u, --update      Force updating dependencies
-  -b, --browser     Launch browser while starting
-  -w, --window      Launch native looking window
-  -f, --fullscreen  Launch window in fullscreen
-  -k, --kiosk       Launch chromium's kiosk mode(a 'super' fullscreen, chrom[e/ium] or edge with chromium engine needs to be installed, exit with Alt+F4)
+  -U, --upgrade     force updating dependencies
+  -u, --update      upgrade the kiosk application, only available if git
+                    repository (git needs to be installed)
+  -b, --browser     launch browser while starting
+  -w, --window      launch native looking window
+  -f, --fullscreen  launch window in fullscreen
+  -k, --kiosk       launch chromium's kiosk mode(a 'super' fullscreen,
+                    chrom[e/ium] or edge with chromium engine needs to be
+                    installed, exit with Alt+F4)
+
+Tools:
+  {backup}
+
+backup help
+usage: server backup [-h] [-i | -B | -l | -s SHOW | -r RESTORE]
+
+manage database backups
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i, --interactive     restore backup interactively
+  -B, --backup          create a backup now
+  -l, --list            show list of all backups with date, time and id
+  -s SHOW, --show SHOW  view content of a backup
+  -r RESTORE, --restore RESTORE
+                        restore with id
 ```
 
 ## Devs
