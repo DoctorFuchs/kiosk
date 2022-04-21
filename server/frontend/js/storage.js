@@ -8,8 +8,9 @@ async function initialize() {
     bar = await loadTemplate("storage/header_bar.html");
     item_template = await loadTemplate("storage/item_template.html");
 
-    // load items when DOMContent is loaded
+    // load items when DOMContent is loaded and select changed
     document.addEventListener("DOMContentLoaded", loadItems())
+
     // close form on submit
     document.addEventListener("submit", exitForm)
 }
@@ -40,8 +41,35 @@ function loadItems() {
     // render header bar from template
     item_table.innerHTML += bar
 
+    var select_element = document.getElementById("sort_by");
+    let arguments = String(select_element.options[select_element.selectedIndex].getAttribute("name")).split(";");
+    let _key = arguments[0];
+    let _reverse = arguments[1] == "true";
+
     request("/shop/list", response => {
-        
+
+        response.sort((a, b) => {
+            var item_a, item_b;
+            if (_key == "name") {
+                // ignore lower/uppercase
+                item_a = a[_key].toUpperCase();
+                item_b = b[_key].toUpperCase();
+            }
+            else {
+                item_a = parseFloat(a[_key]);
+                item_b = parseFloat(b[_key]);
+            }
+            if (item_a > item_b) {
+                return _reverse?-1:1;
+            }
+            else if (item_b > item_a) {
+                return _reverse?1:-1;
+            }
+            else {
+                return 0;
+            }
+        })
+
         // if list is empty skip render and return
         if (response.lenght === 0) {
             return;

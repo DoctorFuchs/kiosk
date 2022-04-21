@@ -147,8 +147,8 @@ def edit():
     # save inforamations in variables
     item_name_old = request.form["item_name_old"]
     item_name_new = request.form["item_name_new"]
-    item_cost_new = request.form["item_cost_new"]
-    item_amount_new = request.form["item_amount_new"]
+    item_cost_new = float(request.form["item_cost_new"])
+    item_amount_new = int(request.form["item_amount_new"])
 
     # check that item exists
     assert has_item(item_name_old), "bad item"
