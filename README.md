@@ -51,7 +51,8 @@ Tools:
   {backup}
 
 backup help
-usage: server backup [-h] [-i | -B | -l | -s SHOW | -r RESTORE]
+usage: server backup [-h] [-i] [-B] [-p] [-l] [-s SHOW] [-r RESTORE]
+                     [-d DELETE]
 
 manage database backups
 
@@ -59,10 +60,13 @@ optional arguments:
   -h, --help            show this help message and exit
   -i, --interactive     restore backup interactively
   -B, --backup          create a backup now
+  -p, --permanent       access permanent backups (use with another option)
   -l, --list            show list of all backups with date, time and id
   -s SHOW, --show SHOW  view content of a backup
   -r RESTORE, --restore RESTORE
                         restore with id
+  -d DELETE, --delete DELETE
+                        delete backup forever
 ```
 
 ## Devs

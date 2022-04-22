@@ -12,4 +12,11 @@ def get_path(path: str) -> str:
     """get path from project dir as abs-path"""
     if path.startswith("/"):
         path = path[1:]
-    return ABS_MODULE_PATH + os.sep + path.replace("/", os.sep)
+    return os.path.join(ABS_MODULE_PATH, path)
+
+def createFolders():
+    """create folders if they don't exist"""
+    directorys = ["storages", "storages/backups", "storages/permanent_backups"]
+    for directory in directorys:
+        if not os.path.isdir(get_path(directory)): 
+            os.mkdir(get_path(directory))

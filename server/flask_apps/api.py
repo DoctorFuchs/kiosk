@@ -9,12 +9,8 @@ from server.utils.backup import backup
 from server.utils.config_reader import config
 from server.utils.path import get_path
 
-# creates folder if they don't exist
-if not os.path.isdir(get_path("storages")): os.mkdir(get_path("storages"))
-if not os.path.isdir(get_path("storages/backups")): os.mkdir(get_path("storages/backups"))
-
 # backup database before reading it
-backup()
+backup("storages/backups", False)
 
 # create item DB
 items = TinyDB(get_path("storages/items.db"))

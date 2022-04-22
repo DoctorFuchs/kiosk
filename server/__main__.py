@@ -1,10 +1,11 @@
 import argparse
 import sys, os, subprocess, signal
 from server.utils.config_reader import config
-from server.utils.path import get_path
+from server.utils.path import get_path, createFolders
 
 os.chdir(get_path("/")) # make project-dir to working dir
 sys.path += ["lib"] # adds lib import path
+createFolders() # create folders if they don't exist
 
 def upgrade_dependencies():   # not working with autoreload of flask
     try:
@@ -69,9 +70,11 @@ if __name__ == "__main__":
     backupGroup = backupManager.add_mutually_exclusive_group()
     backupGroup.add_argument("-i", "--interactive", help="restore backup interactively", action="store_true")
     backupGroup.add_argument("-B", "--backup", help="create a backup now", action="store_true")
+    backupManager.add_argument("-p", "--permanent", help="access permanent backups (use with another option)", action="store_true")
     backupGroup.add_argument("-l", "--list", help="show list of all backups with date, time and id", action="store_true")
     backupGroup.add_argument("-s", "--show", help="view content of a backup", action="store")
     backupGroup.add_argument("-r", "--restore", help="restore with id", action="store")
+    backupGroup.add_argument("-d", "--delete", help="delete backup forever", action="store")
     args = parser.parse_args()
 
     if args.help:
@@ -98,16 +101,23 @@ if __name__ == "__main__":
             sys.exit(0)
         signal.signal(signal.SIGINT, exit)
 
+        if args.permanent:
+            backups_path = get_path("/storages/permanent_backups")
+        else:
+            backups_path = get_path("/storages/backups")
+
         if args.interactive:
             interactiveBackupRestore()
         elif args.backup:
-            backup()
+            backup(backups_path, args.permanent)
         elif args.list:
-            listBackups()
+            listBackups(backups_path)
         elif args.show:
-            showBackupContent(args.show)
+            showBackupContent(args.show, backups_path)
         elif args.restore:
-            restoreBackup(args.restore)
+            restoreBackup(args.restore, backups_path)
+        elif args.delete:
+            deleteBackup(args.delete, backups_path)
         else:
             interactiveBackupRestore()
         sys.exit(0)
