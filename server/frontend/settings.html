@@ -1,58 +1,25 @@
 {% extends "base.html" %}
 {% block head %}
 <script>
-    function submit_from_fieldset(fieldset_id) {
-        for (var i = 0; i <= document.getElementById(fieldset_id).children.length; i++) {
-            try {
-                if (document.getElementById(fieldset_id).children.item(i).checked) {
-                    document.cookie = fieldset_id + "=" + document.getElementById(fieldset_id).children.item(i).id + ";";
-                }
-            } catch {
-                continue;
-            }
-        }
-    }
-
-    function submit_from_select(select_id) {
-        document.cookie = select_id + "=" + document.getElementById("theme").value;
-    }
-
     function submit() {
-        submit_from_fieldset("lang");
-        submit_from_select("theme");
+        document.cookie = "lang=" + document.querySelector("[name='language']:checked").value;
+        document.cookie = "theme=" + document.querySelector("[name='theme']").value;
         location.reload();
-    }
-
-    function uncheckOthers(id, cls) {
-        if (!document.getElementById(id).checked) {
-            document.getElementById(id).checked = true;
-        }
-
-        var elm = document.getElementsByClassName(cls);
-
-        // loop through all input elm in form
-
-        for (var i = 0; i < elm.length; i++) {
-            if (elm.item(i).type == "checkbox" && elm.item(i).id != id) {
-                elm.item(i).checked = false;
-            }
-        }
     }
 </script>
 {% endblock %}
 {% block body %}
 <div class="w3-content">
-
-    <h1 style="font-size:5vh">{{lang.settings}}</h1>
-    <h2 style="font-size:3vh">{{lang.language}}</h2>
-    <fieldset id="lang">
+    <h1 class="w3-xxlarge">{{lang.settings}}</h1>
+    <h2 class="w3-xlarge">{{lang.language}}</h2>
+    <div>
         {% for language in langs %}
-        <input class="lang" type="checkbox" onclick='uncheckOthers("{{language}}", "lang")' id="{{language}}" value="{{language}}" {% if language==active_language %}checked{% endif %}>
+        <input name="language" type="radio" value="{{language}}" {% if language==active_language %}checked{% endif %}>
         <label for="{{language}}">{{language}}</label>
         {% endfor %}
-    </fieldset>
-    <h2 style="font-size:3vh">{{lang.theme}}</h2>
-    <select id="theme">
+    </div>
+    <h2 class="w3-xlarge">{{lang.theme}}</h2>
+    <select name="theme">
         {% for theme in themes %}
         <option {% if theme == active_theme %}selected{% endif %}>{{theme}}</option>
         {% endfor %}
