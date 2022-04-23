@@ -8,7 +8,7 @@ from server.utils.path import get_path
 
 last_backup = 0
 
-def backup(backups_path, permanent):
+def backup(backups_path = get_path("storages/backups"), permanent = False):
     global last_backup
     if os.path.exists(get_path("storages/items.db")):
         if time.time() - last_backup >= config.getfloat("APPLICATION", "backup_time_in_minutes") * 60:
@@ -56,7 +56,7 @@ def showBackupContent(backup, backups_path):
 def restoreBackup(backup_id, backups_path):
     if os.path.exists(os.path.join(backups_path ,f"{backup_id}.db")):
         if input("\033[1mAre you sure that you want to restore? Before restore a permant backup will be created. For confirmation type 'yes': \033[0m") == "yes":
-            backup(backups_path, True)
+            backup(get_path("storages/permanent_backups"), True)
             shutil.copy(os.path.join(backups_path ,f"{backup_id}.db"), get_path("/storages/items.db"))
             print("\033[92mSuccessfully restored.\033[0m")
         else: 

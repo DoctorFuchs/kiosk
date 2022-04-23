@@ -10,7 +10,7 @@ from server.utils.config_reader import config
 from server.utils.path import get_path
 
 # backup database before reading it
-backup("storages/backups", False)
+backup()
 
 # create item DB
 items = TinyDB(get_path("storages/items.db"))
