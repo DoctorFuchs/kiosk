@@ -8,7 +8,7 @@ def startbrowser(arguments: list):
     """Start browser with a list of arguments. """
     try:
         # call chrom[e/ium] to and start app
-        subprocess.Popen([browserpath.get_default_chrome_path()]+arguments+[f"--app=http://localhost:{config.get('SERVER', 'port')}"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.Popen([browserpath.get_default_chrome_path()]+arguments+[f"--app=http://localhost:{config.server.port}"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     except subprocess.CalledProcessError:
         # when error is thrown open normal webbrowser with webbrowser module
@@ -16,7 +16,7 @@ def startbrowser(arguments: list):
 
         # import and start webbrowser with webbrowser lib
         import webbrowser
-        webbrowser.open_new(f"http://localhost:{config.get('SERVER', 'port')}")
+        webbrowser.open_new(f"http://localhost:{config.server.port}")
 
 
 def main(args):
@@ -41,12 +41,12 @@ def main(args):
     elif args.browser:
         # import and start webbrowser with webbrowser lib
         import webbrowser
-        webbrowser.open_new(f"http://localhost:{config.get('SERVER', 'port')}")
+        webbrowser.open_new(f"http://localhost:{config.server.port}")
 
     # run server
     run_simple('localhost',
-               config.getint("SERVER", "port"),
+               config.server.port,
                application,
-               use_reloader=config.getboolean("SERVER", "auto_reload"),
-               use_debugger=config.getboolean("SERVER", "debugger"),
-               use_evalex=config.getboolean("SERVER", "evalex"))
+               use_reloader=config.server.auto_reload,
+               use_debugger=config.server.debugger,
+               use_evalex=config.server.evalex)

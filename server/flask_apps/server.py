@@ -8,7 +8,7 @@ from jinja2.exceptions import TemplateNotFound
 from tinydb import Query
 
 from .api import api, items
-from server.utils.config_reader import languages, config, get_contact_dict
+from server.utils.config_reader import languages, config
 from server.utils.path import get_path
 
 
@@ -19,7 +19,7 @@ app = Flask(__name__, template_folder=get_path("/server/frontend"))
 @app.before_request
 def firewall():
     # check if flask app is secured through a firewall. If yes => it checks for the ip and look to the whitelist
-    if config.getboolean("FIREWALL", "active") and request.remote_addr not in config.get("FIREWALL", "allowed_ips").split("\n"):
+    if config.firewall.active and request.remote_addr not in config.firewall.allowed_ips:
         return "You have no access to this application.", 401
 
 # if anything is not found it return Not Found :D
@@ -32,20 +32,20 @@ def app_fallback(error):
 @app.route('/<path:req_path>')
 def app_serve(req_path: str):
     # get user settings from cookies
-    lang = request.cookies.get("lang", config.get("LANGUAGE", "language")).upper() # language
-    theme = request.cookies.get("theme", config.get("THEME", "theme")).lower() # theme
+    lang = request.cookies.get("lang", config.userinterface_defaults.language).upper() # language
+    theme = request.cookies.get("theme", config.userinterface_defaults.theme).lower() # theme
     firstrun = request.cookies.get("first", "True") # first time on website for the user
 
     # check that lang and theme exists => if not: use default from config.ini(.template)
-    if lang not in languages.sections(): lang = config.get("LANGUAGE", "language").upper()
-    if theme+".css" not in os.listdir(get_path("/server/frontend/css/themes")): theme = config.get("THEME", "theme")
+    if lang not in languages.keys(): lang = (config.userinterface_defaults).upper()
+    if theme+".css" not in os.listdir(get_path("/server/frontend/css/themes")): theme = config.userinterface_defaults.theme
     try:
         if req_path.endswith(".html"):
             # render html files as templates
             return render_template(req_path, **{
                     # language
-                    "lang": dict(languages.items(lang)),
-                    "langs":languages.sections(),
+                    "lang": languages[lang],
+                    "langs":languages.keys(),
                     "active_language":lang,
 
                     # theme
@@ -54,7 +54,7 @@ def app_serve(req_path: str):
 
                     # config
                     "firstrun":firstrun,
-                    "contact":get_contact_dict(),
+                    "contact":config.contact,
 
                     # database
                     "items": items,

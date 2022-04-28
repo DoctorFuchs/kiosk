@@ -1,10 +1,8 @@
 {% extends "base.html" %}
 {% block body %}
     <div class="w3-content">
-        <h1> {{ lang.about_header }} </h1>
-        {% for body in lang.about_bodys.split("\n")%}
-            <p>{{ body }}</p>
-        {% endfor %}
+        <h1> {{ lang.about_page.heading }} </h1>
+        <p> {{ lang.about_page.body }} </p>
         <div class="w3-row">
             <span class="w3-button w3-card-2 w3-row-item w3-theme-light">
                 <a target="_blank" href="https://github.com/Doctorfuchs/kiosk"><img style="width:32px; height:32px;" src="./icons/github.svg" alt="GitHub"> GitHub</a>

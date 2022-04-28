@@ -1,5 +1,5 @@
 #configuration file
-/config.ini
+/config.yaml
 
 #configuration files for compatibility with other versions
 /backend/config.py

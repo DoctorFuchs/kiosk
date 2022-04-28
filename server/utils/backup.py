@@ -11,12 +11,12 @@ last_backup = 0
 def backup(backups_path = get_path("storages/backups"), permanent = False):
     global last_backup
     if os.path.exists(get_path("storages/items.db")):
-        if time.time() - last_backup >= config.getfloat("APPLICATION", "backup_time_in_minutes") * 60:
+        if time.time() - last_backup >= config.application.backup_time_in_minutes * 60:
             if not permanent:
                 def get_oldest_backup():
                     return str(min([int(backup.rsplit(".", 1)[0]) for backup in os.listdir(backups_path)])) + ".db"
 
-                while config.getint("APPLICATION", "max_backups") <= len(os.listdir(backups_path)):
+                while config.application.max_backups <= len(os.listdir(backups_path)):
                     os.remove(os.path.join(backups_path, get_oldest_backup()))
             timestamp = str(time.time()).split(".")[0]
             shutil.copy(get_path("/storages/items.db"),os.path.join(backups_path, f"{timestamp}.db"))
