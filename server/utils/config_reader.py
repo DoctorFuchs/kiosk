@@ -14,9 +14,9 @@ if not os.path.exists(config_path):
     copyfile(default_config_path, config_path)
 
 # read config
-with open(default_config_path, "r") as file:
+with open(default_config_path, "r", encoding="utf-8") as file:
     config = yaml.safe_load(file)
-with open(config_path, "r") as file:
+with open(config_path, "r", encoding="utf-8") as file:
     config.update(yaml.safe_load(file) or {})
     # need to merge configs in case of updates that require new values
 
@@ -36,6 +36,6 @@ _languages = os.listdir(get_path("/packs/language"))
 # read languages
 languages = {}
 for lang in _languages:
-    with open(get_path("/packs/language/" + lang), "r") as file:
+    with open(get_path("/packs/language/" + lang), "r", encoding="utf-8") as file:
         languages[lang.rsplit(".", 1)[0].upper()] = yaml.safe_load(file)
 languages = DotDict(languages)

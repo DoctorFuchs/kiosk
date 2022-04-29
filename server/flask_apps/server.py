@@ -37,7 +37,7 @@ def app_serve(req_path: str):
     firstrun = request.cookies.get("first", "True") # first time on website for the user
 
     # check that lang and theme exists => if not: use default from config.ini(.template)
-    if lang not in languages.keys(): lang = (config.userinterface_defaults).upper()
+    if lang not in languages.keys(): lang = (config.userinterface_defaults.language).upper()
     if theme+".css" not in os.listdir(get_path("/server/frontend/css/themes")): theme = config.userinterface_defaults.theme
     try:
         if req_path.endswith(".html"):

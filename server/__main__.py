@@ -1,6 +1,5 @@
 import argparse
 import sys, os, subprocess, signal
-from server.utils.config_reader import config
 from server.utils.path import get_path, createFolders
 
 os.chdir(get_path("/")) # make project-dir to working dir
@@ -32,9 +31,11 @@ def upgrade_dependencies():   # not working with autoreload of flask
 def check_dependencies():
     with open("requirements.txt", "rt") as rfile:
         for requirement in rfile.read().split("\n"):
+            requirement = "yaml" if requirement == "pyyaml" else requirement
             __import__(requirement.strip())
 
 def update_application():
+    from server.utils.config_reader import config
     branch = config.application.update_branch # get the branch from config
     # check that git is installed
     try:
@@ -122,18 +123,18 @@ if __name__ == "__main__":
             interactiveBackupRestore()
         sys.exit(0)
 
+    # check dependencies and install if required
+    try:
+        check_dependencies()
+    except ImportError:
+        upgrade_dependencies()
+
     # check for arguments
     if args.upgrade:
         upgrade_dependencies()
 
     if args.update:
         update_application()
-
-    # check dependencies and install if required
-    try:
-        check_dependencies()
-    except ImportError:
-        upgrade_dependencies()
 
     # starts the server
     from server import flask_apps
