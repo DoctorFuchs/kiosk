@@ -7,6 +7,7 @@
             <span class="w3-button w3-card-2 w3-row-item w3-theme-light">
                 <a target="_blank" href="https://github.com/Doctorfuchs/kiosk"><img style="width:32px; height:32px;" src="./icons/github.svg" alt="GitHub"> GitHub</a>
             </span>
+            <span id="startIntro" class="w3-button w3-card-2 w3-row-item w3-theme-light" onclick="startIntro()"> {{ lang.about_page.startTour }} </span>
             <div class="w3-card-2 w3-padding w3-row-item w3-right w3-center w3-theme-light" style="width: max-content;">
                 <h3>{{ contact.admin_name }}</h3><br />
                 {% for contact_way in contact.contact_ways%}

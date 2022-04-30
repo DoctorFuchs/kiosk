@@ -1,0 +1,35 @@
+options:
+    prevLabel: '<'
+    nextLabel: '>'
+    doneLabel: '✓'
+    exitOnOverlayClick: false
+    exitOnEsc: false
+    disableInteraction: true
+    tooltipClass: w3-theme-l3
+tours:
+    index:
+        steps:
+            nav:
+                element: '#navigation-bar'
+        next_page: storage.html
+    storage:
+        steps:
+            create:
+                element: '#create'
+            items:
+                element: '#items'
+        next_page: shop.html
+    shop: 
+        steps:
+            products:
+                element: '#products'
+            itembag:
+                element: '#itembag'
+            pay:
+                element: '#pay'
+        next_page: about.html
+    about:
+        steps:
+            startIntro:
+                element: '#startIntro'
+                

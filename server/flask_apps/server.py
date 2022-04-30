@@ -1,6 +1,7 @@
 import threading
 from flask import Flask, request, Response,  render_template
 import os, subprocess, json
+import yaml
 from flask.helpers import send_from_directory
 from werkzeug.exceptions import abort
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
@@ -72,7 +73,29 @@ def app_serve(req_path: str):
     except TemplateNotFound or FileNotFoundError:
         return abort(404)
 
+general_api = Flask(__name__)
+
+@general_api.route("/intro")
+def introConfig():
+    """Merge intro configuration and language pack in one"""
+    with open(get_path("server/flask_apps/intro_config.yaml")) as file:
+        introConfig = yaml.safe_load(file)
+    lang = request.cookies.get("lang", config.userinterface_defaults.language).upper()
+    if lang not in languages.keys(): lang = (config.userinterface_defaults.language).upper()
+    lang = languages[lang]
+
+    finalConfig = {"options": introConfig["options"], "tours": {}}
+    
+    for pagek, pagev in introConfig["tours"].items():
+        finalConfig["tours"][pagek] = {}
+        finalConfig["tours"][pagek]["steps"] = []
+        for stepk, stepv in pagev["steps"].items():
+            finalConfig["tours"][pagek]["steps"].append({**stepv, **lang["tours"][pagek]["steps"][stepk]})
+        if "next_page" in pagev: finalConfig["tours"][pagek]["next_page"] = pagev["next_page"]
+    return finalConfig
+
 # create app with DispatcherMiddleware
 application = DispatcherMiddleware(app, {
-    '/api/shop': api
+    '/api/shop': api,
+    '/api': general_api
 })

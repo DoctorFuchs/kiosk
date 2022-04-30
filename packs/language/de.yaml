@@ -35,9 +35,41 @@ about_page:
         das System zu verbessern und zum Projekt beizutragen.
         Haben sie Fragen, Probleme oder einen Verbesserungsvorschlag, dann wenden sie sich an ihren Administrator
         oder öffnen sie ein Issue auf auf der GitHub-Seite.
+    startTour: Tour starten
 
 greeting: 
     heading: Anscheinend ist dies das erste Mal, dass dieses Programm ausgeführt wird.
     body: >
         Bitte konfigurieren Sie ihre Kontaktinformation wie in der Dokumentation beschrieben.
         Passen sie gegebenenfalls auch die anderen Programmeinstellungen an indem sie die Konfigurationsdatei bearbeiten beziehungsweise den Tab Einstellungen benutzen.
+
+tours:
+    index:
+        steps:
+            nav:
+                title: Die Naviagationsleiste
+                intro: Verwende die Tabs, um den gewünschten Bereich zu öffnen.
+    storage:
+        steps:
+            create:
+                title: Produkt hinzufügen
+                intro: Verwende diesen Knopf, um ein neues Produkt hinzuzufügen.
+            items:
+                title: Produkt bearbeiten
+                intro: Klicke auf ein Produkt um es umzubenennen, Anzahl oder Preis anzupassen oder es zu löschen.
+    shop: 
+        steps:
+            products:
+                title: Produktauswahl
+                intro: Klicke auf ein Produkt, um es dem Warenkorb hinzuzufügen beziehungsweise die Anzahl im Warenkorb um eins zu erhöhen.
+            itembag:
+                title: Warenkorb
+                intro: Klicke auf ein Produkt, um die Anzahl um eins zu senken.
+            pay:
+                title: Bezahlen
+                intro: Klicke hier, um den Kauf abzuschließen.
+    about:
+        steps:
+            startIntro:
+                title: Tour starten
+                intro: Benutze diesen Knopf, um diese Tour erneut zu starten.
