@@ -25,6 +25,9 @@ pay: Pay
 settings: Settings
 sort_by: Sort by
 reversed: reversed
+sum: Sum
+cash: Cash
+change: To pay/Change
 
 about_page:
     heading: About this project

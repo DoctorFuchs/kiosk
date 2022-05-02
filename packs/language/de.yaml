@@ -25,6 +25,9 @@ pay: Abschließen
 settings: Einstellungen
 sort_by: Sortieren nach
 reversed: Umgekehrt
+sum: Summen
+cash: Bar
+change: Noch zu zahlen/Rückgeld
 
 about_page:
     heading: Über dieses Projekt

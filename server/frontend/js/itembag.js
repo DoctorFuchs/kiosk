@@ -9,6 +9,7 @@ class Itembag {
         this.item_out_bag_template = loadTemplate("/shop/item_out_bag.html");
         this.itembag_pay_dialog = loadTemplate("/shop/itembag_pay.html");
         this.item_in_paydialog_template = loadTemplate("/shop/item_in_paydialog.html");
+        this.itembag_sum = loadTemplate("/shop/itembag_sum.html");
     }
 
     get_amount_from_itembag(item_name) {
@@ -150,7 +151,9 @@ class Itembag {
                 });
 
                 // write sum to pay dialog
-                product_sum_elem.innerHTML = "<h1>"+Math.round(sum*100)/100+"€</h1>";
+                this.itembag_sum.then(template => {
+                    product_sum_elem.innerHTML = template.replaceAll("/sum/", `${Math.round(sum*100)/100}€`)
+                })
 
                 template_elem.insertBefore(product_list_elem, template_elem.children[2]);
                 template_elem.insertBefore(product_sum_elem, template_elem.children[3]);
@@ -159,6 +162,7 @@ class Itembag {
             })
             .then(overlay => {
                 overlay_on(overlay.outerHTML);
+                document.querySelector('#bar').focus()
             })
     };
 
