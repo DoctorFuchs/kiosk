@@ -19,11 +19,9 @@ async function loadIntro(resp) {
 	config.steps = config.steps.map((step) => {return {...step, "element": document.querySelector(step.element)} })
 	var intro = introJs().setOptions(config)
 	intro.onskip(() => { window.location.href = "/" })
-	if (introConfig.tours[location].next_page) {
-		intro.oncomplete(() => {
-			window.location.href = `${introConfig.tours[location].next_page}?intro`
-		})
-	}
+	intro.oncomplete(() => {
+		window.location.href = introConfig.tours[location].next_page ? `${introConfig.tours[location].next_page}?intro` : "/"
+	})
 	resp(intro)
 }
 
