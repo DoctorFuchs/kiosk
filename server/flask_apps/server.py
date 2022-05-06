@@ -9,7 +9,7 @@ from jinja2.exceptions import TemplateNotFound
 from tinydb import Query
 
 from .api import api, items
-from server.utils.config_reader import languages, config
+from server.utils.config_reader import languages, config, introConfig
 from server.utils.path import get_path
 
 
@@ -76,10 +76,8 @@ def app_serve(req_path: str):
 general_api = Flask(__name__)
 
 @general_api.route("/intro")
-def introConfig():
+def generateIntroConfig():
     """Merge intro configuration and language pack in one"""
-    with open(get_path("server/flask_apps/intro_config.yaml")) as file:
-        introConfig = yaml.safe_load(file)
     lang = request.cookies.get("lang", config.userinterface_defaults.language).upper()
     if lang not in languages.keys(): lang = (config.userinterface_defaults.language).upper()
     lang = languages[lang]

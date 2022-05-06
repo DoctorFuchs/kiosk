@@ -1,7 +1,7 @@
 options:
     prevLabel: '<'
     nextLabel: '>'
-    doneLabel: '✓'
+    doneLabel: '&#10003;'
     exitOnOverlayClick: false
     exitOnEsc: false
     disableInteraction: true

@@ -20,6 +20,10 @@ with open(config_path, "r", encoding="utf-8") as file:
     config.update(yaml.safe_load(file) or {})
     # need to merge configs in case of updates that require new values
 
+#read intro config
+with open(get_path("server/flask_apps/intro_config.yaml"), encoding="utf-8") as file:
+        introConfig = yaml.safe_load(file)
+
 class DotDict(dict):
     """"Enables .value access for dictonarys"""
     def __getattr__(*args):
