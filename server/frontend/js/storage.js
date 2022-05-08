@@ -8,9 +8,12 @@ async function initialize() {
     bar = await loadTemplate("storage/header_bar.html");
     item_template = await loadTemplate("storage/item_template.html");
 
-    // load items when DOMContent is loaded and select changed
-    document.addEventListener("DOMContentLoaded", loadItems())
-
+    // load items when DOMContent is loaded
+    if (document.readyState == "loading") {
+        document.addEventListener("DOMContentLoaded", loadItems)
+    } else {
+        loadItems()
+    }
     // close form on submit
     document.addEventListener("submit", exitForm)
 }
@@ -60,10 +63,10 @@ function loadItems() {
                 item_b = parseFloat(b[_key]);
             }
             if (item_a > item_b) {
-                return _reverse?-1:1;
+                return _reverse ? -1 : 1;
             }
             else if (item_b > item_a) {
-                return _reverse?1:-1;
+                return _reverse ? 1 : -1;
             }
             else {
                 return 0;
@@ -115,5 +118,5 @@ async function deleteitem(item_name) {
 }
 
 function waitForReload() {
-    document.getElementById("hiddeniframe").addEventListener("load", loadItems())
+    document.getElementById("hiddeniframe").addEventListener("load", loadItems)
 }
