@@ -44,7 +44,7 @@ def main(args):
         webbrowser.open_new(f"http://localhost:{config.server.port}")
 
     # run server
-    run_simple('localhost',
+    run_simple('0.0.0.0',
                config.server.port,
                application,
                use_reloader=config.server.auto_reload,
