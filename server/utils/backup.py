@@ -22,7 +22,6 @@ def backup(backups_path = get_path("storages/backups"), permanent = False):
             shutil.copy(get_path("/storages/items.db"),os.path.join(backups_path, f"{timestamp}.db"))
             last_backup = time.time()
             print(f"\033[95mCreated {'permanent ' if permanent else ''}backup at {time.ctime()}.\033[0m")
-            return timestamp
     else:
         print("\033[91mNo database to backup found.\033[0m")
 
