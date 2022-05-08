@@ -12,7 +12,7 @@
         <tr>
             <td id="sum">/sum/</td>
             <td>-</td>
-            <td><input type="text" id="bar" oninput="document.querySelector('#change').textContent = `${(Number(document.querySelector('#sum').textContent.replaceAll('€', '')) - Number(this.value)).toFixed(2)}€`"></td>
+            <td><input type="number" id="bar" oninput="document.querySelector('#change').textContent = `${(Number(document.querySelector('#sum').textContent.replaceAll('€', '')) - Number(this.value)).toFixed(2)}€`"></td>
             <td>=</td>
             <td id="change">/sum/</td>
         </tr>
