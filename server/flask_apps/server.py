@@ -15,9 +15,12 @@ from server.utils.path import get_path
 
 # flask app
 app = Flask(__name__, template_folder=get_path("/server/frontend"))
+# general api router
+general_api = Flask(__name__)
 
 @api.before_request
 @app.before_request
+@general_api.before_request
 def firewall():
     # check if flask app is secured through a firewall. If yes => it checks for the ip and look to the whitelist
     if config.firewall.active and request.remote_addr not in config.firewall.allowed_ips:
@@ -73,7 +76,6 @@ def app_serve(req_path: str):
     except TemplateNotFound or FileNotFoundError:
         return abort(404)
 
-general_api = Flask(__name__)
 
 @general_api.route("/intro")
 def generateIntroConfig():
