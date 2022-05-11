@@ -1,5 +1,3 @@
-var loadingIntro = new Promise(loadIntro)
-
 async function loadTemplate(path) {
 	// return an template await response text => used to get templates, like overlays, ...
 	// fetch response
@@ -16,9 +14,16 @@ async function loadIntro(resp) {
 	var location = filename != "" ? filename.split(".")[0] : "index"
 	var config = introConfig.options
 	config.steps = introConfig.tours[location].steps
-	config.steps = config.steps.map((step) => {return {...step, "element": document.querySelector(step.element)} })
+	config.steps = config.steps.map((step) => {
+		return {
+			...step,
+			"element": document.querySelector(step.element)
+		}
+	})
 	var intro = introJs().setOptions(config)
-	intro.onskip(() => { window.location.href = "/" })
+	intro.onskip(() => {
+		window.location.href = "/"
+	})
 	intro.oncomplete(() => {
 		window.location.href = introConfig.tours[location].next_page ? `${introConfig.tours[location].next_page}?intro` : "/"
 	})
@@ -37,7 +42,7 @@ function startIntro(force = false) {
 			} else {
 				window.location.href = "/?intro";
 			}
-	}
+		}
 	});
 }
 
@@ -54,13 +59,19 @@ document.addEventListener("DOMContentLoaded", e => {
 		}
 	})
 
+	loadingIntro = new Promise(loadIntro)
+
 	if (new URLSearchParams(window.location.search).has("intro")) {
-		startIntro(true)
+		if (!document.getElementById("greeting")) {
+			startIntro(true)
+		}
 	}
 
-	try {
-		document.getElementById("greeting").addEventListener("click", () => {
+	var close_greeting = document.querySelector("#close_greeting")
+	if (close_greeting) {
+		close_greeting.addEventListener("click", () => {
 			startIntro();
 		})
-	} catch {}
+	}
+
 })
