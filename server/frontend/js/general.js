@@ -13,7 +13,7 @@ async function loadIntro(resp) {
 	var filename = (window.location.pathname).substring(window.location.pathname.lastIndexOf('/') + 1);
 	var location = filename != "" ? filename.split(".")[0] : "index"
 	var config = introConfig.options
-	config.steps = introConfig.tours[location].steps
+	config.steps = introConfig.tours[location] ? introConfig.tours[location].steps : []
 	config.steps = config.steps.map((step) => {
 		return {
 			...step,
