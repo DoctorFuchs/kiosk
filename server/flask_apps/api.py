@@ -16,7 +16,7 @@ backup()
 items = TinyDB(get_path("storages/items.db"))
 
 # patterns
-item_name_pattern = r"^[A-Za-z0-9\s]+$"
+item_name_pattern = r"^[A-Za-z0-9äöü\s]+$" # TODO: find a better pattern, accepting any single character
 item_amount_pattern = r"^[0-9]+$"
 item_cost_pattern = r"^[0-9]+[,|.]?[0-9]*$"
 
