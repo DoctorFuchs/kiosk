@@ -8,12 +8,16 @@ async function loadTemplate(path) {
 	return template;
 }
 
+function setCookie(key, value, max_age = 9999999999, expires) {
+	document.cookie = `${key}=${value}; max-age=${max_age}; expires=${expires}`
+}
+
 async function loadIntro(resp) {
 	var introConfig = await (await fetch("/api/intro")).json()
 	var filename = (window.location.pathname).substring(window.location.pathname.lastIndexOf('/') + 1);
 	var location = filename != "" ? filename.split(".")[0] : "index"
 	var config = introConfig.options
-	config.steps = introConfig.tours[location].steps
+	config.steps = introConfig.tours[location] ? introConfig.tours[location].steps : []
 	config.steps = config.steps.map((step) => {
 		return {
 			...step,
