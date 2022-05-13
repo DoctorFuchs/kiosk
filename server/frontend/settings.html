@@ -2,8 +2,8 @@
 {% block head %}
 <script>
     function submit() {
-        document.cookie = "lang=" + document.querySelector("[name='language']:checked").value;
-        document.cookie = "theme=" + document.querySelector("[name='theme']").value;
+        setCookie("lang", document.querySelector("[name='language']:checked").value);
+        setCookie("theme", document.querySelector("[name='theme']").value);
         location.reload();
     }
 </script>

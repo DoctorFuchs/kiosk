@@ -8,6 +8,10 @@ async function loadTemplate(path) {
 	return template;
 }
 
+function setCookie(key, value, max_age = 9999999999, expires) {
+	document.cookie = `${key}=${value}; max-age=${max_age}; expires=${expires}`
+}
+
 async function loadIntro(resp) {
 	var introConfig = await (await fetch("/api/intro")).json()
 	var filename = (window.location.pathname).substring(window.location.pathname.lastIndexOf('/') + 1);
