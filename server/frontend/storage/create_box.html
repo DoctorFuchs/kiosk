@@ -5,7 +5,7 @@
     <div class="w3-container">
         <form action='/api/shop/additem' target='hiddeniframe' method='POST'>
             <label for='item_name_new'>{{lang.name}}</label><br>
-            <input required class='w3-input' id='item_name' name='item_name' type='text' pattern='[A-Za-z0-9äöü\s]+' requiered><br>
+            <input required class='w3-input' id='item_name' name='item_name' type='text' requiered><br>
             <label for='item_cost'>{{lang.price}}</label><br>
             <input class='w3-input' id='item_cost' name='item_cost' type='number' min='0' step='0.01' required><br>
             <label for='item_amount'>{{lang.amount_available}}</label><br>

@@ -100,9 +100,10 @@ class Itembag {
             this.item_in_bag_template.then(template => {
                 // replace item_values in template with item (from this.itembag.forEach loop)
                 elem.innerHTML += template
-                    .replaceAll("/item_name/", item["name"])
-                    .replaceAll("/item_cost/", Math.round(item["cost"]*item["amount"]*100)/100)
-                    .replaceAll("/item_amount/", item["amount"]);
+                .replaceAll("/item_name/", decodeURIComponent(item["name"]))
+                .replaceAll("/item_name_encoded/", item["name"])
+                .replaceAll("/item_cost/", Math.round(item["cost"] * item["amount"] * 100) / 100)
+                .replaceAll("/item_amount/", item["amount"]);
             });
             // add sum
             sum += item["cost"] * item["amount"];
@@ -141,7 +142,8 @@ class Itembag {
                     this.item_in_paydialog_template.then(template => {
                         // replace item_values in template with item (from this.itembag.forEach loop)
                         product_list_elem.innerHTML += template
-                            .replaceAll("/item_name/", item["name"])
+                            .replaceAll("/item_name/", decodeURIComponent(item["name"]))
+                            .replaceAll("/item_name_encoded/", item["name"])
                             .replaceAll("/item_cost/", item["cost"])
                             .replaceAll("/item_amount/", item["amount"]);
                     });
@@ -195,7 +197,8 @@ class Itembag {
             resp.forEach(item => {
                 this.item_out_bag_template.then(template => {
                     elem.innerHTML += template
-                        .replaceAll("/item_name/", item["name"])
+                        .replaceAll("/item_name/", decodeURIComponent(item["name"]))
+                        .replaceAll("/item_name_encoded/", item["name"])
                         .replaceAll("/item_cost/", item["cost"])
                         .replaceAll("/item_amount/", item["amount"] - this.get_amount_from_itembag(item["name"]));
                 })

@@ -16,7 +16,7 @@ backup()
 items = TinyDB(get_path("storages/items.db"))
 
 # patterns
-item_name_pattern = r"^[A-Za-z0-9äöü\s]+$" # TODO: find a better pattern, accepting any single character
+item_name_pattern = r"[\s\S]+"
 item_amount_pattern = r"^[0-9]+$"
 item_cost_pattern = r"^[0-9]+[,|.]?[0-9]*$"
 
@@ -91,9 +91,15 @@ def additem():
     # return response
     return "success", 200
 
-@api.route("/delete/<path:item_name>", methods=["DELETE"])
-def delete(item_name):
+@api.route("/delete", methods=["DELETE"])
+def delete():
     global items
+    # check for required key
+    assert has_keys(["item_name"], request.args.keys()), "bad keys"
+
+    # read item name
+    item_name = request.args["item_name"]
+
     # check for keys
     assert has_item(item_name), "bad item"
 

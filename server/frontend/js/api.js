@@ -1,19 +1,20 @@
 function decode(jsonData) {
     if (Array.isArray(jsonData)) {
-        jsonData.forEach(item => {
-            item = decode(item)
+        jsonData = jsonData.map(item => {
+            return decode(item)
         })
-        return jsonData
     }
-    else if (typeof jsonData == "string") {
-        return decodeURIComponent(jsonData)
+    else if (typeof jsonData == "object") {
+        entries = Object.entries(jsonData)
+        jsonData = {}
+        entries.forEach(entrie => {
+            jsonData[entrie[0]] = decode(entrie[1])
+        });
+        console.dir(jsonData)
+    } else {
+        jsonData = encodeURIComponent(jsonData)
     }
-    else {
-        Object.values(jsonData).forEach(item => {
-            item = decode(item)
-        })
-        return jsonData
-    }
+    return jsonData
 }
 
 function request(path, callback_func = console.log) {

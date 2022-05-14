@@ -26,7 +26,7 @@ function edit(itemname) {
     request("/shop/item?item_name=" + itemname, resp => {
         // create editbox overlay
         overlay_on(edit_box
-            .replaceAll("%itemname%", resp["name"])
+            .replaceAll("%itemname%", decodeURIComponent(resp["name"]))
             .replaceAll("%itemcost%", resp["cost"])
             .replaceAll("%itemamount%", resp["amount"])
         );
@@ -83,7 +83,8 @@ function loadItems() {
         response.forEach(item => {
             var elem = document.createElement("div");
             elem.innerHTML += item_template
-                .replaceAll("/item_name/", item["name"])
+                .replaceAll("/item_name/", decodeURIComponent(item["name"]))
+                .replaceAll("/item_name_encoded/", item["name"])
                 .replaceAll("/item_cost/", item["cost"])
                 .replaceAll("/item_amount/", item["amount"]);
 
@@ -111,7 +112,7 @@ function exitForm() {
 async function deleteitem(item_name) {
     // delete item item_name
     exitForm();
-    await fetch("/api/shop/delete/" + item_name, {
+    await fetch("/api/shop/delete?item_name=" + item_name, {
         "method": "DELETE"
     });
     loadItems()
