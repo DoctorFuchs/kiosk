@@ -16,7 +16,7 @@ server:
 
 userinterface_defaults:
     language: de
-    theme: black
+    theme: white
 
 contact:
     admin_name: Test Test
