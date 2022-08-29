@@ -13,7 +13,7 @@
             <input class='w3-input' id='item_amount_new' name='item_amount_new' value="%itemamount%" type='number' min=0 step='1' required><br>
 
             <button class='w3-block w3-button' onclick='waitForReload()' type='submit'>{{lang.accept}}</button>
-            <button class='w3-block w3-button' onclick='deleteitem("%itemname%"); exitForm()' type='button'>{{lang.delete}}</button>
+            <button class='w3-block w3-button' onclick='deleteitem("%itemname_encoded%"); exitForm()' type='button'>{{lang.delete}}</button>
             <button class='w3-block w3-button' onclick='exitForm()' type='reset'>{{lang.cancel}}</button>
         </form>
     </div>

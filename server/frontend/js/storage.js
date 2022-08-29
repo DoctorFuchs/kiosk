@@ -27,6 +27,7 @@ function edit(itemname) {
         // create editbox overlay
         overlay_on(edit_box
             .replaceAll("%itemname%", decodeURIComponent(resp["name"]))
+            .replaceAll("%itemname_encoded%", resp["name"])
             .replaceAll("%itemcost%", resp["cost"])
             .replaceAll("%itemamount%", resp["amount"])
         );
@@ -112,7 +113,7 @@ function exitForm() {
 async function deleteitem(item_name) {
     // delete item item_name
     exitForm();
-    await fetch("/api/shop/delete?item_name=" + item_name, {
+    await fetch("/api/shop/delete?item_name=" + decodeURIComponent(item_name), {
         "method": "DELETE"
     });
     loadItems()
