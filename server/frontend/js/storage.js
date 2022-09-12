@@ -113,7 +113,7 @@ function exitForm() {
 async function deleteitem(item_name) {
     // delete item item_name
     exitForm();
-    await fetch("/api/shop/delete?item_name=" + decodeURIComponent(item_name), {
+    await fetch("/api/shop/delete?item_name=" + item_name, {
         "method": "DELETE"
     });
     loadItems()
