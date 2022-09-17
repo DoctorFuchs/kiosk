@@ -1,5 +1,6 @@
 application:
     update_branch: stable
+    feedback_url: https://submission.bromb.co/Kiosk/Kiosk
     backup_time_in_minutes: 10
     max_backups: 10
 

@@ -24,6 +24,7 @@
     </style>
 
     <script src="js/intro.min.js"></script>
+    <script	async defer src="js/bromb.js"></script>
     <script src="js/general.js"></script>
     <script src="js/overlay.js"></script>
     {% block head %}{% endblock %}
@@ -38,9 +39,10 @@
         </div>
     </div>
     {% endif %}
-    <div class="w3-bar w3-theme-dark w3-card" id="navigation-bar" style="position: sticky; top: 0;">
-        <a href="index.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-left w3-margin-left"><h2>{{ lang.title }}</h2></a>
-        <a href="about.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-right w3-margin-right"><h2>{{ lang.about }}</h2></a>
+    <div class="w3-bar w3-theme-dark w3-card w3-container" id="navigation-bar" style="position: sticky; top: 0;">
+        <a href="index.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-left w3-theme-d3"><h2>{{ lang.title }}</h2></a>
+        <a href="{{ feedback_url }}" title="{{ lang.feedback }}" onclick="event.preventDefault()" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-right w3-theme-d4"><h2>!?</h2></a>
+        <a href="about.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-right"><h2>{{ lang.about }}</h2></a>
         <a href="settings.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-right"><h2>{{lang.settings}}</h2></a>
         <a href="shop.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-right"><h2>{{ lang.shop }}</h2></a>
         <a href="storage.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-right"><h2>{{ lang.storage }}</h2></a>

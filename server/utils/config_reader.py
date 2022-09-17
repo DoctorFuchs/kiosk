@@ -1,5 +1,6 @@
 import yaml
 import os
+import subprocess
 from .path import ABS_MODULE_PATH, get_path
 from shutil import copyfile
 
@@ -33,6 +34,17 @@ class DotDict(dict):
     __delattr__ = dict.__delitem__
 
 config = DotDict(config)
+
+#get version (last git commit id) and add to config
+def _get_version():
+    result = subprocess.run(["git", "log", "--format='%H'", "-n", "1"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if result.returncode == 0:
+        result = result.stdout.decode("utf-8").strip()
+    else:
+        result = "unknown"
+    return result
+    
+config["application"]["feedback_url"] += f"?version={_get_version()}"
 
 # read available language packs
 _languages = os.listdir(get_path("/packs/language"))
