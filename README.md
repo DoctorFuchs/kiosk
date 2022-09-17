@@ -1,6 +1,6 @@
 # Kiosk app
 
-This project is a basic cashbox system for small kiosk’s, stall’s and sales. The backend is build in python, the frontend with the three web design technologies HTML, CSS and JavaScript. You are invited to improve the system and contribute to the project. Just ask if there are questions.
+This project is a basic point of sale system for small kiosk’s, stall’s and sales. The backend is build in python, the frontend with the three web design technologies HTML, CSS and JavaScript. Feel free to improve the system and contribute to the project. Just ask if there are questions.
 
 
 ## install
@@ -11,22 +11,35 @@ Requirements:
 
 Clone the repository:
 ```shell
-# this is important to get the German language package with the right encoding
-git config --local core.precomposeunicode true
 git clone https://github.com/DoctorFuchs/kiosk
+# dependencies will be installed automatically in the projects directoy (lib folder)
 ```
 
 ## configurate
-*Please not that the configuration file (config.ini) are only available after first run.*
+*Please not that the configuration file (config.yaml) is only available after the first run.*
 
-To setup contact information of the administrator for support reasons, edit the contact ways in config.ini (threre are some examples).
-The most values are self explaining. However if you need help open an issue :D
+To set up contact information of the administrator for support reasons, edit the `contact` section in `config.yaml`. The property `admin_name` is shown as the responsible person for the app and the ways of contact. Each entry in the following `contact_ways` list consists of the attributes listed in the following table. 
+
+| Property | Description                                          |
+|----------|------------------------------------------------------|
+| name     | display name (hover label, image alt-attribute)      |
+| link     | url to start contact (mail, phone, messenger, ...)  |
+| icon     | file name of an icon placed in server/frontend/icons |
+
+*Example*
+```
+-   name: Email
+    link: mailto:example@e.mail
+    icon: mail.svg
+```
+
+All this information is shown on the about page, where you can click a button for each way of contact to head to the related link.
 
 ## run
 
 ```shell
 cd <kiosk_folder>
-python3 server
+python3 -m server
 ```
 
 ### options
@@ -75,7 +88,7 @@ optional arguments:
 
 ## Information's
 This app is an assignment.
-The frontend is designed in German language (because it is an assignment from Germany).
+
 All comments, readme's or tips are in English.
 Therefor we are no English native speaker so feel free to submit your language improvements.
 
