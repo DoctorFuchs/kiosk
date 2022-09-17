@@ -59,6 +59,7 @@ def app_serve(req_path: str):
                     # config
                     "firstrun":firstrun,
                     "feedback_url":config.application.feedback_url,
+                    "welcome_message":config.welcome_message,
                     "contact":config.contact,
 
                     # database

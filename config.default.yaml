@@ -4,6 +4,11 @@ application:
     backup_time_in_minutes: 10
     max_backups: 10
 
+#custom welcome message on home screen
+welcome_message:
+    active: False
+    message: 
+
 firewall: 
     active: True
     allowed_ips:
