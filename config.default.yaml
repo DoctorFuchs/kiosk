@@ -28,7 +28,7 @@ contact:
     admin_name: Test Test
     contact_ways:
         -   name: Email
-            link: mayilto:test@test.test
+            link: mailto:test@test.test
             icon: mail.svg
 
         -   name: Telegram
