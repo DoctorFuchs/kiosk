@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block head %}
+    <script src="js/api.js"></script>
+    <script src="js/storage.js"></script>
+{% endblock %}
+{% block body %}
+    <div class="w3-padding w3-border-0 w3-cell-row">
+        <div id="create" class="w3-cell w3-border w3-theme-d4 w3-hover-theme w3-center"  onclick='create()'>
+            <h1><b>{{ lang.new_product }}</b></h1>
+        </div>
+    </div>
+    <div class="w3-panel w3-half">
+        <label for="sort_by">{{lang.sort_by}}:</label>
+        <select name="sort_by" id="sort_by" onchange="loadItems()">
+          <option name="name;false" selected>{{lang.name}}</option>
+          <option name="name;true">{{lang.name}} - {{lang.reversed}}</option>
+          <option name="cost;false">{{lang.price}}</option>
+          <option name="cost;true">{{lang.price}} - {{lang.reversed}}</option>
+          <option name="amount;false">{{lang.amount_available}}</option>
+          <option name="amount;true">{{lang.amount_available}} - {{lang.reversed}}</option>
+        </select>
+    </div>
+    <div class="w3-border-0 w3-cell-row w3-half">
+
+    </div>
+    <div id="items" class="w3-container">
+
+    </div>
+{% endblock %}

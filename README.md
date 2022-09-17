@@ -1,48 +1,85 @@
 # Kiosk app
 
-This project is a basic chashbox system for small kiosk’s, stall’s and sales. The backend is build in python, the frontend with the three web design technologies HTML, CSS and JavaScript. You are invited to improve the system and contribute to the project. Just ask if there are questions.
+This project is a basic point of sale system for small kiosk’s, stall’s and sales. The backend is build in python, the frontend with the three web design technologies HTML, CSS and JavaScript. Feel free to improve the system and contribute to the project. Just ask if there are questions.
 
-ATTENTION SINCE 24. DECEMBER 2021 SQL IS NOT LONGER SUPPORTED. BUT YOU NEED TO INSTALL FLASK
 
 ## install
+
+Requirements:
+- git (>=1.8)
+- python3 (>= 3.6)
 
 Clone the repository:
 ```shell
 git clone https://github.com/DoctorFuchs/kiosk
+# dependencies will be installed automatically in the projects directoy (lib folder)
 ```
-
-Then make sure python 3 is installed. If not please install (https://www.python.org/downloads/). (We used python 3.6 (tested on 3.9.9))
 
 ## configurate
-*Please note that the configuration files are only available after first run.*
+*Please not that the configuration file (config.yaml) is only available after the first run.*
 
-To setup contact information of the administrator for support reason, edit the config file (kiosk/frontend/config.json). First of all you can fill in the name. Secondly choose your different contacting possibilities. The first value of each holds the name, the second one the link or url (like mailto). Use "!m" to insert the message from below. The third contains the filename of your icon, wich have to be placed in kiosk/frontend/icons folder. The message field holds a personal message, wich you can insert in your links using "!m" there. To automaticly insert author name use "!a" and for a line break "!b" inside the message.
-```json
-["<Label/Name>", "<link/adress>", "<icon name>"]
+To set up contact information of the administrator for support reasons, edit the `contact` section in `config.yaml`. The property `admin_name` is shown as the responsible person for the app and the ways of contact. Each entry in the following `contact_ways` list consists of the attributes listed in the following table. 
+
+| Property | Description                                          |
+|----------|------------------------------------------------------|
+| name     | display name (hover label, image alt-attribute)      |
+| link     | url to start contact (mail, phone, messenger, ...)  |
+| icon     | file name of an icon placed in server/frontend/icons |
+
+*Example*
+```
+-   name: Email
+    link: mailto:example@e.mail
+    icon: mail.svg
 ```
 
-| where to use | command | what it does      |
-|--------------|:-------:|-------------------|
-| in links     |    !m   | insert message    |
-| in message   |    !a   | insert author     |
-|              |    !b   | generate new line |
+All this information is shown on the about page, where you can click a button for each way of contact to head to the related link.
 
 ## run
 
 ```shell
 cd <kiosk_folder>
-python3 run.py
+python3 -m server
 ```
 
 ### options
 ```
+usage: server [-h] [-U] [-u] [-b] [-w] [-f] [-k] {backup} ...
+
+Launcher for kiosk application
+
+optional arguments:
   -h, --help        show this help message and exit
-  -U, --upgrade     Upgrade the kiosk application, only available if git repository (git needs to be installed)
-  -u, --update      Force updating dependencies
-  -b, --browser     Launch browser while starting
-  -w, --window      Launch native looking window
-  -f, --fullscreen  Launch window in fullscreen
-  -k, --kiosk       Launch chromium's kiosk mode(a 'super' fullscreen, chrom[e/ium] or edge with chromium engine needs to be installed, exit with Alt+F4)
+  -U, --upgrade     force updating dependencies
+  -u, --update      upgrade the kiosk application, only available if git
+                    repository (git needs to be installed)
+  -b, --browser     launch browser while starting
+  -w, --window      launch native looking window
+  -f, --fullscreen  launch window in fullscreen
+  -k, --kiosk       launch chromium's kiosk mode(a 'super' fullscreen,
+                    chrom[e/ium] or edge with chromium engine needs to be
+                    installed, exit with Alt+F4)
+
+Tools:
+  {backup}
+
+backup help
+usage: server backup [-h] [-i] [-B] [-p] [-l] [-s SHOW] [-r RESTORE]
+                     [-d DELETE]
+
+manage database backups
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i, --interactive     restore backup interactively
+  -B, --backup          create a backup now
+  -p, --permanent       access permanent backups (use with another option)
+  -l, --list            show list of all backups with date, time and id
+  -s SHOW, --show SHOW  view content of a backup
+  -r RESTORE, --restore RESTORE
+                        restore with id
+  -d DELETE, --delete DELETE
+                        delete backup forever
 ```
 
 ## Devs
@@ -50,9 +87,9 @@ python3 run.py
 - DoctorFuchs
 
 ## Information's
-This app is an assignment. 
-The frontend is designed in german language (because it is an assignment from germany). 
-All comments, readme's or tips are in english. 
-Therefor we are no english native speakers so feel free to submit your language improvments.
+This app is an assignment.
+
+All comments, readme's or tips are in English.
+Therefor we are no English native speaker so feel free to submit your language improvements.
 
 If you have a question, open an issue in this repository.

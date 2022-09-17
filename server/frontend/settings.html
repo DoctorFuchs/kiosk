@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block head %}
+<script>
+    function submit() {
+        setCookie("lang", document.querySelector("[name='language']:checked").value);
+        setCookie("theme", document.querySelector("[name='theme']").value);
+        location.reload();
+    }
+</script>
+{% endblock %}
+{% block body %}
+<div class="w3-content w3-padding">
+    <h1 class="w3-xxlarge">{{lang.settings}}</h1>
+    <h2 class="w3-xlarge">{{lang.language}}</h2>
+    <div>
+        {% for language in langs %}
+        <input name="language" type="radio" value="{{language}}" {% if language==active_language %}checked{% endif %}>
+        <label for="{{language}}">{{language}}</label>
+        {% endfor %}
+    </div>
+    <h2 class="w3-xlarge">{{lang.theme}}</h2>
+    <select name="theme">
+        {% for theme in themes %}
+        <option {% if theme == active_theme %}selected{% endif %}>{{theme}}</option>
+        {% endfor %}
+    </select>
+    <br />
+    <button onclick="submit()" type="submit" class="w3-margin-top w3-theme-l3 w3-hover-theme w3-button">{{lang.save}}</button>
+</div>
+{% endblock %}

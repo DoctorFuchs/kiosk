@@ -1,0 +1,40 @@
+application:
+    update_branch: stable
+    feedback_url: https://submission.bromb.co/Kiosk/Kiosk
+    backup_time_in_minutes: 10
+    max_backups: 10
+
+#custom welcome message on home screen
+welcome_message:
+    active: False
+    message: 
+
+firewall: 
+    active: True
+    allowed_ips:
+        - 127.0.0.1
+
+server:
+    auto_reload: False
+    debugger: False
+    evalex: False
+    port: 1024
+
+userinterface_defaults:
+    language: de
+    theme: white
+
+contact:
+    admin_name: Test Test
+    contact_ways:
+        -   name: Email
+            link: mailto:test@test.test
+            icon: mail.svg
+
+        -   name: Telegram
+            link: https://telegram.me/username
+            icon: telegram.svg
+
+        -   name: WhatsApp
+            link: https://wa.me/491525557912/
+            icon: whatsapp.svg

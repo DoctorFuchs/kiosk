@@ -1,0 +1,75 @@
+title: Kiosk
+shop: Shop
+storage: Storage
+about: About
+feedback: Feedback
+new_product: New product
+amount_available: Amount Available
+price: Price
+bill: Bill
+fullscreen: fullscreen
+dark_mode: dark mode
+errors: errors
+name: Name
+creation: Creation
+editing: Editing
+delete: Delete
+accept: Accept
+theme: Theme
+payed: Payed
+stats: Stats
+language: Language
+save: Save
+cancel: Cancel
+add_products_warning: Add products by clicking on them
+pay: Pay
+settings: Settings
+sort_by: Sort by
+reversed: reversed
+sum: Sum
+cash: Cash
+change: To pay/Change
+
+about_page:
+    heading: About this project
+    body: >
+        This project is a simple cashbox system. We build this tool with python3 (flask) for backend and html, js and css.
+        If you have any questions, suggestions, ... open an issue at github (link below).
+    startTour: Start tour
+
+greeting: 
+    heading: This is your first time here, isn't it?
+    body: >
+        Please configure your contact information as described in the documentation.
+        If necessary, also adjust the other program settings by editing the configuration file or using the Settings tab.
+
+tours:
+    index:
+        steps:
+            nav:
+                title: The naigation bar
+                intro: Use the tabs to enter the desired page.
+    storage:
+        steps:
+            create:
+                title: Add product
+                intro: Use this button to add a product.
+            items:
+                title: Edit product
+                intro: Click on a product to rename it, adjust quantity or price, or delete it.
+    shop: 
+        steps:
+            products:
+                title: Product choice
+                intro: Click on a product to add it to the shopping cart or increase the number in the cart by one.
+            itembag:
+                title: Shoping cart
+                intro: Click on a product to decrease the number by one.
+            pay:
+                title: Pay
+                intro: Click here to complete the purchase.
+    about:
+        steps:
+            startIntro:
+                title: Start tour
+                intro: Use this button to start this tour again.

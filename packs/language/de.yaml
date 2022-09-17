@@ -1,0 +1,79 @@
+title: Kiosk
+shop: Shop
+storage: Lager
+about: Über
+feedback: Feedback
+new_product: Neues Produkt
+amount_available: Verfügbare Menge
+price: Preis
+bill: Einkaufszettel
+fullscreen: Vollbild
+dark_mode: dunkler Modus
+errors: Fehler
+name: Name
+creation: Erstellung
+editing: Bearbeitung
+delete: Löschen
+accept: Okay
+theme: Thema
+payed: Bezahlt
+stats: Statistiken
+language: Sprache
+save: Speichern
+cancel: Abbrechen
+add_products_warning: Fügen Sie Produkte durch anklicken hinzu
+pay: Abschließen
+settings: Einstellungen
+sort_by: Sortieren nach
+reversed: Umgekehrt
+sum: Summen
+cash: Bar
+change: Noch zu zahlen/Rückgeld
+
+about_page:
+    heading: Über dieses Projekt
+    body: >
+        Diese Anwendung ist ein einfaches Kassenystem für kleine Kioske, Stände und Buden. Das Backend ist in
+        Python geschrieben, das Frontend mit den drei Webdesign-Technologien HTML, CSS und JavaScript programmiert.
+        Die Kommunikation zwischen ihnen wird durch einen Webserver mit Flask sichergestellt. Sie sind eingeladen,
+        das System zu verbessern und zum Projekt beizutragen.
+        Haben sie Fragen, Probleme oder einen Verbesserungsvorschlag, dann wenden sie sich an ihren Administrator
+        oder öffnen sie ein Issue auf auf der GitHub-Seite.
+    startTour: Tour starten
+
+greeting: 
+    heading: Anscheinend ist dies das erste Mal, dass dieses Programm ausgeführt wird.
+    body: >
+        Bitte konfigurieren Sie ihre Kontaktinformation wie in der Dokumentation beschrieben.
+        Passen sie gegebenenfalls auch die anderen Programmeinstellungen an indem sie die Konfigurationsdatei bearbeiten beziehungsweise den Tab Einstellungen benutzen.
+
+tours:
+    index:
+        steps:
+            nav:
+                title: Die Naviagationsleiste
+                intro: Verwende die Tabs, um den gewünschten Bereich zu öffnen.
+    storage:
+        steps:
+            create:
+                title: Produkt hinzufügen
+                intro: Verwende diesen Knopf, um ein neues Produkt hinzuzufügen.
+            items:
+                title: Produkt bearbeiten
+                intro: Klicke auf ein Produkt um es umzubenennen, Anzahl oder Preis anzupassen oder es zu löschen.
+    shop: 
+        steps:
+            products:
+                title: Produktauswahl
+                intro: Klicke auf ein Produkt, um es dem Warenkorb hinzuzufügen beziehungsweise die Anzahl im Warenkorb um eins zu erhöhen.
+            itembag:
+                title: Warenkorb
+                intro: Klicke auf ein Produkt, um die Anzahl um eins zu senken.
+            pay:
+                title: Bezahlen
+                intro: Klicke hier, um den Kauf abzuschließen.
+    about:
+        steps:
+            startIntro:
+                title: Tour starten
+                intro: Benutze diesen Knopf, um diese Tour erneut zu starten.

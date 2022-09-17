@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block head %}
+<script src="js/api.js"></script>
+<script src="js/itembag.js"></script>
+{% endblock %}
+{% block body %}
+<style>
+    html {
+        height: 100%;
+    }
+
+    body {
+        height: 100%;
+        display: flex;
+        flex-flow: column;
+    }
+
+    #navigation-bar {
+        flex: 0 0 auto;
+    }
+
+    .main {
+        display: flex;
+        flex: 1 1 auto;
+        height: 0%;
+    }
+
+    #products {
+        flex: 0 1 75%;
+        height: 100%;
+        overflow-y: auto;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+        grid-auto-rows: min-content;
+    }
+
+    #itembag_wrapper {
+        width: 25%;
+        height: 100%;
+    }
+
+    #itembag {
+        overflow-y: auto;
+        height: 100%;
+    }
+
+    #itembag::after {
+        /* dummy item to prevent buttons from overlapping list items */
+        content: '';
+        display: block;
+        height: 10%;
+    }
+</style>
+<main class="main">
+    <div id="products">
+    </div>
+    
+    <div id="itembag_wrapper">
+        <div class="w3-theme-d2 w3-card" id="itembag">
+            <h1 class="w3-bar-item">{{ lang.add_products_warning }}</h1>
+        </div>
+
+        <div style="position: absolute; bottom: 1%; right: 1%; z-index: 10;">
+            <button class="w3-button w3-theme-d3" id="sum" style="cursor: default;">0€</button>
+            <button id="pay" class="w3-button w3-theme-d3" onclick="ITEMBAG.render_pay()">
+                {{ lang.pay }}
+            </button>
+        </div>
+    </div>
+</main>
+{% endblock %}

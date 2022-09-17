@@ -1,0 +1,20 @@
+<div class="w3-modal-content w3-round w3-theme-l3">
+    <header class="w3-container">
+        <h1 class="hide_overflow" style='font-size: 6vh'>{{lang.editing.upper()}} - %itemname%</h1>
+    </header>
+    <div class="w3-container">
+        <form action='/api/shop/edit' target='hiddeniframe' method='POST'>
+            <input class="w3-input" name='item_name_old' type='hidden' value="%itemname%" required>
+            <label for='item_name_new'>{{lang.name}}</label><br>
+            <input class='w3-input' id='item_name_new' name='item_name_new' value="%itemname%" type='text' required><br>
+            <label for='item_cost_new'>{{lang.price}}</label><br>
+            <input class='w3-input' id='item_cost_new' name='item_cost_new' value="%itemcost%" type='number' min='0' step='0.01' required><br>
+            <label for='item_amount_new'>{{lang.amount_available}}</label><br>
+            <input class='w3-input' id='item_amount_new' name='item_amount_new' value="%itemamount%" type='number' min=0 step='1' required><br>
+
+            <button class='w3-block w3-button' onclick='waitForReload()' type='submit'>{{lang.accept}}</button>
+            <button class='w3-block w3-button' onclick="deleteitem(`%itemname_encoded%`); exitForm()" type='button'>{{lang.delete}}</button>
+            <button class='w3-block w3-button' onclick='exitForm()' type='reset'>{{lang.cancel}}</button>
+        </form>
+    </div>
+</div>

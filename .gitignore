@@ -1,8 +1,12 @@
-#configuration files
-backend/config.py
-frontend/config.json
+#configuration file
+/config.yaml
+
+#configuration files for compatibility with other versions
+/backend/config.py
+/frontend/config.json
+
 # savefiles for storage are saved here
-storages 
+/storages
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

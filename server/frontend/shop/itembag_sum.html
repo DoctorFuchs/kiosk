@@ -1,0 +1,20 @@
+<table class="w3-table w3-centered">
+    <thead>
+        <tr>
+            <td> {{ lang.sum }} </td>
+            <td></td>
+            <td> {{ lang.cash}} </td>
+            <td></td>
+            <td> {{ lang.change }} </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td id="sum">/sum/</td>
+            <td>-</td>
+            <td><input type="number" id="bar" oninput="document.querySelector('#change').textContent = `${(Number(document.querySelector('#sum').textContent.replaceAll('€', '')) - Number(this.value)).toFixed(2)}€`"></td>
+            <td>=</td>
+            <td id="change">/sum/</td>
+        </tr>
+    </tbody>
+</table>

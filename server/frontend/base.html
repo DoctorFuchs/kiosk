@@ -1,0 +1,51 @@
+<!doctype html>
+<head>
+    <title>{% block title %}{{  lang.title }}{% endblock %}</title>
+    <meta content="text/html" http-equiv="Content-Type">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="KIOSK APP -> OPEN SOURCE ON DoctorFuchs/Github">
+    <meta name="robots" content="noindex">
+
+    <link rel="stylesheet" type="text/css" href="/css/themes/{{active_theme}}.css" />
+    <link rel="stylesheet" type="text/css" href="/css/w3.css" />
+    <link rel="stylesheet" href="/css/introjs.min.css">
+
+    <style>
+        * {
+            text-decoration: none !important;
+        }
+
+        .hide_overflow {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+
+    <script src="js/intro.min.js"></script>
+    <script	async defer src="js/bromb.js"></script>
+    <script src="js/general.js"></script>
+    <script src="js/overlay.js"></script>
+    {% block head %}{% endblock %}
+</head>
+<body class="w3-theme-d3">
+    {% if firstrun == "True" %}
+    <div class="w3-modal w3-block" id="greeting">
+        <div class="w3-modal-content w3-round w3-theme-l3 w3-padding">
+            <h1 class="w3-container">{{ lang.greeting.heading }}</h1>
+            <p class="w3-container">{{ lang.greeting.body }}</p>
+            <button id="close_greeting" class="w3-margin w3-padding w3-container w3-theme-l2 w3-hover-theme w3-button" onclick="document.getElementById('greeting').style.display = 'none'; setCookie('first', 'False')">{{ lang.accept }}</button>
+        </div>
+    </div>
+    {% endif %}
+    <div class="w3-bar w3-theme-dark w3-card w3-container" id="navigation-bar" style="position: sticky; top: 0;">
+        <a href="index.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-left w3-theme-d3"><h2>{{ lang.title }}</h2></a>
+        <a href="{{ feedback_url }}" title="{{ lang.feedback }}" onclick="event.preventDefault()" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-right w3-theme-d4"><h2>!?</h2></a>
+        <a href="about.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-right"><h2>{{ lang.about }}</h2></a>
+        <a href="settings.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-right"><h2>{{lang.settings}}</h2></a>
+        <a href="shop.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-right"><h2>{{ lang.shop }}</h2></a>
+        <a href="storage.html" class="w3-bar-item w3-section w3-round-xlarge w3-hover-theme w3-right"><h2>{{ lang.storage }}</h2></a>
+    </div>
+    {% block body %}{% endblock %}
+</body>
