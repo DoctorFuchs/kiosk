@@ -84,8 +84,8 @@ def additem():
     # add item
     items.insert({
         "name":item_name,
-        "cost":float(item_cost),
-        "amount":int(item_amount)
+        "cost":item_cost,
+        "amount":item_amount
     })
 
     # return response
