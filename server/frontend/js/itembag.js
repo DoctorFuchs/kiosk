@@ -10,6 +10,7 @@ class Itembag {
         this.itembag_pay_dialog = loadTemplate("/shop/itembag_pay.html");
         this.item_in_paydialog_template = loadTemplate("/shop/item_in_paydialog.html");
         this.itembag_sum = loadTemplate("/shop/itembag_sum.html");
+        this.add_item_template = loadTemplate("/shop/add_item.html")
     }
 
     get_amount_from_itembag(item_name) {
@@ -203,6 +204,8 @@ class Itembag {
                         .replaceAll("/item_amount/", item["amount"] - this.get_amount_from_itembag(item["name"]));
                 })
             })
+            // add placeholder to add new products
+            this.add_item_template.then(template => {elem.innerHTML += template})
         })
     }
 }
