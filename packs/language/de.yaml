@@ -53,6 +53,9 @@ tours:
             nav:
                 title: Die Naviagationsleiste
                 intro: Verwende die Tabs, um den gewünschten Bereich zu öffnen.
+            feedback:
+                title: Feedback einreichen
+                intro: Verwende diesen Knopf um Feedback aller Art zu senden.
     storage:
         steps:
             create:

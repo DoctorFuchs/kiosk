@@ -11,6 +11,8 @@ tours:
         steps:
             nav:
                 element: '#navigation-bar'
+            feedback: 
+                element: '#feedback'
         next_page: storage.html
     storage:
         steps:

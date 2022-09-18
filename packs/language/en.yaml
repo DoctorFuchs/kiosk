@@ -49,6 +49,9 @@ tours:
             nav:
                 title: The naigation bar
                 intro: Use the tabs to enter the desired page.
+            feedback:
+                title: Submit feedback
+                intro: Use this button to submit any kind of feedback.
     storage:
         steps:
             create:
