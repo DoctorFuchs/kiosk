@@ -20,5 +20,37 @@
             </div>
         </div>
     </div>
+    <a href="{{ feedback_url }}" onclick="event.preventDefault()" class="fixedButton w3-button w3-padding-small w3-theme-d1 w3-border w3-round-xxlarge w3-card-4"><h4>{{ lang.feedback }}</h4><h4 class="arrow">&#10140;</h4></a>
+    <style>
+    .fixedButton {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -30%);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 20rem;
+        border-radius: 10rem;
+    }
+    .fixedButton h4 {
+        margin: 0;
+    }
+    .fixedButton .arrow {
+        font-size: 2rem;
+        margin: 0 0.5rem;
+        animation: swing 1s ease-in-out 0s infinite alternate both;
+    }
+    @keyframes swing {
+        from {
+            transform: translateX(0%);
+        }
+        to {
+            transform: translateX(25%);
+        }
+    }
+    </style>
 </div>
 {% endblock %}
