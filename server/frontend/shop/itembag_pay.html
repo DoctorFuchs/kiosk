@@ -1,4 +1,14 @@
-<h1>{{lang.pay.upper()}}</h1>
-<h3>{{lang.bill}}</h3>
-<button class="w3-block w3-button" onclick='ITEMBAG.pay_finish();overlay_off()'>{{lang.payed}}</button>
-<button class="w3-block w3-button" onclick='overlay_off()'>{{lang.cancel}}</button>
+<div class="w3-modal-content w3-round w3-theme-l3">
+    <header class="w3-container">
+        <h1>{{lang.pay.upper()}}</h1>
+        <h3>{{lang.bill}}</h3> 
+    </header>
+    <div class="w3-container w3-padding">
+        <div>/product_list_elem/</div>
+        <div>/product_sum_elem/</div>
+        <div class="w3-margin-top">
+            <button class="w3-block w3-button w3-half w3-border w3-theme-d1" onclick='ITEMBAG.pay_finish();overlay_off()'>{{lang.payed}}</button>
+            <button class="w3-block w3-button w3-half w3-border w3-theme-l2" onclick='overlay_off()'>{{lang.cancel}}</button>
+        </div>
+    </div>
+</div>

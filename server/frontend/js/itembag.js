@@ -116,20 +116,9 @@ class Itembag {
     render_pay() {
         // create overlay
         this.itembag_pay_dialog
-            .then(template => {
-                let elem = document.createElement("div")
-                elem.innerHTML = template;
-                elem.classList.add("w3-modal-content");
-                elem.classList.add("w3-container");
-                elem.classList.add("w3-round");
-                elem.classList.add("w3-theme-l3");
-                return elem;
-            })
-            .then(template_elem => {
+            .then(async template => {
                 // render items to pay dialog (it also creates the pay dialog)
-                var product_list_elem = document.createElement("div");
-                product_list_elem.classList.add("w3-container");
-                var product_sum_elem = document.createElement("div");
+                var template = template
 
                 // if itembag is empty return
                 if (this.itembag.length == 0) { return; }
@@ -138,11 +127,12 @@ class Itembag {
                 var sum = 0;
 
                 // for each item in itembag render template
-                this.itembag.forEach(item => {
+                var product_list_elem = ""
+                await this.itembag.forEach(async item => {
                     // take item_in_bag_tempate
-                    this.item_in_paydialog_template.then(template => {
+                    await this.item_in_paydialog_template.then(template => {
                         // replace item_values in template with item (from this.itembag.forEach loop)
-                        product_list_elem.innerHTML += template
+                        product_list_elem += template
                             .replaceAll("/item_name/", decodeURIComponent(item["name"]))
                             .replaceAll("/item_name_encoded/", item["name"])
                             .replaceAll("/item_cost/", item["cost"])
@@ -152,19 +142,19 @@ class Itembag {
                     // add sum
                     sum += item["cost"]*item["amount"]
                 });
+                template = template.replaceAll("/product_list_elem/", product_list_elem)
 
                 // write sum to pay dialog
-                this.itembag_sum.then(template => {
-                    product_sum_elem.innerHTML = template.replaceAll("/sum/", `${Math.round(sum*100)/100}€`)
+                var product_sum_elem
+                await this.itembag_sum.then(template => {  
+                    product_sum_elem = template.replaceAll("/sum/", `${Math.round(sum*100)/100}€`) 
                 })
 
-                template_elem.insertBefore(product_list_elem, template_elem.children[2]);
-                template_elem.insertBefore(product_sum_elem, template_elem.children[3]);
-
-                return template_elem;
+                template = template.replaceAll("/product_sum_elem/", product_sum_elem)
+                return template;
             })
             .then(overlay => {
-                overlay_on(overlay.outerHTML);
+                overlay_on(overlay);
                 document.querySelector('#bar').focus()
             })
     };

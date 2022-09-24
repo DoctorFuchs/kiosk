@@ -2,7 +2,7 @@
     <header class="w3-container">
         <h1>{{lang.creation.upper()}}</h1>
     </header>
-    <div class="w3-container">
+    <div class="w3-container w3-padding">
         <form action='/api/shop/additem' target='hiddeniframe' method='POST'>
             <label for='item_name_new'>{{lang.name}}</label><br>
             <input required class='w3-input' id='item_name' name='item_name' type='text' requiered><br>
@@ -11,8 +11,10 @@
             <label for='item_amount'>{{lang.amount_available}}</label><br>
             <input class='w3-input' id='item_amount' name='item_amount' type='number' min=0 step='1' required><br>
 
-            <button class='w3-block w3-button' onclick='waitForReload()' type='submit'>{{lang.accept}}</button>
-            <button class='w3-block w3-button' onclick='exitForm()' type='reset'>{{lang.cancel}}</button>
+            <div>
+                <button class='w3-block w3-button w3-half w3-border w3-theme-d1' onclick='waitForReload()' type='submit'>{{lang.accept}}</button>
+                <button class='w3-block w3-button w3-half w3-border w3-theme-l2' onclick='exitForm()' type='reset'>{{lang.cancel}}</button>
+            </div>  
         </form>
     </div>
 </div>
