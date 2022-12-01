@@ -163,7 +163,7 @@ class Itembag {
         // finish pay dialog
         this.itembag.forEach(item => {
             // send buy requests to api
-            request("/shop/buy?item_name=" + item["name"] + "&item_amount=" + item["amount"], a => { })
+            request("/shop/buy?item_name=" + item["name"] + "&item_amount=" + item["amount"], null, false)
         })
         // clear item_bag
         this.itembag = []

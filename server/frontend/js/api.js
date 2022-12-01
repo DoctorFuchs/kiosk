@@ -17,10 +17,14 @@ function decode(jsonData) {
     return jsonData
 }
 
-function request(path, callback_func = console.log) {
+function request(path, callback_func = console.log, shouldDecode = true) {
     // make a request to a path of the api. It's a shortcut for json responses. (for example from /api/shop/list)
-    fetch("/api" + path)
-        .then(resp => { return resp.json() })
-        .then(resp => { return decode(resp) })
-        .then(resp => { callback_func(resp) })
+    let response = fetch("/api" + path)
+
+    if (shouldDecode) {
+        response
+            .then(resp => { return resp.json() })
+            .then(resp => { return decode(resp) })
+            .then(resp => { callback_func(resp) })
+    }
 }
